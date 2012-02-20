@@ -1,0 +1,19 @@
+
+# Encode
+snippet     utf8
+    # -*- coding: utf-8 -*-
+
+# Log
+snippet     glog
+    import logging
+    logger = logging.getLogger(${0:__name__})
+snippet     loge
+    logger.error(${0:msg})
+snippet     logd
+    logger.debug(${0:msg})
+snippet     logw
+    logger.warning(${0:msg})
+snippet     logc
+    logger.critical(${0:msg})
+snippet     logi
+    logger.info(${0:msg})

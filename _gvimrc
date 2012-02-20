@@ -1,0 +1,21 @@
+if has('gui_macvim')
+ colorscheme desert
+ set showtabline=2
+ set imdisableactivate
+ set imdisable
+ set columns=80
+ set lines=46
+ set guioptions=e
+ set guioptions-=T
+ set transparency=8
+ autocmd FocusGained * set transparency=8
+ autocmd FocusLost * set transparency=50
+ hi CursorIM  guifg=black  guibg=red  gui=NONE  ctermfg=black  ctermbg=white  cterm=reverse
+endif
+
+if has('gui_macvim') || has('win32') || has('win64')
+  set guifont=Ricty\ Discord:h14
+else
+  set guifont=Ricty\ Discord\ 14
+endif
+

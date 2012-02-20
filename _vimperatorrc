@@ -1,0 +1,81 @@
+"------------------------------
+" GUI
+"------------------------------
+
+set gui=none
+
+" ヒントをアルファベットへ
+set hintchars=ifjklasdhguonmerwc
+
+" カラースキーム
+colorscheme k2
+
+"------------------------------
+" Functions
+"------------------------------
+
+" 検索で大文字と小文字を区別しない
+set ignorecase
+
+" フォームにフォーカスしない
+set focuscontent
+
+" エディタ設定
+set editor='/Applications/MacVim.app/Contents/MacOS/mvim -f'
+
+set complete=slb
+
+"------------------------------
+" Command
+"------------------------------
+
+command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+
+"------------------------------
+" Plugins
+"------------------------------
+
+" Load plugins
+let g:plugin_loader_roots = "~/.vimperator_bundle"
+let g:plugin_loader_plugins = "_libly,_smooziee,walk-input,feedSomeKeys_3,caret-hint,statusline-toolbar"
+
+"------------------------------
+" Plugin settings
+"------------------------------
+
+" hatenabookmark
+js <<EOM
+liberator.globalVariables.hBookmark_shortcuts = {
+    hintsAdd : 'a',
+    hintsComment : 'c',
+    add : ['C'],
+    comment : ['c'],
+};
+if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
+EOM
+set complete+=H
+
+" feedSomeKeys_3
+lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+lazy fmaps -u='^https?://cloud\.feedly\.com' j k g h m a A e t c d p l s n b n p o v V m s S D e t d c / r ? 1 2 3 4 5 6 7 8 9 <Enter>
+lazy fmaps -u='^https?://www\.rememberthemilk\.com/home/' c k j i h m 1 2 3
+
+"------------------------------
+" Key mapping
+"------------------------------
+
+" 裏バッファ
+nnoremap <C-j> <ESC>:b#<CR>
+
+" スクロール量の調整
+map j 8<C-e>
+map k 8<C-y>
+
+" S:はてなブックマーク表示
+nnoremap S :hbtab<Space>
+" B:ブックマーク
+nnoremap B :bmarks<Space>
+" s: Google検索
+nnoremap s :set<Space>complete=s<CR>:open<Space>g<Space>
+" 再起動
+nnoremap <C-r> :restart<CR>
