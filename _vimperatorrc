@@ -55,9 +55,12 @@ if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookma
 EOM
 set complete+=H
 
+" Evernote
+command clip javascript evernote_doAction()
+
 " feedSomeKeys_3
 lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
-lazy fmaps -u='^https?://cloud\.feedly\.com' j k g h m a A e t c d p l s n b n p o v V m s S D e t d c / r ? 1 2 3 4 5 6 7 8 9 <Enter>
+lazy fmaps -u='^https?://feedly\.com' j k g h m a A e t c d p l s n b n p o v V m s S D e t d c / r ? 1 2 3 4 5 6 7 8 9 <Enter>
 lazy fmaps -u='^https?://www\.rememberthemilk\.com/home/' c k j i h m 1 2 3
 
 "------------------------------

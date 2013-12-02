@@ -1,7 +1,5 @@
 filetype plugin on
 
-" ESC禁止
-
 " CUIでも256で使う
 set t_Co=256
 
@@ -80,11 +78,6 @@ set listchars=tab:>-
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
-" ポップアップの色
-hi Pmenu ctermbg=4
-hi PmenuSel ctermbg=1
-hi PmenuSbar ctermbg=0
-
 " encoding
 set encoding=utf-8
 
@@ -92,10 +85,67 @@ set encoding=utf-8
 autocmd FileType python setl autoindent
 autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+autocmd FileType ruby setl autoindent
+autocmd FileType ruby setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 "" new file template
 
 autocmd BufNewFile *.py 0r $HOME/.vim/template/python.txt
+
+" 音
+
+function! LoopNum(start,num)
+    let foo = {'i': a:start, 's': a:start, 'm': a:num}
+    function foo.funcall() dict
+        if self.i < self.m
+            let self.i += 1
+            return self.i
+        else
+            let self.i = self.s
+            return self.i
+        endif
+    endfunction
+    return foo
+endfunction
+
+
+function! Rand()
+    let l:seed = localtime() * 214013 + 2531011
+    return (l:seed < 0 ? l:seed - 0x80000000 : l:seed) / 0x10000 % 0x8000
+endfunction
+
+function! PlaySE(name)
+    call vimproc#system_bg(printf('afplay ~/Dropbox/Apps/vim/sound/%s.wav', a:name))
+endfunction
+
+
+let g:looper = LoopNum(1,7)
+function! RandPlaySE(name)
+    let l:num = g:looper.funcall()
+    call vimproc#system_bg(printf('afplay ~/Dropbox/Apps/vim/sound/%s_%d.wav', a:name, l:num))
+endfunction
+
+
+if exists('##InsertCharPre')
+
+" 補完を閉じる
+"autocmd CompleteDone * call PlaySE("chopW_0")
+
+" バッファ移動
+autocmd BufEnter * call PlaySE("lighter_1")
+
+" 入力
+autocmd InsertCharPre * call RandPlaySE('chopH')
+
+" 保存
+autocmd BufWrite * call PlaySE("wood_pentantonic_01-07")
+
+" インサートモード IN / OUT
+"autocmd InsertEnter * call PlaySE("chopH_3")
+"autocmd InsertLeave * call PlaySE("ceramica_7")
+
+endif
+
 
 syntax enable
 
@@ -110,6 +160,8 @@ syntax enable
     NeoBundle 'Shougo/neobundle.vim'
     NeoBundle 'Shougo/vimproc'
 
+    NeoBundle 'thinca/vim-splash'
+
     NeoBundle 'sudo.vim'
     "NeoBundle 'mattn/benchvimrc-vim'
 
@@ -118,6 +170,8 @@ syntax enable
     NeoBundle 'pekepeke/unite-fileline'
     NeoBundle 'h1mesuke/unite-outline.git'
     NeoBundle 'kannokanno/unite-todo.git'
+    NeoBundle 'koron/codic-vim'
+    NeoBundle 'rhysd/unite-codic.vim'
 
     NeoBundle 'bling/vim-airline'
 
@@ -135,11 +189,15 @@ syntax enable
     ""Bundle 'taglist.vim'
 
     " インデントを可視化
-    "NeoBundle 'nathanaelkane/vim-indent-guides'
+    NeoBundle 'nathanaelkane/vim-indent-guides'
 
     " 入力補完
     NeoBundle 'Shougo/neocomplcache'
     NeoBundle 'Shougo/neosnippet'
+
+    " gist
+    NeoBundle 'mattn/gist-vim'
+    NeoBundle 'mattn/webapi-vim'
 
     " \rで即実行
     NeoBundle 'thinca/vim-quickrun'
@@ -157,6 +215,7 @@ syntax enable
     NeoBundle 'davidhalter/jedi-vim'
     NeoBundle 'vim-scripts/virtualenv.vim' " Work with python virtualenvs within vim
     NeoBundle 'tell-k/vim-autopep8'
+    NeoBundle 'hynek/vim-python-pep8-indent' " A nicer Python indentation style for vim.
 
     " [Syntax]
 
@@ -197,8 +256,8 @@ syntax enable
     NeoBundle 'tpope/vim-fugitive'
 
     " [ColorSchema]
-    "NeoBundle 'desert256.vim'
-    "NeoBundle 'tomasr/molokai'
+    NeoBundle 'desert256.vim'
+    NeoBundle 'tomasr/molokai'
     NeoBundle 'jellybeans.vim'
     " ///
 
@@ -211,6 +270,11 @@ if neobundle#exists_not_installed_bundles()
         \ string(neobundle#get_not_installed_bundle_names())
     echomsg 'Please execute ":NeoBundleInstall" command.'
 endif
+
+""" Gist-vim "
+    let g:gist_clip_command = 'pbcopy'
+    let g:gist_open_browser_after_post = 1
+    let g:gist_post_private = 1
 
 """ YankRing "
     let g:yankring_history_file = '.yankring_history'
@@ -359,10 +423,9 @@ let g:jedi#rename_command = '<leader>R'
     let g:indent_guides_auto_colors = 0
     autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#121212 ctermbg=233
     autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=235
-    let g:indent_guides_enable_on_vim_startup = 1
 
 """ themes
-    colorscheme desert
+colorscheme molokai
 
 "" PHP-Doc
 inoremap <C-C> <ESC>:call PhpDocSingle()<CR>i
@@ -371,4 +434,5 @@ vnoremap <C-C> :call PhpDocRange()<CR>
 
 """ quickrun
 let g:quickrun_config = {}
+let g:quickrun_config._ = {'runner' : 'vimproc'}
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}

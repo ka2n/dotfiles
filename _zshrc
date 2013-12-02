@@ -19,7 +19,7 @@ export LOLCOMMITS_FONT="/Library/Fonts/ヒラギノ角ゴ Std W8.otf"
 ## Shortcuts
 
 alias phplint='find . -name "*.php" -exec php -l {} \; | grep "Parse error"'    
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim'
 alias grep="grep --color=always"
 
 # Attach tmux session
@@ -37,8 +37,6 @@ function ts() {
     search_tags="${search_tags//,/ && }"
     mdfind "$search_tags"
 }
-
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 
 # command "mvi"
 alias mvim="/Applications/MacVim.app/Contents/MacOS/mvim"
@@ -117,8 +115,11 @@ function rprompt-git-current-branch {
     echo "%{$color%}$name%{$reset_color%} "
 }
 
-PROMPT="[%n@%m] %(!.#.$) "
-PROMPT2="%{${fg[red]}%}%_> %{${reset_color}%}"
+# http://qiita.com/takc923/items/75d67a08edfbaa5fd304
+REPORTTIME=1
+
+PROMPT="🍺  %(!.#.$) "
+#PROMPT2="%{${fg[red]}%}%_> %{${reset_color}%}"
 SPROMPT="correct: %R -> %r [nyae]? "
 #RPROMPT="%{${fg[red]}%}[%~]%{${reset_color}%}"
 RPROMPT='[`rprompt-git-current-branch`%~]'
@@ -171,8 +172,8 @@ bindkey "^n" history-beginning-search-forward-end
 ## Command history configuration
 #
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=1000
-SAVEHIST=100000
+HISTSIZE=5000000
+SAVEHIST=5000000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
