@@ -2,7 +2,7 @@
 " GUI
 "------------------------------
 
-set gui=none
+set gui=tabs
 
 " ヒントをアルファベットへ
 set hintchars=ifjklasdhguonmerwc
