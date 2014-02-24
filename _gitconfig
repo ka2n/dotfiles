@@ -32,6 +32,7 @@
     branch = auto
     interactive = auto
     grep = auto
+    log = auto
 
 [alias]
     st = status
