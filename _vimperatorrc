@@ -56,7 +56,10 @@ EOM
 set complete+=H
 
 " Evernote
-command clip javascript evernote_doAction()
+command eclip javascript evernote_doAction()
+
+" Pocket
+command clip echo RIL.addCurrent() !== false ? 'Success' : 'Failed (or already clipped?)'
 
 " feedSomeKeys_3
 lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
