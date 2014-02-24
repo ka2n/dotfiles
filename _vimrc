@@ -219,6 +219,9 @@ syntax enable
 
     " [Syntax]
 
+    " reStructuredText
+    NeoBundle "Rykka/riv.vim"
+
     " Scala
     NeoBundle "derekwyatt/vim-scala.git"
 
