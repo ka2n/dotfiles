@@ -1,0 +1,56 @@
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config secondsBetweenRepeat 0.03
+config secondsBeforeRepeat 0.2
+config checkDefaultsOnLoad true
+config focusCheckWidthMax 3000
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+# ctrl-alt-shift-{l h} を押すたびにウィンドウサイズと位置を切り替える
+# chain action1 | action2 と設定すれば押す度に挙動が変化する
+alias hyper ctrl;cmd;shift
+alias halfx bar-resize:screenSizeX/2
+alias halfy bar-resize:screenSizeY/2
+alias quad resize:screenSizeX/2;screenSizeY/2
+bind l:${hyper} chain push right ${halfx} | corner top-right ${quad} | corner bottom-right ${quad}
+bind h:${hyper} chain push left ${halfx} | corner top-left ${quad} | corner bottom-left ${quad}
+bind j:${hyper} chain push bottom ${halfy} | push up ${halfy}
+bind k:${hyper} corner top-left resize:screenSizeX;screenSizeY
+
+# alt-{l,h,k,j} でその方向にウィンドウサイズを変化させる
+bind l:alt resize +10% +0
+bind h:alt resize -10% +0
+bind k:alt resize +0 -10%
+bind j:alt resize +0 +10%
+
+# ウィンドウを移動
+bind l:shift;alt nudge +5% +0
+bind h:shift;alt nudge -5% +0
+bind k:shift;alt nudge +0 -10%
+bind j:shift;alt nudge +0 +10%
+
+# undo
+bind `:alt undo
+
+# ウィンドウ選択のヒントを表示
+bind e:cmd hint ASDFGHJKLWERTUIOCVNM
+
+# フォーカスを移動
+alias focuskey ctrl;shift
+bind l:${focuskey} focus right
+bind h:${focuskey} focus left
+bind k:${focuskey} focus up
+bind j:${focuskey} focus down
+bind p:${focuskey} focus behind
+
+alias firefox 'Firefox'
+alias iterm 'iTerm'
+alias hipchat 'HipChat'
+alias rtm 'RememberTheMilk'
+bind f:${focuskey} focus ${firefox}
+bind i:${focuskey} focus ${iterm}
+bind c:${focuskey} focus ${hipchat}
+bind r:${focuskey} focus ${rtm}
