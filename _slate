@@ -19,6 +19,10 @@ bind l:${hyper} chain push right ${halfx} | corner top-right ${quad} | corner bo
 bind h:${hyper} chain push left ${halfx} | corner top-left ${quad} | corner bottom-left ${quad}
 bind j:${hyper} chain push bottom ${halfy} | push up ${halfy}
 bind k:${hyper} corner top-left resize:screenSizeX;screenSizeY
+bind .:${hyper} corner bottom-right ${quad}
+bind n:${hyper} corner bottom-left ${quad}
+bind p:${hyper} corner top-right ${quad}
+bind u:${hyper} corner top-left ${quad}
 
 # alt-{l,h,k,j} でその方向にウィンドウサイズを変化させる
 bind l:alt resize +10% +0
