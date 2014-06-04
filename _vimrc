@@ -30,6 +30,11 @@ set incsearch
 " 行数
 set number
 
+set modeline
+set modelines=5
+
+set foldlevelstart=30
+
 " カーソルが行末行端で止まらないように
 set whichwrap=b,s,h,l,<,>,[,]
 
@@ -81,70 +86,11 @@ match ZenkakuSpace /　/
 " encoding
 set encoding=utf-8
 
-"" filetype
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
-autocmd FileType ruby setl autoindent
-autocmd FileType ruby setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
+autocmd BufNewFile,BufRead Gemfile,Podfile set filetype=ruby
 
 "" new file template
 
 autocmd BufNewFile *.py 0r $HOME/.vim/template/python.txt
-
-" 音
-
-function! LoopNum(start,num)
-    let foo = {'i': a:start, 's': a:start, 'm': a:num}
-    function foo.funcall() dict
-        if self.i < self.m
-            let self.i += 1
-            return self.i
-        else
-            let self.i = self.s
-            return self.i
-        endif
-    endfunction
-    return foo
-endfunction
-
-
-function! Rand()
-    let l:seed = localtime() * 214013 + 2531011
-    return (l:seed < 0 ? l:seed - 0x80000000 : l:seed) / 0x10000 % 0x8000
-endfunction
-
-function! PlaySE(name)
-    call vimproc#system_bg(printf('afplay ~/Dropbox/Apps/vim/sound/%s.wav', a:name))
-endfunction
-
-
-let g:looper = LoopNum(1,7)
-function! RandPlaySE(name)
-    let l:num = g:looper.funcall()
-    call vimproc#system_bg(printf('afplay ~/Dropbox/Apps/vim/sound/%s_%d.wav', a:name, l:num))
-endfunction
-
-
-if exists('##InsertCharPre')
-
-" 補完を閉じる
-"autocmd CompleteDone * call PlaySE("chopW_0")
-
-" バッファ移動
-autocmd BufEnter * call PlaySE("lighter_1")
-
-" 入力
-autocmd InsertCharPre * call RandPlaySE('chopH')
-
-" 保存
-autocmd BufWrite * call PlaySE("wood_pentantonic_01-07")
-
-" インサートモード IN / OUT
-"autocmd InsertEnter * call PlaySE("chopH_3")
-"autocmd InsertLeave * call PlaySE("ceramica_7")
-
-endif
 
 
 syntax enable
@@ -232,6 +178,9 @@ syntax enable
     ""Bundle 'JavaScript-syntax'
     NeoBundle 'basyura/jslint.vim'
     NeoBundle 'digitaltoad/vim-jade'
+    NeoBundle 'jelera/vim-javascript-syntax' " Enhanced javascript syntax file for Vim
+    "NeoBundle 'moll/vim-node'
+    NeoBundle 'myhere/vim-nodejs-complete'
 
     " CofeeScript
     NeoBundle 'vim-coffee-script'
@@ -354,6 +303,8 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
+""""" node
+
 " For jedi-vim.
 "let g:neocomplcache_force_omni_patterns.python = '[^. \t]\.\w*'
 let g:neocomplcache_omni_functions.python = 'jedi#completions'
@@ -422,10 +373,23 @@ let g:jedi#rename_command = '<leader>R'
 
 "" vim-indent-guides
     let g:indent_guides_enable_on_vim_startup=1
-    let g:indent_guides_guide_size=4
+    let g:indent_guides_guide_size=1
     let g:indent_guides_auto_colors = 0
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_color_change_percent = 20
+    let g:indent_guides_space_guides=1
     autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#121212 ctermbg=233
     autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=235
+
+"" filetype
+autocmd FileType python setl autoindent
+autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+autocmd FileType ruby setl autoindent
+autocmd FileType ruby setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
+autocmd FileType coffee setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmethod=indent nofoldenable
+autocmd FileType javascript call JavaScriptFold()
+autocmd FileType javascript setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab nocindent
 
 """ themes
 colorscheme molokai

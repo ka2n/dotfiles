@@ -5,6 +5,7 @@
     excludesfile = /opt/boxen/config/git/gitignore
     autocrlf = input
     quotepath = false
+	precomposeunicode = true
 
 [merge]
     tool = vimdiff
