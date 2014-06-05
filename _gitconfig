@@ -1,8 +1,7 @@
 [credential]
-    helper = /opt/boxen/bin/boxen-git-credential
 
 [core]
-    excludesfile = /opt/boxen/config/git/gitignore
+    excludesfile = ~/.gitignore_global
     autocrlf = input
     quotepath = false
 	precomposeunicode = true
