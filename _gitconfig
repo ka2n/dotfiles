@@ -1,10 +1,10 @@
 [credential]
 
 [core]
-    excludesfile = ~/.gitignore_global
+    excludesfile = /Users/ka2n/.gitignore_global
     autocrlf = input
     quotepath = false
-	precomposeunicode = true
+    precomposeunicode = true
 
 [merge]
     tool = vimdiff

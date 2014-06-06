@@ -14,6 +14,7 @@ install hub
 install tig
 
 install go
+install python
 install python3
 install node
 install rbenv
@@ -23,6 +24,8 @@ install nodenv
 install sl
 install watch
 install readline
+install libxml2
+install libxslt
 install ag
 install jq
 install autojump
