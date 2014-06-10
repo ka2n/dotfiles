@@ -52,6 +52,7 @@ cask install vagrant
 cask install keyremap4macbook
 cask install screenhero
 cask install hipchat
+cask install sqwiggle
 
 cask install dropbox
 cask install alfred
