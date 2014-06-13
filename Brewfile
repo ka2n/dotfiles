@@ -26,6 +26,7 @@ install watch
 install readline
 install libxml2
 install libxslt
+install imagemagick
 install ag
 install jq
 install autojump

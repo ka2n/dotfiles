@@ -63,3 +63,5 @@
 	trustExitCode = true
 [github]
 	user = ka2n
+[credential]
+	helper = osxkeychain
