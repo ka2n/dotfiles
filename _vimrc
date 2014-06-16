@@ -302,6 +302,7 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 "let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
 
 """"" node
 
@@ -390,6 +391,13 @@ autocmd FileType ruby setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType coffee setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmethod=indent nofoldenable
 autocmd FileType javascript call JavaScriptFold()
 autocmd FileType javascript setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab nocindent
+
+"" go
+set rtp+=${GOROOT}/misc/vim
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+autocmd BufWritePre *.go Fmt
+autocmd BufNewFile,BufRead *.go set sw=4 noexpandtab ts=4
+autocmd FileType go compiler go
 
 """ themes
 colorscheme molokai

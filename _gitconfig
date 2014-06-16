@@ -26,6 +26,9 @@
 [hub]
     protocol = https
 
+[ghq]
+    root = ~/src
+
 [color]
     status = auto
     diff = auto

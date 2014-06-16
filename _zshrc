@@ -75,6 +75,11 @@ export ENV_DIR="~/.pyvenvs"
 # Py2 Virtualenv
 [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
 
+# Go
+export GOPATH=$HOME
+export GOROOT=`go env GOROOT`
+export PATH=$PATH:$GOROOT/bin
+
 # Alias
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
