@@ -10,6 +10,7 @@ install vim
 install tmux
 
 install git
+install hg
 install hub
 install tig
 
