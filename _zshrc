@@ -80,6 +80,17 @@ export GOPATH=$HOME
 export GOROOT=`go env GOROOT`
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
+function percol-src () {
+    local selected_dir=$(ghq list --full-path | percol --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N percol-src
+bindkey '^S' percol-src
+
 # Alias
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
