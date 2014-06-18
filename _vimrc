@@ -35,6 +35,9 @@ set modelines=5
 
 set foldlevelstart=30
 
+" 新しいウィンドウを下部で開く
+set splitbelow
+
 " カーソルが行末行端で止まらないように
 set whichwrap=b,s,h,l,<,>,[,]
 
