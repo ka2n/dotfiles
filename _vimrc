@@ -160,7 +160,7 @@ syntax enable
     " [dict]
 
     " Pydiction : Python用の入力補完
-    NeoBundle 'vim-flake8'
+    NeoBundle 'alfredodeza/khuno.vim'
     NeoBundle 'davidhalter/jedi-vim'
     NeoBundle 'vim-scripts/virtualenv.vim' " Work with python virtualenvs within vim
     NeoBundle 'tell-k/vim-autopep8'
@@ -365,9 +365,6 @@ let g:jedi#rename_command = '<leader>R'
 """ zen-coding
     let g:user_zen_settings = {'indentation': '    '}
 
-""" flake8
-    let g:flake8_max_line_length=99
-
 """ autopep8
     let g:autopep8_max_line_length=99
 
@@ -416,3 +413,4 @@ vnoremap <C-C> :call PhpDocRange()<CR>
 let g:quickrun_config = {}
 let g:quickrun_config._ = {'runner' : 'vimproc'}
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+

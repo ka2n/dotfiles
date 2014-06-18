@@ -74,6 +74,7 @@ export ENV_DIR="~/.pyvenvs"
 
 # Py2 Virtualenv
 [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
+export PYTHONDONTWRITEBYTECODE=1 # disable .pyc
 
 # Go
 export GOPATH=$HOME
