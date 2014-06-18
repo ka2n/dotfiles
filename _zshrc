@@ -110,5 +110,9 @@ export LANG=ja_JP.UTF-8
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+function lessmd() {
+  grip --gfm --export $1 /dev/stdout | w3m -T text/html
+}
+
 # Load Local Setting
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
