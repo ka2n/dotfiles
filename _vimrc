@@ -392,11 +392,13 @@ autocmd FileType coffee setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab fold
 autocmd FileType javascript call JavaScriptFold()
 autocmd FileType javascript setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab nocindent
 
-"" go
+"" golang
 set rtp+=${GOROOT}/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+autocmd FileType go set noexpandtab
+autocmd FileType go set nolist
 autocmd BufWritePre *.go Fmt
-autocmd BufNewFile,BufRead *.go set sw=4 noexpandtab ts=4
+autocmd BufNewFile,BufRead *.go set sw=2 noexpandtab ts=2
 autocmd FileType go compiler go
 
 """ themes

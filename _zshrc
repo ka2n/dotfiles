@@ -78,7 +78,7 @@ export ENV_DIR="~/.pyvenvs"
 # Go
 export GOPATH=$HOME
 export GOROOT=`go env GOROOT`
-export PATH=$PATH:$GOROOT/bin
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # Alias
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
