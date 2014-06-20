@@ -25,7 +25,7 @@ ZSH_THEME="nebirhos"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to disable command auto-correction.
 # DISABLE_CORRECTION="true"
@@ -54,66 +54,4 @@ plugins=(git autojump tmux bundler)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/ka2n/bin/FDK/Tools/osx"
-# export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-
-# History
-HISTSIZE=500000
-SAVEHIST=500000
-
-export GIT_EDITOR=vim
-
-# lolcommits
-export LOLCOMMITS_FONT="/Library/Fonts/ヒラギノ角ゴ Std W8.otf"
-
-export ENV_DIR="~/.pyvenvs"
-
-# Py2 Virtualenv
-[ -f /usr/local/bin/virtualenvwrapper_lazy.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
-export PYTHONDONTWRITEBYTECODE=1 # disable .pyc
-
-# Go
-export GOPATH=$HOME
-export GOROOT=`go env GOROOT`
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-
-function percol-src () {
-    local selected_dir=$(ghq list --full-path | percol --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
-}
-zle -N percol-src
-bindkey '^S' percol-src
-
-# Alias
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-
-# You may need to manually set your language environment
-export LANG=ja_JP.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-function lessmd() {
-  grip --gfm --export $1 /dev/stdout | w3m -T text/html
-}
-
-# Load Local Setting
-[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+source $HOME/.zshrc.custom

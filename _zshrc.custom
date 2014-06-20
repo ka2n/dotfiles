@@ -1,0 +1,38 @@
+
+
+export LANG=ja_JP.UTF-8
+
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/sbin:/usr/local/bin
+
+export GIT_EDITOR=vim
+
+
+# History
+HISTSIZE=500000
+SAVEHIST=500000
+
+# lolcommits
+export LOLCOMMITS_FONT="/Library/Fonts/ヒラギノ角ゴ Std W8.otf"
+
+# Python
+[ -f /usr/local/bin/virtualenvwrapper_lazy.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
+export PYTHONDONTWRITEBYTECODE=1 # disable .pyc
+
+# Golang
+export GOPATH=$HOME
+export PATH=$PATH:$GOPATH/bin:$(go env GOROOT)/bin
+
+# Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# Alias
+source $HOME/.zsh/alias.zsh
+
+# Percol Setting
+source $HOME/.zsh/percol.zsh
+
+# Load Local Setting
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local

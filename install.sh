@@ -1,6 +1,11 @@
 #!/bin/bash
 
+BASEDIR=`dirname $0`
+
 curl -L http://install.ohmyz.sh | sh
+
+ln -snf $BASEDIR/_zshrc.custom $HOME/.zshrc.custom
+ln -snf $BASEDIR/_zsh $HOME/.zsh
 
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
