@@ -38,12 +38,11 @@ install gnu-sed
 install wget
 install reattach-to-user-namespace
 
-install docker
-install boot2docker
 install packer
 
 install brew-cask
 cask install iterm2
+cask install boot2docker
 cask install google-japanese-ime
 cask install macvim-kaoriya
 cask install coteditor
