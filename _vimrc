@@ -35,6 +35,9 @@ set modelines=5
 
 set foldlevelstart=30
 
+" 補完でウィンドウを開かない
+set completeopt=menuone
+
 " 新しいウィンドウを下部で開く
 set splitbelow
 
@@ -121,6 +124,8 @@ syntax enable
     NeoBundle 'kannokanno/unite-todo.git'
     NeoBundle 'koron/codic-vim'
     NeoBundle 'rhysd/unite-codic.vim'
+    NeoBundle 'sorah/unite-ghq'
+    NeoBundle 'Shougo/neomru.vim'
 
     NeoBundle 'bling/vim-airline'
 
@@ -143,6 +148,7 @@ syntax enable
     " 入力補完
     NeoBundle 'Shougo/neocomplcache'
     NeoBundle 'Shougo/neosnippet'
+    NeoBundle 'Shougo/neosnippet-snippets'
 
     " gist
     NeoBundle 'mattn/gist-vim'
@@ -173,6 +179,9 @@ syntax enable
 
     " Scala
     NeoBundle "derekwyatt/vim-scala.git"
+
+    " golang
+    NeoBundle 'dgryski/vim-godef' " vim plugin providing godef support
 
     " Markdown
     NeoBundle 'Markdown'
@@ -336,7 +345,6 @@ let g:jedi#rename_command = '<leader>R'
     let g:unite_enable_start_insert=1
     " アウトライン
     noremap <silent> ,uo :<C-u>Unite outline<CR>
-    "noremap <silent> ,ut :<C-u>Unite todo<CR>
     " バッファ一覧
     nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
     nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
@@ -345,12 +353,12 @@ let g:jedi#rename_command = '<leader>R'
     " 最近使用したファイル一覧
     nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
     " プロジェクト以下を検索
-    nnoremap <silent> ,ug :<C-u>Unite file_rec/async:!<CR>
-    " 常用セット
-    nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+    nnoremap <silent> ,uu :<C-u>Unite file_rec/async:!<CR>
     nnoremap <silent> ;; :<C-u>Unite buffer file_mru<CR>
     " 全部乗せ
     nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+    " ghq
+    nnoremap <silent> ,ug :<C-u>Unite ghq<CR>
     " ウィンドウを分割して開く
     au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
     au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')

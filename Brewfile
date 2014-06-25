@@ -30,6 +30,7 @@ install libxslt
 install imagemagick
 install ag
 install jq
+install ngrep
 install autojump
 install tree
 install heroku-toolbelt

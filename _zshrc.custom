@@ -31,8 +31,8 @@ eval "$(rbenv init -)"
 # Alias
 source $HOME/.zsh/alias.zsh
 
-# Percol Setting
-source $HOME/.zsh/percol.zsh
+# Peco Setting
+source $HOME/.zsh/peco.zsh
 
 # Load Local Setting
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
