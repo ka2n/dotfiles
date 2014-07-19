@@ -3,8 +3,7 @@
 export LANG=ja_JP.UTF-8
 
 export PATH=$PATH:$HOME/bin
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/sbin:/usr/local/bin
+export PATH=/usr/local/bin:$PATH
 
 export GIT_EDITOR=vim
 

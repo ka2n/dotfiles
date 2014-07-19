@@ -149,6 +149,7 @@ syntax enable
     NeoBundle 'Shougo/neocomplcache'
     NeoBundle 'Shougo/neosnippet'
     NeoBundle 'Shougo/neosnippet-snippets'
+    NeoBundle 'mattn/sonictemplate-vim'
 
     " gist
     NeoBundle 'mattn/gist-vim'
@@ -377,6 +378,8 @@ let g:jedi#rename_command = '<leader>R'
     let g:autopep8_max_line_length=99
 
 """ Syntastic
+    let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+    nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
     "let g:syntastic_enable_signs=1
     "let g:syntastic_auto_loc_list=2
 
@@ -400,7 +403,8 @@ autocmd FileType coffee setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab fold
 autocmd FileType javascript call JavaScriptFold()
 autocmd FileType javascript setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab nocindent
 
-"" golang
+" golang
+let g:gofmt_command = 'goimports'
 set rtp+=${GOROOT}/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 autocmd FileType go set noexpandtab
