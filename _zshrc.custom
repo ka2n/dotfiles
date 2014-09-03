@@ -24,13 +24,15 @@ export PYTHONDONTWRITEBYTECODE=1 # disable .pyc
 
 # Golang
 export GOPATH=$HOME
-export PATH=$PATH:$GOPATH/bin:$(go env GOROOT)/bin
+export GOROOT=$(go env GOROOT)
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 # Ruby
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
-# Node
+# NodeJS
+export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
 

@@ -52,6 +52,8 @@ brew install wrk
 brew install reattach-to-user-namespace
 brew install packer
 brew install brew-cask
+brew install ngrok
+brew install git-now
 brew cask install iterm2
 brew cask install boot2docker
 brew cask install google-japanese-ime

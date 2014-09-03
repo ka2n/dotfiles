@@ -37,7 +37,7 @@ command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
 
 " Load plugins
 let g:plugin_loader_roots = "~/.vimperator_bundle"
-let g:plugin_loader_plugins = "_libly,_smooziee,walk-input,feedSomeKeys_3,caret-hint,statusline-toolbar"
+let g:plugin_loader_plugins = "_libly,_smooziee,walk-input,feedSomeKeys_3,caret-hint"
 
 "------------------------------
 " Plugin settings

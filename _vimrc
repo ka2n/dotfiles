@@ -200,7 +200,7 @@ syntax enable
     NeoBundle 'vim-coffee-script'
 
     " html
-    NeoBundle 'html5.vim'
+    "NeoBundle 'html5.vim'
 
     " php
     NeoBundle 'PDV--phpDocumentor-for-Vim'
@@ -209,6 +209,8 @@ syntax enable
 
     " syntax for haml
     NeoBundle 'tpope/vim-haml'
+    " syntax for slim
+    NeoBundle 'gudleik/vim-slim'
 
     NeoBundle 'slim-template/vim-slim'
 
@@ -387,6 +389,7 @@ let g:jedi#rename_command = '<leader>R'
 """ Syntastic
     let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
     nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+    let g:syntastic_ruby_checkers = ['rubocop']
     "let g:syntastic_enable_signs=1
     "let g:syntastic_auto_loc_list=2
 
@@ -406,6 +409,7 @@ autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,exc
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType ruby setl autoindent
 autocmd FileType ruby setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
+autocmd FileType jade setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType coffee setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmethod=indent nofoldenable
 autocmd FileType jade setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmethod=indent nofoldenable
 autocmd FileType javascript call JavaScriptFold()
