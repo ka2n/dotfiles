@@ -126,6 +126,7 @@ syntax enable
     NeoBundle 'rhysd/unite-codic.vim'
     NeoBundle 'sorah/unite-ghq'
     NeoBundle 'Shougo/neomru.vim'
+    NeoBundle 'Shougo/vimfiler.vim'
 
     NeoBundle 'bling/vim-airline'
 
@@ -208,6 +209,9 @@ syntax enable
 
     " syntax for haml
     NeoBundle 'tpope/vim-haml'
+
+    NeoBundle 'slim-template/vim-slim'
+
 
     " syntax checking plugins for eruby, haml, html, javascript, php, python, ruby and sass.
     NeoBundle 'scrooloose/syntastic'
@@ -371,6 +375,9 @@ let g:jedi#rename_command = '<leader>R'
     au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
     let g:unite_split_rule = "botright"
 
+"""" vimfiler.vim "
+    nnoremap <silent> ,ff :<C-u>VimFiler -split -simple -winwidth=35 -no-quit <CR>
+
 """ zen-coding
     let g:user_zen_settings = {'indentation': '    '}
 
@@ -400,12 +407,13 @@ autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType ruby setl autoindent
 autocmd FileType ruby setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType coffee setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmethod=indent nofoldenable
+autocmd FileType jade setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmethod=indent nofoldenable
 autocmd FileType javascript call JavaScriptFold()
 autocmd FileType javascript setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab nocindent
 
 " golang
 let g:gofmt_command = 'goimports'
-set rtp+=${GOROOT}/misc/vim
+set rtp+=/usr/local/opt/go/libexec/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 autocmd FileType go set noexpandtab
 autocmd FileType go set nolist
@@ -423,6 +431,6 @@ vnoremap <C-C> :call PhpDocRange()<CR>
 
 """ quickrun
 let g:quickrun_config = {}
-let g:quickrun_config._ = {'runner' : 'vimproc'}
+let g:quickrun_config._ = {'runner' : 'vimproc', "runner/vimproc/updatetime" : 16}
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
 
