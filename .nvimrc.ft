@@ -1,0 +1,21 @@
+" Python
+au FileType python setl autoindent
+au FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+au FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+" Ruby
+au BufNewFile,BufRead Gemfile,Podfile setl filetype=ruby
+au FileType ruby setl autoindent
+au FileType ruby setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+" js & alt-js
+au FileType javascript setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab nocindent
+au FileType coffee setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmethod=indent nofoldenable
+
+" Go
+au FileType go setl noexpandtab nolist tabstop=2 shiftwidth=2 softtabstop=2 nofoldenable
+au FileType go compiler go
+au BufWritePre *.go Fmt
+
+" Template & HTML-template
+au FileType jade setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmethod=indent nofoldenable

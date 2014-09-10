@@ -1,0 +1,101 @@
+""" Neobundleで管理しているpluginを読み込む
+set nocompatible
+filetype off
+if has('vim_starting')
+    set runtimepath+=~/.neovim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.neovim_bundle/'))
+
+" 基本
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'sudo.vim'
+NeoBundle 'banyan/recognize_charcode.vim'
+
+" 入力補助
+NeoBundle 'YankRing.vim'
+NeoBundle 'scrooloose/nerdcommenter.git'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'mattn/sonictemplate-vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+
+" 操作補助
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'rking/ag.vim'
+
+" 表示
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
+" 情報表示
+NeoBundle 'bling/vim-airline'
+
+" 色とか
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'tomasr/molokai'
+
+" Unite
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'pekepeke/unite-fileline'
+NeoBundle 'h1mesuke/unite-outline.git'
+NeoBundle 'kannokanno/unite-todo.git'
+NeoBundle 'koron/codic-vim'
+NeoBundle 'rhysd/unite-codic.vim'
+NeoBundle 'sorah/unite-ghq'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/vimshell.vim'
+
+" 言語ごとのシンタックス等
+
+NeoBundle 'scrooloose/syntastic'
+
+"" Python
+NeoBundle 'alfredodeza/khuno.vim'
+NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'vim-scripts/virtualenv.vim' " Work with python virtualenvs within vim
+NeoBundle 'tell-k/vim-autopep8'
+NeoBundle 'hynek/vim-python-pep8-indent' " A nicer Python indentation style for vim.
+
+" Scala
+NeoBundle "derekwyatt/vim-scala.git"
+
+" golang
+NeoBundle 'dgryski/vim-godef' " vim plugin providing godef support
+
+" Ruby
+NeoBundle 'tpope/vim-rails'
+
+" JavaScript
+NeoBundle 'basyura/jslint.vim'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'myhere/vim-nodejs-complete'
+
+" CofeeScript
+NeoBundle 'vim-coffee-script'
+
+" PHP
+NeoBundle 'PDV--phpDocumentor-for-Vim'
+
+" reStructuredText
+NeoBundle "Rykka/riv.vim"
+
+" Markdown
+NeoBundle 'Markdown'
+
+" Haml
+NeoBundle 'tpope/vim-haml'
+
+" Slim
+NeoBundle 'slim-template/vim-slim'
+
+
+call neobundle#end()
+
+filetype plugin indent on
+
+NeoBundleCheck
