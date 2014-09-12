@@ -57,6 +57,7 @@
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 " Neosnippets
   let g:neosnippet#snippets_directory=$HOME.'/.vim/snippets'
@@ -116,6 +117,11 @@
 
 " goのプラグイン
   let g:gofmt_command = 'goimports'
+
+" vim-rails
+  let g:rails_projections = {
+      \ "config/routes.rb": {"command": "routes"}
+      \ }
 
 " プラグインのキーマッピング
   " neocomplcache

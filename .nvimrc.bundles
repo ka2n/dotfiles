@@ -48,6 +48,7 @@ NeoBundle 'sorah/unite-ghq'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'basyura/unite-rails'
 
 " 言語ごとのシンタックス等
 
