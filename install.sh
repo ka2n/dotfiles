@@ -54,6 +54,7 @@ brew install packer
 brew install brew-cask
 brew install ngrok
 brew install git-now
+brew install xcproj
 brew cask install iterm2
 brew cask install boot2docker
 brew cask install google-japanese-ime
