@@ -75,7 +75,7 @@ nnoremap <silent><C-j> :b#<CR>
 colorscheme molokai
 
 """ GO plugin
-set rtp+=/usr/local/opt/go/libexec/misc/vim
+set rtp^=${GOROOT}/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 
 filetype plugin on

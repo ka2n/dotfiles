@@ -6,6 +6,8 @@ curl -L http://install.ohmyz.sh | sh
 
 ln -snf $BASEDIR/_zshrc.custom $HOME/.zshrc.custom
 ln -snf $BASEDIR/_zsh $HOME/.zsh
+ln -snf ./_tmux.conf $HOME/.tmux.conf
+ln -snf ./_tmux.osx.conf $HOME/.tmux.osx.conf
 
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
@@ -19,6 +21,7 @@ brew upgrade
 brew tap phinze/cask
 brew tap homebrew/binary
 brew tap sonots/homebrew-mycask
+brew tap mopidy/mopidy
 
 brew install zsh --disable-etcdir
 brew install vim
@@ -55,7 +58,10 @@ brew install brew-cask
 brew install ngrok
 brew install git-now
 brew install xcproj
+brew install mopidy
+brew install mopidy-soundcloud
 brew cask install iterm2
+brew cask install appcode
 brew cask install boot2docker
 brew cask install google-japanese-ime
 brew cask install macvim-kaoriya
@@ -67,7 +73,6 @@ brew cask install virtualbox
 brew cask install vagrant
 brew cask install keyremap4macbook
 brew cask install screenhero
-brew cask install hipchat
 brew cask install sqwiggle
 brew cask install dropbox
 brew cask install alfred
@@ -77,6 +82,7 @@ brew cask install onyx
 brew cask install bittorrent-sync
 brew cask install arq
 brew cask install selfcontrol
+brew cask install onepassword
 brew cleanup
 
 

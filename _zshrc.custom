@@ -35,6 +35,9 @@ eval "$(rbenv init -)"
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
+# iOS
+alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources/symbolicatecrash/'
+
 
 # Alias
 source $HOME/.zsh/alias.zsh

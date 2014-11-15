@@ -210,8 +210,6 @@ syntax enable
     " syntax for haml
     NeoBundle 'tpope/vim-haml'
     " syntax for slim
-    NeoBundle 'gudleik/vim-slim'
-
     NeoBundle 'slim-template/vim-slim'
 
 
