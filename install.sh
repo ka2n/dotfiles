@@ -83,6 +83,8 @@ brew cask install bittorrent-sync
 brew cask install arq
 brew cask install selfcontrol
 brew cask install onepassword
+brew cask install github
+brew cask install omnifocus
 brew cleanup
 
 
