@@ -92,6 +92,7 @@ eval "$(rbenv init -)"
 rbenv install -s 2.1.2
 rbenv global 2.1.2
 gem install bundler
+bundle install
 
 # Go
 go get -u code.google.com/p/go.tools/cmd/goimports
@@ -103,4 +104,4 @@ go get -u github.com/peco/peco/cmd/peco
 go get -u github.com/gophertown/looper
 
 # Python
-pip2 install -r ./requirement.txt
+pip2 install --upgrade -r ./requirement.txt
