@@ -15,6 +15,7 @@ SAVEHIST=500000
 
 # lolcommits
 export LOLCOMMITS_FONT="/Library/Fonts/ヒラギノ角ゴ Std W8.otf"
+export LOLCOMMITS_FORK=1
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
