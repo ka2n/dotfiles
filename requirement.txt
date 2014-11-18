@@ -2,3 +2,4 @@ httpie
 awscli
 virtualenv
 virtualenvwrapper
+neovim

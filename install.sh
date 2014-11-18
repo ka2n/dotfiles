@@ -22,9 +22,11 @@ brew tap phinze/cask
 brew tap homebrew/binary
 brew tap sonots/homebrew-mycask
 brew tap mopidy/mopidy
+brew tap neovim/homebrew-neovim
 
 brew install zsh --disable-etcdir
 brew install vim
+brew install --HEAD neovim
 brew install tmux
 brew install git
 brew install hg

@@ -78,6 +78,11 @@ colorscheme molokai
 set rtp^=${GOROOT}/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 
+""" Enable classic python interface
+if has('nvim')
+    runtime! plugin/python_setup.vim
+endif
+
 filetype plugin on
 
 """ ファイルごとの設定

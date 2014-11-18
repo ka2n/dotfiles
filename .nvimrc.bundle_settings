@@ -76,7 +76,7 @@
   let g:autopep8_max_line_length=99
 
 " Syntastic
-  let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+  let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby'],'passive_filetypes': ['go'] }
   let g:syntastic_ruby_checkers = ['rubocop']
 
 " jslint
