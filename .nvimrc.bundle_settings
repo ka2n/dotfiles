@@ -62,7 +62,7 @@
   let g:neosnippet#snippets_directory=$HOME.'/.vim/snippets'
 
 " jedi-vim
-  let g:jedi#auto_initialization = 1
+  let g:jedi#auto_initialization = 0
   let g:jedi#popup_on_dot = 0
   let g:jedi#popup_select_first = 0
   let g:jedi#show_call_signatures = 1
@@ -73,10 +73,13 @@
   let g:user_zen_settings = {'indentation': '    '}
 
 " autopep8
-  let g:autopep8_max_line_length=99
+  let g:autopep8_max_line_length=120
+
+" khuno
+  let g:khuno_max_line_length=120
 
 " Syntastic
-  let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby'],'passive_filetypes': ['go'] }
+  let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby'],'passive_filetypes': ['go', 'python'] }
   let g:syntastic_ruby_checkers = ['rubocop']
 
 " jslint
