@@ -36,6 +36,7 @@
     interactive = auto
     grep = auto
     log = auto
+	ui = 1
 
 [alias]
     st = status
@@ -64,7 +65,10 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[github]
-	user = ka2n
 [credential]
 	helper = osxkeychain
+[omnifocus-github]
+	netrc = 1
+[github]
+	netrc = 1
+	user = ka2n
