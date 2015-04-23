@@ -32,6 +32,7 @@ brew install git
 brew install hg
 brew install hub
 brew install tig
+brew install icdiff
 brew install go
 brew install python
 brew install python3
@@ -60,8 +61,8 @@ brew install brew-cask
 brew install ngrok
 brew install git-now
 brew install xcproj
-brew install mopidy
-brew install mopidy-soundcloud
+brew install pwgen
+brew cask install xquartz
 brew cask install iterm2
 brew cask install appcode
 brew cask install boot2docker
@@ -77,6 +78,7 @@ brew cask install keyremap4macbook
 brew cask install screenhero
 brew cask install sqwiggle
 brew cask install dropbox
+brew cask install spotify
 brew cask install alfred
 brew cask install evernote
 brew cask install yorufukurou
@@ -87,6 +89,10 @@ brew cask install selfcontrol
 brew cask install onepassword
 brew cask install github
 brew cask install omnifocus
+brew cask install launchcontrol
+brew cask install imagealpha
+brew cask install wireshark
+brew cask install near-lock
 brew cleanup
 
 

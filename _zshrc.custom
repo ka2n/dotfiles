@@ -28,14 +28,18 @@ export GOPATH=$HOME
 export GOROOT=$(go env GOROOT)
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
+# ChefDK
+#export PATH=/opt/chefdk/bin:$PATH
 
 # NodeJS
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
+#export PATH="$HOME/.nodenv/bin:$PATH"
+#eval "$(nodenv init -)"
 
 # iOS
 alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources/symbolicatecrash/'
 
+# Apps
+export PATH=$PATH:/Applications/Sublime\ Text.app/Contents/SharedSupport/bin
 
 # Alias
 source $HOME/.zsh/alias.zsh
