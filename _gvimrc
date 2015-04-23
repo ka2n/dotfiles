@@ -1,8 +1,6 @@
 if has('gui_macvim')
  colorscheme desert
  set showtabline=2
- set imdisableactivate
- set imdisable
  set columns=80
  set lines=46
  set guioptions=e

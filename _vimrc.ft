@@ -4,7 +4,7 @@ au FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,f
 au FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 " Ruby
-au BufNewFile,BufRead Gemfile,Podfile setl filetype=ruby
+au BufNewFile,BufRead Gemfile,Rakefile,Thorfile,Guardfile set filetype=ruby
 au FileType ruby setl autoindent
 au FileType ruby setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
@@ -16,6 +16,10 @@ au FileType coffee setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmetho
 au FileType go setl noexpandtab nolist tabstop=2 shiftwidth=2 softtabstop=2 nofoldenable
 au FileType go compiler go
 au BufWritePre *.go Fmt
+
+" Coffee
+au BufNewFile,BufRead *.coffee filetype=coffeescript
+au BufNewFile,BufRead *.coffee filetype=coffeescript
 
 " Template & HTML-template & Other plain text
 au FileType jade setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmethod=indent nofoldenable
