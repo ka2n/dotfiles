@@ -1,0 +1,4 @@
+use_docker-machine() {
+    eval "$(docker-machine env default)"
+    return 0
+}
