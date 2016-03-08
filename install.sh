@@ -2,6 +2,8 @@
 
 BASEDIR=$( cd $(dirname $0) ; pwd -P )
 
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 curl -L http://install.ohmyz.sh | sh
 
 ln -snf $BASEDIR/_zshrc.custom $HOME/.zshrc.custom
