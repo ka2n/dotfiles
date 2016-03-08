@@ -62,7 +62,11 @@ brew install ngrok
 brew install git-now
 brew install xcproj
 brew install pwgen
+
+brew install docker
 brew install dlite
+sudo dlite install && dlite start
+
 brew cask install iterm2
 brew cask install google-japanese-ime
 brew cask install coteditor
