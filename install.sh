@@ -6,13 +6,14 @@ curl -L http://install.ohmyz.sh | sh
 
 ln -snf $BASEDIR/_zshrc.custom $HOME/.zshrc.custom
 ln -snf $BASEDIR/_zsh $HOME/.zsh
-ln -snf ./_tmux.conf $HOME/.tmux.conf
-ln -snf ./_tmux.osx.conf $HOME/.tmux.osx.conf
+ln -snf $BASEDIR/_zshrc $HOME/.zshrc
+ln -snf $BASEDIR/_tmux.conf $HOME/.tmux.conf
+ln -snf $BASEDIR/_tmux.osx.conf $HOME/.tmux.osx.conf
 ln -snf $BASEDIR/_direnvrc $HOME/.direnvrc
 
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
-export PATH=/usr/local/sbin:/usr/local/bin$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export GOPATH=$HOME
 
 brew doctor
