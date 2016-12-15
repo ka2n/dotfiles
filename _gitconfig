@@ -1,7 +1,7 @@
 [credential]
 
 [core]
-    excludesfile = /Users/ka2n/.gitignore_global
+    excludesfile = $HOME/.gitignore_global
     autocrlf = input
     quotepath = false
     precomposeunicode = true
@@ -22,12 +22,14 @@
 [user]
     name = Katsuma Ito
     email = katsumai@gmail.com
+    signingkey = F0E2268B
 
 [hub]
     protocol = https
 
 [ghq]
     root = ~/src
+    root = /usr/local/go/src
 
 [color]
     status = auto
@@ -36,39 +38,33 @@
     interactive = auto
     grep = auto
     log = auto
-	ui = 1
+    ui = 1
 
 [alias]
-    st = status
-    ci = commit -v
     co = checkout
+    st = status
     up = pull --rebase
-    di = diff
-    br = branch
-    pus = push
     psuh = push
     puhs = push
     suu  = submodule update
     suc  = submodule foreach git checkout . .
-    log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %ch %Cblue%cn %Creset%s'
-    log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
-    log-release = shortlog --no-merges master..HEAD
-    dt = difftool
-    u = "!sh -c 'git clean-remotes; git update-master-ref; git delete-merged'"
-    update-master-ref = update-ref refs/heads/master origin/master
-    delete-merged = !git branch --merged | grep -v '*' | xargs -I % git branch -d %
-    fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
-    clean-remotes = fetch --prune
+    delete-merged = !git branch --merged | grep -v -e '*' -e 'master' | xargs -I % git branch -d %
+    branches = branch -a
+    tags = tag
+    stashes = stash list
+    graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 [omnifocus-github]
-	netrc = 1
+    netrc = 1
 [github]
-	netrc = 1
-	user = ka2n
+    netrc = 1
+    user = ka2n
+[gpg]
+    program = gpg2
