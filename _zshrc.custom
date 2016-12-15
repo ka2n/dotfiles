@@ -1,13 +1,19 @@
+unalias run-help
+autoload run-help
+export HELPDIR=/usr/local/share/zsh/help
 
-
-export LANG=ja_JP.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
 export PATH=$PATH:$HOME/bin
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 
 export GIT_EDITOR=vim
 
+source `brew --prefix`/etc/profile.d/z.sh
 
 # History
 HISTSIZE=500000
@@ -20,8 +26,7 @@ export LOLCOMMITS_FORK=1
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Python
-[ -f /usr/local/bin/virtualenvwrapper_lazy.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
-export PYTHONDONTWRITEBYTECODE=1 # disable .pyc
+[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
 # Golang
 export GOPATH=$HOME
@@ -35,17 +40,28 @@ export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 #export PATH="$HOME/.nodenv/bin:$PATH"
 #eval "$(nodenv init -)"
 
+# Ruby
+if [ -d ${HOME}/.rbenv  ] ; then
+  export PATH=$HOME/.rbenv/bin:$PATH
+  eval "$(/usr/local/bin/rbenv init -)"
+fi
+
 # iOS
 alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources/symbolicatecrash/'
-
-# Apps
-export PATH=$PATH:/Applications/Sublime\ Text.app/Contents/SharedSupport/bin
 
 # Alias
 source $HOME/.zsh/alias.zsh
 
 # Peco Setting
 source $HOME/.zsh/peco.zsh
+
+# Direnv
+eval "$(direnv hook zsh)"
+
+# Google Cloud SDK
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+source <(kubectl completion zsh)
 
 # Load Local Setting
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
