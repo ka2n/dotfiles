@@ -4,11 +4,6 @@ BASEDIR=$( cd $(dirname $0) ; pwd -P )
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-curl -L http://install.ohmyz.sh | sh
-
-ln -snf $BASEDIR/_zshrc.custom $HOME/.zshrc.custom
-ln -snf $BASEDIR/_zsh $HOME/.zsh
-ln -snf $BASEDIR/_zshrc $HOME/.zshrc
 ln -snf $BASEDIR/_config $HOME/.config
 ln -snf $BASEDIR/_tmux.conf $HOME/.tmux.conf
 
@@ -30,7 +25,7 @@ brew tap sonots/homebrew-mycask
 brew tap mopidy/mopidy
 brew tap neovim/homebrew-neovim
 
-brew install zsh --disable-etcdir
+brwe install fish
 brew install vim
 brew install tmux
 brew install git
