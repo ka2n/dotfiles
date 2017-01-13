@@ -1,0 +1,34 @@
+layout_gb() {
+  export GOPATH="$PWD/vendor:$PWD"
+  PATH_add "$PWD/vendor/bin"
+  PATH_add bin
+}
+
+use_docker-machine() {
+    eval "$(docker-machine env default)"
+    return 0
+}
+
+use_python() {
+  local version=$1
+  local found=0
+  while read line; do
+    name=$(echo $line | cut -d ' ' -f 1)
+    path=$(echo $line | cut -d ' ' -f 2-)
+    if [ "${name}" = "${version}" \
+      -o "${name}" = "CPython-${version}" \
+      -o "${name}" = "CPython-${version}.0" \
+    ]; then
+      PATH_add "${path}/bin"
+      found=1
+      break
+    fi
+  done < <(pythonz list -p | sed -e '1d')
+
+  if [ "$found" -eq 0 ]; then
+    echo "python '${version}' is not installed." >&2
+    return 1
+  fi
+  return 0
+}
+
