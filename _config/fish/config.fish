@@ -32,7 +32,7 @@ end
 
 # Ruby
 set -gx BUNDLE_JOBS 7
-if test -d $HOME/.rbenv
+if test -d $HOME/.rbenv/bin
   set -gx PATH $PATH $HOME/.rbenv/bin
 end
 
