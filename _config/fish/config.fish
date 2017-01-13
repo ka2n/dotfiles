@@ -1,7 +1,6 @@
-# Shell language
-set -gx LC_ALL en_US.UTF-8
+# LANG
 set -gx LANG en_US.UTF-8
-set -gx LANGUAGE en_US.UTF-8
+set -gx LC_TYPE en_US.UTF-8
 
 # PATH
 set -gx PATH $PATH $HOME/bin /usr/local/bin /usr/local/sbin
