@@ -11,8 +11,11 @@ set -gx OMF_PATH "$HOME/.local/share/omf"
 
 set -g fish_escape_delay_ms 600
 
-# homebrew
-set -gx HOMEBREW_CASK_OPTS "--appdir=/Applications"
+# Package manager
+switch (uname)
+  case Darwin
+    set -gx HOMEBREW_CASK_OPTS "--appdir=/Applications"
+end
 
 # git
 set -gx GIT_EDITOR vim
@@ -29,15 +32,20 @@ end
 
 # Ruby
 set -gx BUNDLE_JOBS 7
-set -gx RBENV_ROOT /usr/local/var/rbenv
+if test -d $HOME/.rbenv
+  set -gx PATH $PATH $HOME/.rbenv/bin
+end
 
 # Lolcommits
 set -gx LOLCOMMITS_FONT "/Library/Fonts/ヒラギノ角ゴ Std W8.otf"
 set -gx LOLCOMMITS_FORK 1
 
 # gcloud
-bass source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
-set -x MANPATH /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/help/man /usr/local/share/man /usr/share/man /opt/x11/share/man
+switch (uname)
+  case Darwin
+      bass source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
+      set -x MANPATH /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/help/man /usr/local/share/man /usr/share/man /opt/x11/share/man
+end
 
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish

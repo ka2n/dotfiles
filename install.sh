@@ -26,6 +26,8 @@ brew tap mopidy/mopidy
 brew tap neovim/homebrew-neovim
 
 brwe install fish
+curl -L http://get.oh-my.fish | fish
+
 brew install vim
 brew install tmux
 brew install git
