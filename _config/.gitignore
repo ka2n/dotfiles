@@ -16,7 +16,10 @@
 !tmux/linux.conf
 
 !git/
-!git/config
+!git/config.default
+!git/config-common
+!git/config-osx
+!git/config-linux
 !git/ignore
 
 !tig/
