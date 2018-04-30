@@ -18,6 +18,7 @@
 
 [user]
     name = Katsuma Ito
+    username = ka2n
     email = katsumai@gmail.com
     signingkey = F0E2268B
 
@@ -26,7 +27,6 @@
 
 [ghq]
     root = ~/src
-    root = /usr/local/go/src
 
 [color]
     status = auto
