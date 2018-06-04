@@ -17,9 +17,9 @@
 
 !git/
 !git/config.default
-!git/config-common
-!git/config-osx
-!git/config-linux
+!git/config_common
+!git/config_osx
+!git/config_linux
 !git/ignore
 
 !tig/
