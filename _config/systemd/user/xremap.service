@@ -1,0 +1,11 @@
+[Unit]
+Description=xremap
+
+[Service]
+KillMode=process
+ExecStart=/usr/bin/xremap %h/.xremap
+StandardOutput=null
+StandardError=journal
+Type=simple
+Restart=always
+Environment=DISPLAY=:0
