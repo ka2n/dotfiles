@@ -1,7 +1,7 @@
 syntax enable
 
 """ プラグイン
-source $HOME/.vimrc.bundles
+"source $HOME/.vimrc.bundles
 
 " IM無効
 set imdisable
@@ -57,7 +57,7 @@ set list
 set listchars=tab:>-
 
 """ 色
-colorscheme hybrid
+"colorscheme hybrid
 
 " diffの文字色を見やすく
 hi DiffAdd    ctermfg=black ctermbg=2
@@ -92,13 +92,13 @@ nnoremap <silent><C-j> :b#<CR>
 set rtp^=${GOROOT}/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 
-" Dash.app
-function! s:dash(...)
-    let word = len(a:000) == 0 ? input('Dash search: ') : a:1
-    call system(printf("open dash://'%s'", word))
-endfunction
-command! -nargs=? Dash call <SID>dash(<f-args>)
-nmap <silent> K :Dash <C-R><C-W><CR>
+"" Dash.app
+"function! s:dash(...)
+"    let word = len(a:000) == 0 ? input('Dash search: ') : a:1
+"    call system(printf("open dash://'%s'", word))
+"endfunction
+"command! -nargs=? Dash call <SID>dash(<f-args>)
+"nmap <silent> K :Dash <C-R><C-W><CR>
 
 let g:netrw_browsex_viewer = 'open'
 
@@ -108,4 +108,4 @@ filetype plugin on
 source $HOME/.vimrc.ft
 
 """ プラグイン設定
-source $HOME/.vimrc.bundle_settings
+"source $HOME/.vimrc.bundle_settings

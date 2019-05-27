@@ -1,0 +1,84 @@
+# Sound
+# メモ: Shiftなしは効いていないかも
+"pactl set-sink-volume 0 +5%"
+ Shift+XF86AudioRaiseVolume
+"pactl set-sink-volume 0 -5%"
+ Shift+XF86AudioLowerVolume
+"pactl set-sink-mute 0 toggle"
+ Shift+XF86AudioMute
+
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
+ XF86AudioRaiseVolume
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
+ XF86AudioLowerVolume
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+ XF86AudioMute
+
+# Brightness
+"xbacklight -inc 5"
+ XF86MonBrightnessUp
+"xbacklight -dec 5"
+ XF86MonBrightnessDown
+"xbacklight -inc 1"
+ Shift+XF86MonBrightnessUp
+"xbacklight -dec 1"
+ Shift+XF86MonBrightnessDown
+
+# Display
+"~/src/github.com/ka2n/dotfiles/bin-linux/switch-display-thinkpad.rb"
+ XF86Display
+
+# WLAN
+"~/bin/nmcli-toggle-wwan.py"
+ c:246
+
+## MX Ergo
+
+# NOTE: トラックパッドとかぶる
+### : wheel forward
+#"xte 'key Down' 'key Down' 'key Down'"
+# b:5
+#
+### : wheel backward
+#"xte 'key Up' 'key Up' 'key Up'"
+# b:4
+
+## : wheel press
+#"xte 'key'"
+# b:2
+
+## : wheel right
+#"sleep 0.2 && xte 'keydown Control_L' 'keydown Tab'"
+# b:6
+#"xte 'keyup Tab' 'keyup Control_L'"
+# b:6 + release
+
+## : wheel left
+#"sleep 0.2 && xte 'keydown Control_L' 'keydown Shift_L' 'keydown Tab'"
+# b:7
+#"xte 'keyup Tab' 'keyup Shift_L' 'keyup Control_L'"
+# b:7 + release
+
+## : side top button
+"xte 'keydown Page_Up'"
+ b:9
+"xte 'keyup Page_Up'"
+ b:9 + release
+
+## : side bottom button
+"xte 'keydown Page_Down'"
+ b:8
+"xte 'keyup Page_Down'"
+ b:8 + release
+
+## : side top button + Shift
+"xte 'keydown Page_Up'"
+ b:9 + Shift
+"xte 'keyup Page_Up'"
+ b:9 + Shift + release
+
+## : side bottom button + Shift
+"xte 'keydown Page_Down'"
+ b:8 + Shift
+"xte 'keyup Page_Down'"
+ b:8 + Shift + release

@@ -3,6 +3,9 @@
     quotepath = false
     precomposeunicode = true
 
+[init]
+    templatedir = ~/.config/git/template
+
 [merge]
     tool = vimdiff
     ff = true
@@ -43,6 +46,7 @@
     up = pull --rebase
     psuh = push
     puhs = push
+    comimt = commit
     suu  = submodule update
     suc  = submodule foreach git checkout . .
     delete-merged = !git branch --merged | grep -v -e '*' -e 'master' | xargs -I % git branch -d %

@@ -1,0 +1,21 @@
+#!/bin/env bash
+
+print_current() {
+    task_time=$(toggl --csv current | grep Duration | cut -d',' -f2)
+    if [ ! -n "$task_time" ]; then
+        echo "No time entory"
+    else
+        task_desc_full=$(toggl --cache --csv current | grep Description | cut -d',' -f2)
+        task_desc_short=$(echo $task_desc_full | ruby -e 'l=STDIN.gets[0,20]; print (l.length>=20 and "#{l}..." or l)')
+        echo $task_desc_full
+        echo $task_desc_short
+        echo '#FF8000'
+        exit 0
+    fi
+}
+
+case $BLOCK_BUTTON in
+    1) i3-msg "exec xdg-open 'https://toggl.com/app/timer'" > /dev/null
+esac
+
+print_current

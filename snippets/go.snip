@@ -1,0 +1,22 @@
+# Golang snippets
+
+
+snippet     dumpreq
+    if ${1:req} != nil {
+        requestDump, err := httputil.DumpRequest($1, ${2:true})
+        if err != nil {
+          fmt.Println(err)
+        }
+        fmt.Println(string(requestDump))
+        ${0}
+    }
+
+snippet     dumpresp
+    if ${1:resp} != nil {
+        responseDump, err := httputil.DumpResponse($1, ${2:true})
+        if err != nil {
+          fmt.Println(err)
+        }
+        fmt.Println(string(responseDump))
+        ${0}
+    }

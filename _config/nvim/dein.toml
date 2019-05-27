@@ -1,0 +1,87 @@
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+hook_add = '''
+colorscheme iceberg
+'''
+
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'mattn/sonictemplate-vim'
+hook_add = '''
+let g:sonictemplate_vim_template_dir = ['~/src/github.com/ka2n/dotfiles/template']
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+#on_i = 1
+#on_ft = ['snippet']
+depends = ['neosnippet-snippets']
+hook_add = '''
+let g:neosnippet#snippets_directory='~/src/github.com/ka2n/dotfiles/snippets'
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+set conceallevel=2 concealcursor=niv
+'''
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+build = 'bash install.sh'
+rev = 'next'
+depends = ['neosnippet']
+hook_add = '''
+let g:LanguageClient_serverCommands = {
+\ 'go': ['gopls'],
+\ 'php': ['php-language-server'],
+\ }
+let g:LanguageClient_hasSnippetSupport = 1
+
+" 補完
+nnoremap <F5> :<C-u>Denite contextMenu<CR>
+nnoremap <F3> :<C-u>Denite -auto-preview references<CR>
+nnoremap <silent> ,df :<C-u>Denite -auto-preview documentSymbol<CR>
+nnoremap <silent> ,dd :<C-u>Denite -auto-preview workspaceSymbol<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <C-]> :call LanguageClient#textDocument_definition()<CR>
+nnoremap <C-w><C-]> :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+'''
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+depends = ['vim-operator-user']
+hook_add = '''
+map <silent>sa <Plug>(operator-surround-append)
+map <silent>sd <Plug>(operator-surround-delete)
+map <silent>sr <Plug>(operator-surround-replace)
+'''
+
+#[[plugins]]
+#repo = 'kassio/neoterm'
+#hook_add = '''
+#let g:neoterm_autoinsert = 1
+#let g:neoterm_default_mod = 'belowright'
+#nnoremap <silent> <C-e><C-e> :TREPLSendLine<CR>
+#vnoremap <silent> <C-e><C-e> V:TREPLSendSelection<CR>
+#'''
+

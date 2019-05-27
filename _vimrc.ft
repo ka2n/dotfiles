@@ -24,3 +24,5 @@ au BufNewFile,BufRead *.coffee filetype=coffeescript
 " Template & HTML-template & Other plain text
 au FileType jade setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmethod=indent nofoldenable
 au FileType yaml setl shiftwidth=2 softtabstop=2 tabstop=2 expandtab foldmethod=indent nofoldenable
+
+au FileType sh setl expandtab tabstop< softtabstop=4 shiftwidth=4

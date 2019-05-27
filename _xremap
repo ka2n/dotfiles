@@ -1,0 +1,27 @@
+window class_only: 'standard notes' do
+    remap 'C-b', to: 'Left'
+    remap 'C-f', to: 'Right'
+    remap 'C-p', to: 'Up'
+    remap 'C-n', to: 'Down'
+    remap 'C-h', to: 'BackSpace'
+    remap 'C-a', to: 'Home'
+    remap 'C-e', to: 'End'
+    remap 'C-k', to: ['Shift-End', 'Ctrl-x']
+    remap 'C-d', to: 'Delete'
+end
+
+window class_only: [
+    'google-chrome-beta',
+    'google-chrome-unstable',
+    'crx_ngboffpgmgciiinnflnkgedmbalfkeeg'
+] do
+    # Tab move
+    remap 'C-Shift-bracketright', to: 'Ctrl-Tab' # TODO: C-Alt-にしたいが動かない
+    remap 'C-Shift-bracketleft', to: 'Ctrl-Shift-Tab'
+    remap 'C-bracketright', to: 'Alt-Right'
+    remap 'C-bracketleft', to: 'Alt-Left'
+
+    # Mouse -> xbindkeys -> Tab move
+    remap 'Shift-Page_Up', to: 'Ctrl-Shift-Tab'
+    remap 'Shift-Page_Down', to: 'Ctrl-Tab'
+end

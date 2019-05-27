@@ -1,0 +1,87 @@
+{
+  "workbench.startupEditor": "newUntitledFile",
+  "vim.foldfix": true,
+  "vim.useCtrlKeys": true,
+  "vim.enableNeovim": false,
+  "vim.statusBarColorControl": false,
+  "vim.handleKeys": {
+    "<C-d>": true
+  },
+  "editor.renderWhitespace": "boundary",
+  "editor.formatOnSave": true,
+  "vim.easymotion": false,
+  "editor.minimap.enabled": false,
+  "window.zoomLevel": 0,
+  "extensions.ignoreRecommendations": false,
+  "editor.tabSize": 2,
+  "editor.fontFamily": "'Fira Code', 'monospace', monospace",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": true,
+  "vim.disableExtension": false,
+  "extensions.autoUpdate": false,
+  "[ruby]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true
+  },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.autoIndent": true
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "files.associations": {
+    "*.gs": "javascript"
+  },
+  "go.gopath": "~/",
+  "go.autocompleteUnimportedPackages": true,
+  "go.alternateTools": { "go-langserver": "bingo" },
+  "go.languageServerFlags": ["-use-global-cache"],
+  "go.useLanguageServer": true,
+  "go.languageServerExperimentalFeatures": {
+    "format": true,
+    "autoComplete": true
+  },
+  "editor.multiCursorModifier": "alt",
+  "workbench.sideBar.location": "left",
+  "shellcheck.run": "onSave",
+  "breadcrumbs.enabled": true,
+  "go.formatTool": "goimports",
+  "go.lintTool": "golint",
+  "go.gotoSymbol.includeGoroot": true,
+  "go.gotoSymbol.includeImports": true,
+  "go.useCodeSnippetsOnFunctionSuggest": true,
+  "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.format.enable": true,
+  "javascript.format.enable": true,
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.toggleSidebarVisibility",
+    "-workbench.action.quickOpen"
+  ],
+  "git.enabled": true,
+  "update.channel": "manual",
+  "editor.highlightActiveIndentGuide": false,
+  "editor.renderControlCharacters": true,
+  "editor.wordWrap": "on",
+  "emmet.triggerExpansionOnTab": true,
+  "glean.experiments": "hooksForFunctionalComponents",
+  "editor.minimap.maxColumn": 200,
+  "html.format.wrapLineLength": 200,
+  "vim.textwidth": 200,
+  "editor.wordWrapColumn": 200,
+  "browser-preview.chromeExecutable": "/usr/bin/google-chrome-unstable",
+  "liveshare.featureSet": "insiders",
+  "search.useGlobalIgnoreFiles": true,
+  "editor.suggestSelection": "first",
+  "typescript.referencesCodeLens.enabled": true
+}

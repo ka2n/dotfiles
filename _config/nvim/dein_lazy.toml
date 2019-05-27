@@ -1,0 +1,136 @@
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
+hook_source = '''
+let g:deoplete#enable_at_startup = 1
+'''
+hook_post_source = '''
+let s:deoplete_custom_option = {
+    \ 'auto_complete_delay': 0,
+    \ 'auto_refresh_delay': 20,
+    \ 'camel_case': v:false,
+    \ 'ignore_case': v:true,
+    \ 'smart_case': v:true,
+    \ 'max_list': 500,
+    \ 'min_pattern_length': 1,
+    \ 'num_processes': 4,
+    \ 'on_insert_enter': v:true,
+    \ 'on_text_changed_i': v:true,
+    \ 'refresh_always': v:true,
+    \ 'skip_chars': ['(',')'],
+\ }
+call deoplete#custom#option(s:deoplete_custom_option)
+'''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'Shougo/echodoc.vim'
+on_i = 1
+hook_source = '''
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'signature'
+'''
+
+[[plugins]]
+repo = 'rhysd/vim-grammarous'
+on_cmd = 'GrammarousCheck'
+
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
+depends = ['vimproc.vim']
+on_ft = ['typescript', 'typescript.jsx']
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+hook_source = '''
+let g:go_info_mode = ''
+let g:go_build_tags = 'integration'
+let g:go_fmt_command = 'goimports'
+let g:go_doc_keywordprg_enabled = 0
+let g:go_def_mapping_enabled = 0
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_build_tags = 'db integration'
+'''
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+build = 'yarn install'
+on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
+hook_source = '''
+nmap <Leader>p <Plug>(Prettier)
+let g:prettier#exec_cmd_async = 1
+let g:prettier#quickfix_enabled = 0
+let g:prettier#quickfix_auto_focus = 0
+'''
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_cmd = 'Denite'
+hook_add = '''
+" バッファー
+nnoremap <silent> ,ub :<C-u>Denite buffer<CR>
+" grep
+nnoremap <silent> ,ug :<C-u>DeniteProjectDir -auto_preview grep<CR>
+" プロジェクト以下のファイル
+nnoremap <silent> ,, :<C-u>DeniteProjectDir -buffer-name=files buffer file_rec<CR>
+" プロジェクト以下のファイル
+nnoremap <silent> ,uf :<C-u>DeniteBufferDir -buffer-name=files file_rec<CR>
+" レジスタ
+nnoremap <silent> ,ur :<C-u>Denite -buffer-name=register register<CR>
+" よく使うやつ
+nnoremap <silent> ,uu :<C-u>Denite buffer file_mru file_rec<CR>
+" 前の候補を開く
+nnoremap <silent> ,n :<C-u>Denite -resume -immediately -select=+1<CR>
+nnoremap <silent> ,p :<C-u>Denite -resume -immediately -select=-1<CR>
+'''
+
+hook_post_source = '''
+call denite#custom#var('file_rec', 'command',
+\ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+" Ag command on grep source
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts',
+    \ ['--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+" tabopen や vsplit のキーバインドを割り当て
+call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>')
+call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>')
+" denite/insert モードのときは、RightLeftで過去の履歴
+call denite#custom#map('insert', '<Right>', '<denite:assign_next_matched_text>')
+call denite#custom#map('insert', '<Left>', '<denite:assign_previous_matched_text>')
+call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>')
+call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>')
+call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>')
+call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>')
+
+call denite#custom#option('default', 'prompt', '>')
+'''
+
+
+[[plugins]]
+repo = '~/src/github.com/ka2n/vim-denite-go-import'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = ['denite.nvim']
+

@@ -1,0 +1,83 @@
+Xcursor.size: 18
+URxvt.inputMethod: fcitx
+URxvt.preeditType: OnTheSpot
+URxvt.scrollBar: false
+URxvt.depth: 32
+URxvt.transparent: false
+URxvt.fading: 10
+URxvt.loginShell: true
+URxvt.saveLines: 20000
+URxvt.internalBorder: 3
+URxvt.lineSpace: 0
+URxvt.letterSpace: 0
+URxvt.visualBell: false
+URxvt.pointerBlank: true
+URxvt.cursorBlink: true
+
+! railscasts.light
+URxvt.font: xft:Fira Code:regular:size=10:hinting=true:antialias=true,xft:Noto Sans Mono CJK JP Regular:size=10:hinting=true:antialias=true,Noto Color Emoji:minspace=False
+URxvt.boldFont: xft:Fira Code:bold:size=10:hinting=true:antialias=true,xft:Noto Sans Mono CJK JP Bold:size=10:hinting=true:antialias=true,Noto Color Emoji:minspace=False
+!*.foreground:   #e6e1dc
+!*.background:   #2b2b2b
+!*.cursorColor:  #e6e1dc
+!*.color0:       #2b2b2b
+!*.color8:       #5a647e
+!*.color1:       #da4939
+!*.color9:       #da4939
+!*.color2:       #a5c261
+!*.color10:      #a5c261
+!*.color3:       #ffc66d
+!*.color11:      #ffc66d
+!*.color4:       #6d9cbe
+!*.color12:      #6d9cbe
+!*.color5:       #b6b3eb
+!*.color13:      #b6b3eb
+!*.color6:       #519f50
+!*.color14:      #519f50
+!*.color7:       #e6e1dc
+!*.color15:      #f9f7f3
+
+! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
+*background: #1D1F21
+*foreground: #C5C8C6
+*color0: #282A2E
+*color8: #373B41
+*color1: #A54242
+*color9: #CC6666
+*color2: #8C9440
+*color10: #B5BD68
+*color3: #DE935F
+*color11: #F0C674
+*color4: #5F819D
+*color12: #81A2BE
+*color5: #85678F
+*color13: #B294BB
+*color6: #5E8D87
+*color14: #8ABEB7
+*color7: #707880
+*color15: #C5C8C6
+
+
+!! プレゼン用
+!! railscasts.light
+!URxvt.font: xft:Fira Code:regular:size=15:hinting=true:antialias=true,xft:Noto Sans Mono CJK JP Regular:size=20:hinting=true:antialias=true,Noto Color Emoji:minspace=False
+!URxvt.boldFont: xft:Fira Code:bold:size=15:hinting=true:antialias=true,xft:Noto Sans Mono CJK JP Bold:size=20:hinting=true:antialias=true,Noto Color Emoji:minspace=False
+!*.foreground:   #3a4055
+!*.background:   #f9f7f3
+!*.cursorColor:  #3a4055
+!*.color0:       #2b2b2b
+!*.color8:       #5a647e
+!*.color1:       #da4939
+!*.color9:       #da4939
+!*.color2:       #a5c261
+!*.color10:      #a5c261
+!*.color3:       #ffc66d
+!*.color11:      #ffc66d
+!*.color4:       #6d9cbe
+!*.color12:      #6d9cbe
+!*.color5:       #b6b3eb
+!*.color13:      #b6b3eb
+!*.color6:       #519f50
+!*.color14:      #519f50
+!*.color7:       #e6e1dc
+!*.color15:      #f9f7f3
