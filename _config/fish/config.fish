@@ -158,4 +158,4 @@ function gh
   hub $argv
 end
 
-source $HOME/.config/fish/local.fish
+source $HOME/.local/share/fish/local.fish
