@@ -1,5 +1,6 @@
 [Unit]
 Description=xremap
+PartOf=graphical-session.target
 
 [Service]
 KillMode=process
@@ -9,3 +10,6 @@ StandardError=journal
 Type=simple
 Restart=always
 Environment=DISPLAY=:0
+
+[Install]
+WantedBy=xsession.target

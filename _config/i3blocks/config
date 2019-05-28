@@ -30,11 +30,11 @@ command=~/.config/i3blocks/scripts/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-# toggl
-[toggl]
-label=Toggl:
-interval=30
-signal=1
+## toggl
+#[toggl]
+#label=Toggl:
+#interval=30
+#signal=1
 
 # Volume indicator
 #

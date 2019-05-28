@@ -87,20 +87,20 @@ nnoremap <silent> ,ub :<C-u>Denite buffer<CR>
 " grep
 nnoremap <silent> ,ug :<C-u>DeniteProjectDir -auto_preview grep<CR>
 " プロジェクト以下のファイル
-nnoremap <silent> ,, :<C-u>DeniteProjectDir -buffer-name=files buffer file_rec<CR>
+nnoremap <silent> ,, :<C-u>DeniteProjectDir -buffer-name=files buffer file/rec<CR>
 " プロジェクト以下のファイル
-nnoremap <silent> ,uf :<C-u>DeniteBufferDir -buffer-name=files file_rec<CR>
+nnoremap <silent> ,uf :<C-u>DeniteBufferDir -buffer-name=files file/rec<CR>
 " レジスタ
 nnoremap <silent> ,ur :<C-u>Denite -buffer-name=register register<CR>
 " よく使うやつ
-nnoremap <silent> ,uu :<C-u>Denite buffer file_mru file_rec<CR>
+nnoremap <silent> ,uu :<C-u>Denite buffer file_mru file/rec<CR>
 " 前の候補を開く
 nnoremap <silent> ,n :<C-u>Denite -resume -immediately -select=+1<CR>
 nnoremap <silent> ,p :<C-u>Denite -resume -immediately -select=-1<CR>
 '''
 
 hook_post_source = '''
-call denite#custom#var('file_rec', 'command',
+call denite#custom#var('file/rec', 'command',
 \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 " Ag command on grep source
 call denite#custom#var('grep', 'command', ['ag'])

@@ -23,7 +23,7 @@
     name = Katsuma Ito
     username = ka2n
     email = katsumai@gmail.com
-    signingkey = F0E2268B
+    signingkey = 51D0ED71
 
 [hub]
     protocol = https
@@ -42,6 +42,7 @@
 
 [alias]
     co = checkout
+    sw = switch
     st = status
     up = pull --rebase
     psuh = push

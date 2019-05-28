@@ -1,6 +1,4 @@
-# LANG
-set -gx LANG en_US.UTF-8
-set -gx LC_TYPE en_US.UTF-8
+set fish_greeting
 
 # EDITOR
 set -gx EDITOR vim
@@ -23,6 +21,7 @@ set -gx GIT_EDITOR vim
 
 set -gx GOENV_ROOT $HOME/.goenv
 set -gx PATH $GOENV_ROOT/bin $PATH 
+set -gx GOPATH $HOME
 if type -q goenv
     status --is-interactive; and source (goenv init -|psub)
     #set -gx PATH $GOROOT/bin $PATH
@@ -41,6 +40,8 @@ switch (uname)
   case Darwin
       bass source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
       set -x MANPATH /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/help/man /usr/local/share/man /usr/share/man /opt/x11/share/man
+  case Linux
+      source '/opt/google-cloud-sdk/path.fish.inc'
 end
 
 function peco_z

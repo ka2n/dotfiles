@@ -98,13 +98,17 @@ assign [class="^eu.tiliado.NuvolaApp"] 7
 
 for_window [class="Google-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable # Authy
 for_window [class="Zeal"] floating enable # Docs viewer
+for_window [class="GoldenDict"] floating enable # Docs viewer
+for_window [class="Google-chrome-beta" title="🔒 Tab Cache - Workona - Google Chrome"] floating enable, resize set 100 100, move scratchpad
+for_window [class="Google-chrome-beta" title="hidden tab - Google Chrome"] floating enable, resize set 100 100, move scratchpad
 
 #bindsym $mod+shift+n exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh '/opt/notion/electron' 'notion' 'Notion'
 bindsym $mod+shift+t exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh 'rememberthemilk' '/opt/Remember\ The\ Milk/rememberthemilk' 'Remember The Milk'
 bindsym $mod+shift+n exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh 'standardnotes/standard-notes' 'gtk-launch appimagekit-standard-notes.desktop' 'Standard Notes'
-bindsym $mod+shift+i exec --no-startup-id slack --disable-gpu && i3-msg "[class=Slack] focus"
-bindsym $mod+shift+m exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh neomutt 'urxvtc -name neomutt --foreground black --background white -e neomutt' URxvt neomutt
-bindsym $mod+shift+c exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh clay 'urxvtc -name clay -e ~/.local/bin/clay' URxvt clay
+#bindsym $mod+shift+i exec --no-startup-id slack --disable-gpu && i3-msg "[class=Slack] focus"
+bindsym $mod+shift+i exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh 'ripcord' 'gtk-launch Ripcord.desktop' 'Ripcord'
+#bindsym $mod+shift+m exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh neomutt 'urxvtc -name neomutt --foreground black --background white -e neomutt' URxvt neomutt
+#bindsym $mod+shift+c exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh clay 'urxvtc -name clay -e ~/.local/bin/clay' URxvt clay
 #bindsym $mod+shift+w exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh vivaldi-bin vivaldi-stable Vivaldi-stable
 bindsym $mod+shift+w exec --no-startup-id google-chrome-beta
 bindsym $mod+shift+o exec --no-startup-id editaro
