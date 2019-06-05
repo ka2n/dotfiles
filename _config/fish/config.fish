@@ -5,9 +5,6 @@ set -gx LC_TYPE en_US.UTF-8
 # EDITOR
 set -gx EDITOR vim
 
-# Oh My Fish
-set -gx OMF_PATH "$HOME/.local/share/omf"
-
 set -g fish_escape_delay_ms 600
 
 # Package manager
@@ -45,9 +42,6 @@ switch (uname)
       bass source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
       set -x MANPATH /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/help/man /usr/local/share/man /usr/share/man /opt/x11/share/man
 end
-
-# Load Oh My Fish configuration.
-source $OMF_PATH/init.fish
 
 function peco_z
   set -l query (commandline)

@@ -1,3 +1,10 @@
-edc/bass
-fisherman/getopts
-fisherman/z
+jorgebucaran/fish-nvm
+oh-my-fish/theme-default
+oh-my-fish/theme-eclm
+oh-my-fish/plugin-z
+oh-my-fish/plugin-rbenv
+oh-my-fish/plugin-peco
+oh-my-fish/plugin-direnv
+oh-my-fish/plugin-bundler
+oh-my-fish/plugin-tmux
+0rax/fish-bd
