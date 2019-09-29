@@ -15,13 +15,13 @@
  XF86AudioMute
 
 # Brightness
-"xbacklight -inc 5"
+"light -A 5"
  XF86MonBrightnessUp
-"xbacklight -dec 5"
+"light -U 5"
  XF86MonBrightnessDown
-"xbacklight -inc 1"
+"light -A 1"
  Shift+XF86MonBrightnessUp
-"xbacklight -dec 1"
+"light -U 1"
  Shift+XF86MonBrightnessDown
 
 # Display
