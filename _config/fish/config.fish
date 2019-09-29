@@ -135,6 +135,7 @@ end
 alias ls="lsd"
 alias ll="lsd -lh"
 alias la="lsd -la"
+alias cat="nyan"
 #    command toggl start -P (toggl projects | peco --query (rtm-now | peco | sed 's/ : /\t/g' | cut  -f2) | cut -d' ' ) $argv
 
 #function todoist
