@@ -14,5 +14,5 @@ xinput --set-prop 'pointer:Synaptics TM3289-002' "Coordinate Transformation Matr
 xinput --set-prop 'pointer:Synaptics TM3289-002' "libinput Accel Speed" -.1
 
 # MX Ergo
-xinput --set-prop "pointer:MX Ergo Mouse" 'libinput Accel Speed' 0
-xinput --set-prop "pointer:MX Ergo Mouse" 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1
+xinput --set-prop "pointer:MX Ergo Mouse" 'libinput Accel Speed' -.3
+xinput --set-prop "pointer:MX Ergo Mouse" 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 .6
