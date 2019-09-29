@@ -1,6 +1,6 @@
 #!/bin/env ruby
 
-NAME = { LVDS: 'eDP1', DP1: 'DP1', DP2: 'DP2', DP: 'DP1', HDMI: 'HDMI1' }
+NAME = { LVDS: 'eDP-1', DP1: 'DP-1', DP2: 'DP-2', DP: 'DP-1', HDMI: 'HDMI-1' }
 ON = { LVDS: false, DP1: false, DP2: false, HDMI: false }
 CONN = { LVDS: false, DP: false, HDMI: false }
 
