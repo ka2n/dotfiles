@@ -16,15 +16,48 @@
   },
   "Import react": {
     "prefix": "ireact",
-    "body": "import * as React from 'react'\n\n"
+    "body": "import React from 'react'\n\n"
   },
   "Import moment": {
     "prefix": "imoment",
-    "body": "import * as moment from 'moment'\n\n"
+    "body": "import moment from 'moment'\n\n"
   },
   "Import classnames": {
     "prefix": "icn",
-    "body": "import * as cn from 'classnames'\n\n"
+    "body": "import cn from 'classnames'\n\n"
+  },
+  "Component": {
+    "prefix": "scomponent",
+    "body": [
+      "import React from \"react\";",
+      "",
+      "export type I${1:$TM_FILENAME_BASE}Props = {",
+      "  presenter?: I$1Presenter;",
+      "$2",
+      "};",
+      "",
+      "export type I$1 = React.FC<I$1Props>;",
+      "",
+      "export const $1: I$1 = ({",
+      "  presenter: Presenter = $1Presenter,",
+      "  ...props",
+      "}) => {",
+      "$0",
+      "  return <Presenter />;",
+      "};",
+      "",
+      "export type I$1PresenterProp = {",
+      "$3",
+      "};",
+      "",
+      "export type I$1Presenter = React.FC<I$1PresenterProp>;",
+      "",
+      "export const $1Presenter: I$1Presenter = props => (",
+      "<>",
+      "$4",
+      "</>",
+      ")"
+    ]
   }
   //  "React component": {
   //    "prefix": "component",
