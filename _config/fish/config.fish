@@ -132,6 +132,9 @@ function tn --wraps toggl-rtm --description 'alias tn toggl-rtm'
     toggl-rtm  $argv;
 end
 
+alias ls="lsd"
+alias ll="lsd -lh"
+alias la="lsd -la"
 #    command toggl start -P (toggl projects | peco --query (rtm-now | peco | sed 's/ : /\t/g' | cut  -f2) | cut -d' ' ) $argv
 
 #function todoist
