@@ -82,61 +82,72 @@ function fish_user_key_bindings
   #bind \etd peco_todoist_delete
 end
 
-function bitly
-  command bitly -l $BITLY_LOGIN -k $BITLY_APIKEY $argv
-end
-
-function bitlyit
-  command bitly -l $BITLY_LOGIN -k $BITLY_APIKEY $argv | xclip -i -sel clipboard > /dev/null
-end
-
-function peco
-  command peco --layout=top-down $argv
-end
-
-function toggl
-    command toggl $argv
-    pkill -SIGRTMIN+1 i3blocks
-end
-
-function toggl-start
-    toggl start -P (command toggl projects -show-client | peco | sed 's/  /\t/g' | cut -f2) $argv; pkill -SIGRTMIN+1 i3blocks
-end
-
-function ts
-    set -l query $argv
-
-    if test -n $query
-      set peco_flags --query "$query"
+if type -q bitly
+    function bitly
+      command bitly -l $BITLY_LOGIN -k $BITLY_APIKEY $argv
     end
 
-    set -l task (rtm export --format tab 'status:incomplete AND list:actions AND isLocated:false AND (NOT tag:waiting) AND (startBefore:now+8hours OR start:never)' | tail -n+2 | cut -f6 | peco $peco_flags | sed 's/ : /\t/g')
-    if not test -n "$task"
-        echo "empty task"
-        return
+    function bitlyit
+      command bitly -l $BITLY_LOGIN -k $BITLY_APIKEY $argv | xclip -i -sel clipboard > /dev/null
     end
-    set -l task_proj (echo $task | cut -f1)
-    set -l task_name (echo $task | cut -f2-)
-
-    set -l task_proj (if [ "$task_proj" = "$task_name" ]; echo "daily"; else; echo $task_proj; end)
-
-    set -l toggl_proj (command toggl projects -show-client | peco --query $task_proj | sed 's/  /\t/g' | cut -f2)
-    if not test -n "$toggl_proj"
-        echo "empty project"
-        return
-    end
-
-    toggl start -P $toggl_proj $task_name
 end
 
-function tn --wraps toggl-rtm --description 'alias tn toggl-rtm'
-    toggl-rtm  $argv;
+if type -q peco
+    function peco
+      command peco --layout=top-down $argv
+    end
 end
 
-alias ls="lsd"
-alias ll="lsd -lh"
-alias la="lsd -la"
-alias cat="nyan"
+if type -q toggl
+    function toggl
+        command toggl $argv
+        pkill -SIGRTMIN+1 i3blocks
+    end
+
+    function toggl-start
+        toggl start -P (command toggl projects -show-client | peco | sed 's/  /\t/g' | cut -f2) $argv; pkill -SIGRTMIN+1 i3blocks
+    end
+    
+    function ts
+        set -l query $argv
+    
+        if test -n $query
+          set peco_flags --query "$query"
+        end
+    
+        set -l task (rtm export --format tab 'status:incomplete AND list:actions AND isLocated:false AND (NOT tag:waiting) AND (startBefore:now+8hours OR start:never)' | tail -n+2 | cut -f6 | peco $peco_flags | sed 's/ : /\t/g')
+        if not test -n "$task"
+            echo "empty task"
+            return
+        end
+        set -l task_proj (echo $task | cut -f1)
+        set -l task_name (echo $task | cut -f2-)
+    
+        set -l task_proj (if [ "$task_proj" = "$task_name" ]; echo "daily"; else; echo $task_proj; end)
+    
+        set -l toggl_proj (command toggl projects -show-client | peco --query $task_proj | sed 's/  /\t/g' | cut -f2)
+        if not test -n "$toggl_proj"
+            echo "empty project"
+            return
+        end
+    
+        toggl start -P $toggl_proj $task_name
+    end
+    
+    function tn --wraps toggl-rtm --description 'alias tn toggl-rtm'
+        toggl-rtm  $argv;
+    end
+end
+
+if type -q lsd
+    alias ls="lsd"
+    alias ll="lsd -lh"
+    alias la="lsd -la"
+end
+
+if type -q lsd
+    alias cat="nyan"
+end
 #    command toggl start -P (toggl projects | peco --query (rtm-now | peco | sed 's/ : /\t/g' | cut  -f2) | cut -d' ' ) $argv
 
 #function todoist
