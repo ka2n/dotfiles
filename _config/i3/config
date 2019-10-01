@@ -101,6 +101,7 @@ for_window [class="Zeal"] floating enable # Docs viewer
 for_window [class="GoldenDict"] floating enable # Docs viewer
 for_window [class="Google-chrome-beta" title="🔒 Tab Cache - Workona - Google Chrome"] floating enable, resize set 100 100, move scratchpad
 for_window [class="Google-chrome-beta" title="hidden tab - Google Chrome"] floating enable, resize set 100 100, move scratchpad
+for_window [class="Google-chrome-beta" title="hidden tabs - Google Chrome"] floating enable, resize set 100 100, move scratchpad
 
 #bindsym $mod+shift+n exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh '/opt/notion/electron' 'notion' 'Notion'
 bindsym $mod+shift+t exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh 'rememberthemilk' '/opt/Remember\ The\ Milk/rememberthemilk' 'Remember The Milk'
