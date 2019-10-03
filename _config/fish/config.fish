@@ -166,8 +166,12 @@ end
 #  exec-in-tab exec-and-close-tab term-color command mosh $argv
 #end
 
-function gh
-  hub $argv
+if type -q hub
+    alias gh="hub"
+end
+
+if type -q git-switch-trainer
+    alias git="git-switch-trainer"
 end
 
 source $HOME/.local/share/fish/local.fish

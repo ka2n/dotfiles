@@ -49,7 +49,7 @@
     puhs = push
     comimt = commit
     suu  = submodule update
-    suc  = submodule foreach git checkout . .
+    suc  = submodule foreach git switch . .
     delete-merged = !git branch --merged | grep -v -e '*' -e 'master' | xargs -I % git branch -d %
     branches = branch -a
     tags = tag
