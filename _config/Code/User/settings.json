@@ -19,6 +19,15 @@
   "editor.fontFamily": "'Fira Code', 'monospace', monospace",
   "editor.fontSize": 14,
   "editor.fontLigatures": true,
+  "editor.quickSuggestionsDelay": 200,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+  "editor.snippetSuggestions": "top",
+  "editor.tabCompletion": "off",
+  "vim.disableExtension": false,
   "extensions.autoUpdate": false,
   "[ruby]": {
     "editor.tabSize": 2,
@@ -43,25 +52,25 @@
     "*.gs": "javascript",
     "*.mdx": "mdx"
   },
-  "go.gopath": "~/",
-  "go.autocompleteUnimportedPackages": true,
-  "go.alternateTools": { "go-langserver": "bingo" },
-  "go.languageServerFlags": ["-use-global-cache"],
-  "go.useLanguageServer": true,
-  "go.languageServerExperimentalFeatures": {
-    "format": true,
-    "autoComplete": true
-  },
+  // "go.gopath": "~/",
+  // "go.autocompleteUnimportedPackages": true,
+  // "go.alternateTools": { "go-langserver": "bingo" },
+  // "go.languageServerFlags": ["-use-global-cache"],
+  // "go.useLanguageServer": true,
+  // "go.languageServerExperimentalFeatures": {
+  //   "format": true,
+  //   "autoComplete": true
+  // },
   "editor.multiCursorModifier": "alt",
   "workbench.sideBar.location": "left",
-  "shellcheck.run": "onSave",
+  // "shellcheck.run": "onSave",
   "breadcrumbs.enabled": true,
-  "go.formatTool": "goimports",
-  "go.lintTool": "golint",
-  "go.gotoSymbol.includeGoroot": true,
-  "go.gotoSymbol.includeImports": true,
-  "go.useCodeSnippetsOnFunctionSuggest": true,
-  "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
+  // "go.formatTool": "goimports",
+  // "go.lintTool": "golint",
+  // "go.gotoSymbol.includeGoroot": true,
+  // "go.gotoSymbol.includeImports": true,
+  // "go.useCodeSnippetsOnFunctionSuggest": true,
+  // "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -89,9 +98,6 @@
   "editor.suggestSelection": "first",
   "typescript.referencesCodeLens.enabled": true,
   "window.menuBarVisibility": "toggle",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "peacock.favoriteColors": [
     {
       "name": "Angular Red",

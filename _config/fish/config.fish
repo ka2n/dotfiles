@@ -23,10 +23,12 @@ set -gx GOENV_ROOT $HOME/.goenv
 set -gx PATH $GOENV_ROOT/bin $PATH 
 set -gx GOPATH $HOME
 if type -q goenv
-    status --is-interactive; and source (goenv init -|psub)
+    eval (goenv init - | source)
     #set -gx PATH $GOROOT/bin $PATH
     #set -gx PATH $GOPATH/bin $PATH
 end
+
+set -gx PATH $HOME/go/bin $PATH 
 
 # Lolcommits
 set -gx LOLCOMMITS_FONT "/Library/Fonts/ヒラギノ角ゴ Std W8.otf"
