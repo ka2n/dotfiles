@@ -21,11 +21,10 @@ set -gx GIT_EDITOR vim
 
 set -gx GOENV_ROOT $HOME/.goenv
 set -gx PATH $GOENV_ROOT/bin $PATH 
-set -gx GOPATH $HOME
 if type -q goenv
-    eval (goenv init - | source)
-    #set -gx PATH $GOROOT/bin $PATH
-    #set -gx PATH $GOPATH/bin $PATH
+    status --is-interactive; and source (goenv init -|psub)
+    set -gx PATH $GOROOT/bin $PATH
+    set -gx PATH $GOPATH/bin $PATH
 end
 
 set -gx PATH $HOME/go/bin $PATH 
