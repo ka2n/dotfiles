@@ -12,6 +12,5 @@ oh-my-fish/plugin-direnv
 oh-my-fish/plugin-peco
 oh-my-fish/plugin-rbenv
 oh-my-fish/plugin-tmux
-oh-my-fish/plugin-z
 oh-my-fish/theme-default
 oh-my-fish/theme-eclm
