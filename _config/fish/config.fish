@@ -28,6 +28,9 @@ set -gx LOLCOMMITS_DELAY 1
 set -gx LOLCOMMITS_STEALTH 1
 set -gx LOLCOMMITS_DEVICE "/dev/video0"
 
+# fzf
+set -U FZF_FIND_FILE_COMMAND "fd --type f . \$dir"
+
 # gcloud
 switch (uname)
   case Darwin
