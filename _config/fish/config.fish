@@ -19,14 +19,6 @@ set -gx GIT_EDITOR vim
 #    status --is-interactive; and source (phpenv init -|psub)
 #end
 
-set -gx GOENV_ROOT $HOME/.goenv
-set -gx PATH $GOENV_ROOT/bin $PATH 
-if type -q goenv
-    status --is-interactive; and source (goenv init -|psub)
-    set -gx PATH $GOROOT/bin $PATH
-    set -gx PATH $GOPATH/bin $PATH
-end
-
 set -gx PATH $HOME/go/bin $PATH 
 
 # Lolcommits
