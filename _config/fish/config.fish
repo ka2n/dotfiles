@@ -30,6 +30,7 @@ set -gx LOLCOMMITS_DEVICE "/dev/video0"
 
 # fzf
 set -U FZF_FIND_FILE_COMMAND "fd --type f . \$dir"
+set -U FZF_CD_COMMAND "fd --type d . \$dir"
 
 # gcloud
 switch (uname)
