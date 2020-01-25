@@ -42,27 +42,16 @@ set conceallevel=2 concealcursor=niv
 '''
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-build = 'bash install.sh'
-rev = 'next'
-depends = ['neosnippet']
-hook_add = '''
-let g:LanguageClient_serverCommands = {
-\ 'go': ['gopls'],
-\ 'php': ['php-language-server'],
-\ }
-let g:LanguageClient_hasSnippetSupport = 1
+repo = 'prabirshrestha/async.vim'
 
-" 補完
-nnoremap <F5> :<C-u>Denite contextMenu<CR>
-nnoremap <F3> :<C-u>Denite -auto-preview references<CR>
-nnoremap <silent> ,df :<C-u>Denite -auto-preview documentSymbol<CR>
-nnoremap <silent> ,dd :<C-u>Denite -auto-preview workspaceSymbol<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <C-]> :call LanguageClient#textDocument_definition()<CR>
-nnoremap <C-w><C-]> :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-'''
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+depends = ['vim-lsp']
+merged = 0
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+depends = ['async.vim']
 
 [[plugins]]
 repo = 'kana/vim-operator-user'

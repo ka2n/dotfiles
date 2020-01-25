@@ -38,10 +38,15 @@ let g:echodoc#type = 'signature'
 repo = 'rhysd/vim-grammarous'
 on_cmd = 'GrammarousCheck'
 
+
+#[[plugins]]
+#repo = 'Quramy/tsuquyomi'
+#depends = ['vimproc.vim']
+#on_ft = ['typescript', 'typescript.jsx']
+
 [[plugins]]
-repo = 'Quramy/tsuquyomi'
-depends = ['vimproc.vim']
-on_ft = ['typescript', 'typescript.jsx']
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript', 'typescript.jsx', 'typescriptreact']
 
 [[plugins]]
 repo = 'fatih/vim-go'
