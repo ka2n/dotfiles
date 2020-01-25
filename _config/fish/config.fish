@@ -145,6 +145,11 @@ end
 if type -q lsd
     alias cat="nyan"
 end
+
+if type -q ag
+    alias ag='ag --hidden'
+end
+
 #    command toggl start -P (toggl projects | peco --query (rtm-now | peco | sed 's/ : /\t/g' | cut  -f2) | cut -d' ' ) $argv
 
 #function todoist
