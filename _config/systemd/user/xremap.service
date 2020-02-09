@@ -5,11 +5,11 @@ PartOf=graphical-session.target
 [Service]
 KillMode=process
 ExecStart=/usr/bin/xremap %h/.xremap
+ExecStop=/usr/bin/killall xremap
+Restart=always
+RestartSec=5s
 StandardOutput=null
 StandardError=journal
-Type=simple
-Restart=always
-Environment=DISPLAY=:0
 
 [Install]
-WantedBy=xsession.target
+WantedBy=default.target
