@@ -1,0 +1,27 @@
+# You will have to uncomment one of the following lines for CRD to work
+# Remove the # and select ctrl-X to finish.
+# 
+export $(dbus-launch)
+# exec i3-with-shmlog
+sysresources=/etc/X11/xinit/.Xresources
+userresources=$HOME/.Xresources
+
+[ -f /etc/xprofile ] && source /etc/xprofile
+[ -f ~/.xprofile ] && source ~/.xprofile
+
+if [ -f $sysresources ]; then
+    xrdb -merge $sysresources
+fi
+
+if [ -f "$userresources" ]; then
+    xrdb -merge "$userresources"
+fi
+
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+ for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  [ -x "$f" ] && . "$f"
+ done
+ unset f
+fi
+
+exec i3
