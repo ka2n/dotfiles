@@ -43,6 +43,7 @@ exec --no-startup-id xss-lock -- betterlockscreen -l dim
 # See /etc/xdg/autostart; ~/.config/autostart
 exec --no-startup-id ~/bin/xautostart
 
+exec --no-startup-id systemctl --user start xremap
 # clipboard
 #exec --no-startup-id clipster -d
 
