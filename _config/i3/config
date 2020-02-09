@@ -33,7 +33,7 @@ exec --no-startup-id wmname LG3D
 exec --no-startup-id thunar --daemon
 
 # shell
-exec --no-startup-id urxvtd -o -f
+exec --no-startup-id urxvtd -q -o -f
 
 # Backround and locker
 exec --no-startup-id betterlockscreen -w
