@@ -59,6 +59,10 @@ bindsym $mod+Tab workspace back_and_forth
 # 新しく開いたブラウザタブ等に強制的にフォーカス
 focus_on_window_activation focus
 
+for_window [class=".*"] border pixel 0, gaps inner all set 5
+smart_borders on
+smart_gaps on
+
 # Clipboard
 #bindsym $mod+c exec clipster -sp
 
