@@ -41,7 +41,7 @@ exec --no-startup-id xss-lock -- betterlockscreen -l dim
 
 # Daemons
 # See /etc/xdg/autostart; ~/.config/autostart
-exec --no-startup-id dex -a
+exec --no-startup-id ~/bin/xautostart
 
 # clipboard
 #exec --no-startup-id clipster -d
