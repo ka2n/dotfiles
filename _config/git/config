@@ -3,3 +3,5 @@
   path = config_linux
 [http]
 	cookiefile = /home/k2/.gitcookies
+[hub]
+	protocol = https
