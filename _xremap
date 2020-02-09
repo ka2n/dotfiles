@@ -11,13 +11,16 @@ window class_only: 'standard notes' do
 end
 
 window class_only: [
+    'google-chrome',
     'google-chrome-beta',
     'google-chrome-unstable',
     'crx_ngboffpgmgciiinnflnkgedmbalfkeeg'
 ] do
     # Tab move
-    remap 'C-Shift-bracketright', to: 'Ctrl-Tab' # TODO: C-Alt-にしたいが動かない
-    remap 'C-Shift-bracketleft', to: 'Ctrl-Shift-Tab'
+    remap 'C-Shift-bracketright', to: 'Ctrl-Page_Down'
+    remap 'C-Shift-bracketleft', to: 'Ctrl-Page_Up'
+
+    # History move
     remap 'C-bracketright', to: 'Alt-Right'
     remap 'C-bracketleft', to: 'Alt-Left'
 
