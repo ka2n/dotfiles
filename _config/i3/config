@@ -72,8 +72,8 @@ focus_on_window_activation focus
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec urxvtc
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec urxvtc
+#bindsym $mod+Return exec termite
 #bindsym $mod+Return exec alacritty
 #bindsym $mod+Return exec xterm
 
@@ -101,10 +101,7 @@ assign [class="^eu.tiliado.NuvolaApp"] 7
 for_window [class="Google-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable # Authy
 for_window [class="Zeal"] floating enable # Docs viewer
 for_window [class="GoldenDict"] floating enable # Docs viewer
-#for_window [class="Google-chrome-beta" title="🔒 Tab Cache - Workona - Google Chrome"] floating enable, resize set 100 100, move scratchpad
-#for_window [class="Google-chrome-beta" title="hidden tab - Google Chrome"] floating enable, resize set 100 100, move scratchpad
-#for_window [class="Google-chrome-beta" title="hidden tabs - Google Chrome"] floating enable, resize set 100 100, move scratchpad
-for_window [class="Google-chrome-beta" title=".*hidden tab.*"] floating enable, move scratchpad
+for_window [class="Google-chrome.*" title=".*hidden tab.*"] floating enable, move scratchpad
 
 #bindsym $mod+shift+n exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh '/opt/notion/electron' 'notion' 'Notion'
 bindsym $mod+shift+t exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh 'rememberthemilk' '/opt/Remember\ The\ Milk/rememberthemilk' 'Remember The Milk'
