@@ -8,9 +8,6 @@ colorscheme iceberg
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'vim-jp/vimdoc-ja'
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 
 [[plugins]]
@@ -42,18 +39,6 @@ set conceallevel=2 concealcursor=niv
 '''
 
 [[plugins]]
-repo = 'prabirshrestha/async.vim'
-
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-depends = ['vim-lsp']
-merged = 0
-
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-depends = ['async.vim']
-
-[[plugins]]
 repo = 'kana/vim-operator-user'
 
 [[plugins]]
@@ -64,13 +49,3 @@ map <silent>sa <Plug>(operator-surround-append)
 map <silent>sd <Plug>(operator-surround-delete)
 map <silent>sr <Plug>(operator-surround-replace)
 '''
-
-#[[plugins]]
-#repo = 'kassio/neoterm'
-#hook_add = '''
-#let g:neoterm_autoinsert = 1
-#let g:neoterm_default_mod = 'belowright'
-#nnoremap <silent> <C-e><C-e> :TREPLSendLine<CR>
-#vnoremap <silent> <C-e><C-e> V:TREPLSendSelection<CR>
-#'''
-

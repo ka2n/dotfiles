@@ -38,7 +38,7 @@ set relativenumber
 
 
 " .vimrcを開く
-nnoremap <Space>.. :<C-u>tabedit $MYVIMRC<CR>
+nnoremap <Space>... :<C-u>tabedit $MYVIMRC<CR>
 
 " タブ移動
 nnoremap <space>t :<C-u>Texplore<CR>
@@ -52,41 +52,7 @@ vmap j gj
 vmap k gk
 
 " 裏バッファーへ
-nnoremap <silent><C-j> :b#<CR>
+nnoremap <silent><C-i> :b#<CR>
 
-
-"dein Scripts-----------------------------
-
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-" Required:
-set runtimepath+=/home/k2/.cache/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('/home/k2/.cache/dein')
-  call dein#begin('/home/k2/.cache/dein')
-
-  " Add or remove your plugins here like this:
-  call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
-  call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-
-nnoremap <Space>.dd :<C-u>tabedit ~/.config/nvim/dein.toml<CR>
-nnoremap <Space>.dl :<C-u>tabedit ~/.config/nvim/dein_lazy.toml<CR>
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts-------------------------
+runtime! userautoload/init/*.vim
+runtime! userautoload/plugins/*.vim

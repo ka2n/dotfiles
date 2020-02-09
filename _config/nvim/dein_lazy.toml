@@ -34,15 +34,10 @@ let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'signature'
 '''
 
-[[plugins]]
-repo = 'rhysd/vim-grammarous'
-on_cmd = 'GrammarousCheck'
-
-
 #[[plugins]]
-#repo = 'Quramy/tsuquyomi'
-#depends = ['vimproc.vim']
-#on_ft = ['typescript', 'typescript.jsx']
+#repo = 'rhysd/vim-grammarous'
+#on_cmd = 'GrammarousCheck'
+
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
@@ -166,15 +161,3 @@ on_source = ['denite.nvim']
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 on_source = ['denite.nvim']
-
-[[plugins]]
-repo = 'glidenote/memolist.vim'
-on_cmd = ['MemoNew', 'MemoList', 'MemoGrep']
-hook_source = '''
-let g:memolist_path = "~/Dropbox/memo"
-let g:memolist_memo_suffix = "md"
-let g:memolist_memo_date = "%Y-%m-%d"
-let g:memolist_denite = 1
-let g:memolist_denite_source = "file/rec"
-let g:memolist_denite_option = "-auto-action=preview -split=floating"
-'''
