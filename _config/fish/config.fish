@@ -147,8 +147,12 @@ if type -q lsd
     alias la="lsd -la"
 end
 
-if type -q lsd
-    alias cat="nyan"
+if type -q bat
+    alias cat="bat"
+end
+
+if type -q colordiff
+    alias diff="colordiff"
 end
 
 if type -q ag
