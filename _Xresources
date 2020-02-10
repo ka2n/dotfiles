@@ -81,3 +81,8 @@ URxvt.boldFont: xft:Fira Code:bold:size=10:hinting=true:antialias=true,xft:Noto 
 !*.color14:      #519f50
 !*.color7:       #e6e1dc
 !*.color15:      #f9f7f3
+
+
+xscreensaver.programs: "ATV4-4k" atv4-4k
+xscreensaver.fade: False
+xscreensaver.unfade: False

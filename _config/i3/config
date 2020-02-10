@@ -28,22 +28,27 @@ client.background       #ffffff
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:Dejaju Sans Mono 8
 
-exec --no-startup-id ~/bin/setup-mouse.sh
+exec --no-startup-id ~/bin/xsetup-keyboardmouse.sh
 exec --no-startup-id wmname LG3D
 exec --no-startup-id thunar --daemon
 
 # shell
-exec --no-startup-id urxvtd -q -o -f
+#exec --no-startup-id urxvtd -q -o -f
 
 # Backround and locker
 exec --no-startup-id betterlockscreen -w
 exec --no-startup-id xss-lock -- betterlockscreen -l dim
+exec --no-startup-id xscreensaver-daemon
 
 # Daemons
 # See /etc/xdg/autostart; ~/.config/autostart
 exec --no-startup-id ~/bin/xautostart
 
 exec --no-startup-id systemctl --user start xremap
+
+exec --no-startup-id picom -b
+exec --no-startup-id deadd-notification-center
+
 # clipboard
 #exec --no-startup-id clipster -d
 
@@ -59,9 +64,9 @@ bindsym $mod+Tab workspace back_and_forth
 # 新しく開いたブラウザタブ等に強制的にフォーカス
 focus_on_window_activation focus
 
-for_window [class=".*"] border pixel 0, gaps inner all set 5
-smart_borders on
-smart_gaps on
+for_window [class=".*"] border pixel 1, gaps inner all set 6
+#smart_borders on
+#smart_gaps on
 
 # Clipboard
 #bindsym $mod+c exec clipster -sp
@@ -77,7 +82,7 @@ smart_gaps on
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec urxvt
 #bindsym $mod+Return exec termite
 #bindsym $mod+Return exec alacritty
 #bindsym $mod+Return exec xterm
@@ -210,9 +215,13 @@ bindsym $mod+Shift+r restart
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 set $Locker betterlockscreen -l dim && sleep 1
-set $mode_system (e)xit, (Shift+r)eboot, (Shift+p)oweroff, (s)uspend, (h) hibernate, (l)ock
+set $ScreenSaver xscreensaver-command -activate
+set $DisplayOff xset dpms force standby
+set $mode_system (space)screensaver, (d)isplay off, (e)xit, (Shift+r)eboot, (Shift+p)oweroff, (s)uspend, (h)hibernate, (l)ock
 mode "$mode_system" {
         bindsym Shift+r exec --no-startup-id systemctl reboot, mode "default"
+        bindsym d exec --no-startup-id $DisplayOff, mode "default"
+        bindsym space exec --no-startup-id $ScreenSaver, mode "default"
         bindsym e exec --no-startup-id i3-msg exit, mode "default"
         bindsym s exec --no-startup-id systemctl suspend, mode "default"
         bindsym h exec --no-startup-id systemctl hibernate, mode "default"
