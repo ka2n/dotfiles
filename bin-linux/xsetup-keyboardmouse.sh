@@ -24,3 +24,7 @@ if [[ $inputDevices =~ "MX Ergo Mouse" ]]; then
   xinput --set-prop "pointer:MX Ergo Mouse" 'libinput Accel Speed' -.3
   xinput --set-prop "pointer:MX Ergo Mouse" 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 .6
 fi
+
+if type imwheel &> /dev/null; then
+    imwheel -k
+fi
