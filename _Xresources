@@ -4,6 +4,7 @@ URxvt.preeditType: OnTheSpot
 URxvt.scrollBar: false
 URxvt.depth: 32
 URxvt.transparent: false
+URxvt.background: [90]#1D1F21
 URxvt.fading: 10
 URxvt.loginShell: true
 URxvt.saveLines: 20000
@@ -13,10 +14,18 @@ URxvt.letterSpace: 0
 URxvt.visualBell: false
 URxvt.pointerBlank: true
 URxvt.cursorBlink: true
+URxvt.perl-ext:
+URxvt.perl-ext-common:
 
 ! railscasts.light
-URxvt.font: xft:Fira Code:regular:size=10:hinting=true:antialias=true,xft:Noto Sans Mono CJK JP Regular:size=10:hinting=true:antialias=true,Noto Color Emoji:minspace=False
-URxvt.boldFont: xft:Fira Code:bold:size=10:hinting=true:antialias=true,xft:Noto Sans Mono CJK JP Bold:size=10:hinting=true:antialias=true,Noto Color Emoji:minspace=False
+URxvt.font: xft:Fira Code:regular:size=10:hinting=true:antialias=true,\
+            xft:Noto Sans Mono CJK JP Regular:size=10:hinting=true:antialias=true,\
+            xft:Noto Sans CJK JP:size=10:hinting=true:antialias=true,\
+            xft:Noto Color Emoji:minspace=False
+URxvt.boldFont: xft:Fira Code:bold:size=10:hinting=true:antialias=true,\
+                xft:Noto Sans Mono CJK JP Bold:size=10:hinting=true:antialias=true,\
+                xft:Noto Sans CJK JP:bold:size=10:hinting=true:antialias=true,
+                xft:Noto Color Emoji:minspace=False
 !*.foreground:   #e6e1dc
 !*.background:   #2b2b2b
 !*.cursorColor:  #e6e1dc
