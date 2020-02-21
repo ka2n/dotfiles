@@ -188,3 +188,7 @@ end
 if test -e $HOME/.local/share/fish/local.fish
     source $HOME/.local/share/fish/local.fish
 end
+
+if type -q direnv
+    direnv hook fish | .
+end
