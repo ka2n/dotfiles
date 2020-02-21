@@ -1,3 +1,3 @@
 #!/bin/sh
 
-rofi -modi combi,run -combi-modi window,drun -show
+rofi -modi combi,run -show-icons -combi-modi window,drun -show
