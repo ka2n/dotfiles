@@ -1,0 +1,7 @@
+#!/bin/env bash
+
+set -ex
+
+skkdic-expr2 ~/.skk-jisyo ~/.skk-uim-jisyo > /tmp/skk-merge
+cat /tmp/skk-merge > ~/.skk-jisyo
+cat /tmp/skk-merge > ~/.skk-uim-jisyo

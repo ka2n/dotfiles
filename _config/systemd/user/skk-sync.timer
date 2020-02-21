@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync SKK dictionary
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1hour
+
+[Install]
+WantedBy=timers.target

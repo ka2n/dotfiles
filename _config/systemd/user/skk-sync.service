@@ -1,0 +1,6 @@
+[Unit]
+Description="sync SKK dictionary"
+
+[Service]
+Type=simple
+ExecStart=%h/bin/skk-sync-dict
