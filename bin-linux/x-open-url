@@ -1,0 +1,63 @@
+#!/bin/env ruby
+# frozen_string_literal: true
+#
+#
+#
+# # Config file example(`$XDG_CONFIG_HOME/x-open-url.json`):
+# {
+#   "rules": [
+#     { "pattern": "^https://zoom.us/j/", "url_replace": ["https://zoom.us/j/(\\d+)", "zoommtg://zoom.us/join?confno=\\1"]  },
+#     { "pattern": "^http://localhost", "cmd": ["brave-beta", ["--profile-directory=Default", ":url:"]]  }
+#   ]
+# }
+#
+# # Setup as default browser
+# ```
+# xdg-mime default x-open-url.desktop x-scheme-handler/http
+# xdg-mime default x-open-url.desktop x-scheme-handler/https
+# ```
+#
+
+require 'json'
+
+config_path = File.expand_path("#{ENV['XDG_CONFIG_HOME'] || '~/.config'}/x-open-url.json")
+config = begin
+           raw = JSON.parse(
+             File.read(config_path)
+           )
+
+           raw['rules'] = raw['rules'].map do |rule|
+             rule['pattern'] = Regexp.compile(rule['pattern'])
+             rule['url_replace'] = [Regexp.compile(rule['url_replace'][0]), rule['url_replace'][1]] if rule['url_replace']
+             rule
+           end
+
+           raw
+         rescue StandardError => e
+           pp e
+           nil
+         end
+exec 'exo-open', *ARGV && return unless config
+
+patterns = config['rules'].each_with_object({}) do |item, result|
+  result[item['pattern']] = item
+end
+keys = Regexp.union(patterns.keys)
+
+ARGV.each do |url|
+  ret = if url =~ keys
+          _, l = patterns.detect { |k,| url.match(k) }
+          rurl = if (rule = l['url_replace'])
+                   url.gsub(rule[0], rule[1])
+                 end || url
+          cmd = l['cmd'] && l['cmd'][0] || 'exo-open'
+          args = (l['cmd'] && l['cmd'][1] || [':url:']).map { |a| a.gsub(/:url:/, rurl) }
+          { cmd: cmd, args: args }
+        end
+
+  if ret
+    exec ret[:cmd], *ret[:args]
+  else
+    exec 'exo-open', url
+  end
+end

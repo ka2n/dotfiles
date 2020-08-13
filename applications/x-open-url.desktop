@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=x-open-url %u
+MimeType=x-scheme-handler/http;x-scheme-handler/https
+StartupNotify=false
+Terminal=false
+Name=Web Browser Chooser
+Comment=Browse the web
