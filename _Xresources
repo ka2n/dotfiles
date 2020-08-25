@@ -1,6 +1,6 @@
 Xcursor.size: 18
-URxvt.inputMethod: fcitx
-URxvt.preeditType: OnTheSpot
+URxvt.inputMethod: ibus
+URxvt.preeditType: OverTheSpot
 URxvt.scrollBar: false
 URxvt.depth: 32
 URxvt.transparent: false
@@ -14,8 +14,7 @@ URxvt.letterSpace: 0
 URxvt.visualBell: false
 URxvt.pointerBlank: true
 URxvt.cursorBlink: true
-URxvt.perl-ext:
-URxvt.perl-ext-common:
+URxvt.perl-ext-common: default,matcher,clipboard-osc,xim-onthespot
 
 ! railscasts.light
 URxvt.font: xft:Fira Code:regular:size=10:hinting=true:antialias=true,\

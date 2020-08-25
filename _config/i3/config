@@ -39,7 +39,6 @@ exec --no-startup-id thunar --daemon
 exec --no-startup-id betterlockscreen -w
 exec --no-startup-id xss-lock -- betterlockscreen -l dim
 exec --no-startup-id xscreensaver-daemon
-exec --no-startup-id /usr/bin/uim-xim
 
 # Daemons
 # See /etc/xdg/autostart; ~/.config/autostart
