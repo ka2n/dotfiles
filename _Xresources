@@ -1,4 +1,4 @@
-Xcursor.size: 18
+Xcursor.size: 32
 URxvt.inputMethod: ibus
 URxvt.preeditType: OverTheSpot
 URxvt.scrollBar: false
@@ -132,3 +132,16 @@ URxvt.boldFont: xft:Fira Code:bold:size=10:hinting=true:antialias=true,\
 !xscreensaver.programs: "ATV4-4k" atv4-4k
 xscreensaver.fade: False
 xscreensaver.unfade: False
+
+!Xft.dpi: 96
+! 3072x1728
+Xft.dpi: 131
+!Xft.dpi: 163
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+*.dpi: 131
