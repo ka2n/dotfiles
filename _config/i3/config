@@ -125,7 +125,7 @@ bindsym $mod+shift+i exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-lin
 #bindsym $mod+shift+c exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh clay 'urxvtc -name clay -e ~/.local/bin/clay' URxvt clay
 #bindsym $mod+shift+w exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh vivaldi-bin vivaldi-stable Vivaldi-stable
 bindsym $mod+shift+w exec --no-startup-id google-chrome-beta
-bindsym $mod+shift+o exec --no-startup-id editaro
+bindsym $mod+shift+o exec --no-startup-id i3-focus-or-launch-wm.sh 'Brave-browser' 'crx_gmhpgfbjacdocjngbdbmhkgcpochhnge' 'gtk-launch brave-gmhpgfbjacdocjngbdbmhkgcpochhnge-Default.desktop'
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
