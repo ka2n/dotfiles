@@ -14,6 +14,8 @@ window class_only: [
     'google-chrome',
     'google-chrome-beta',
     'google-chrome-unstable',
+    'brave-browser',
+    'Brave-browser',
     'crx_ngboffpgmgciiinnflnkgedmbalfkeeg'
 ] do
     # Tab move
