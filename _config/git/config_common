@@ -29,6 +29,7 @@
     protocol = https
 
 [ghq]
+    root = ~/go/src
     root = ~/src
 
 [color]
