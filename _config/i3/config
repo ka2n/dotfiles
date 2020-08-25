@@ -120,7 +120,7 @@ for_window [instance="^copyq$" class="^copyq$"] border pixel 0, floating enable
 bindsym $mod+shift+t exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh 'rememberthemilk' '/opt/Remember\ The\ Milk/rememberthemilk' 'Remember The Milk'
 bindsym $mod+shift+n exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh 'standardnotes/standard-notes' 'gtk-launch appimagekit-standard-notes.desktop' 'Standard Notes'
 #bindsym $mod+shift+i exec --no-startup-id slack --disable-gpu && i3-msg "[class=Slack] focus"
-bindsym $mod+shift+i exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh 'ripcord' 'gtk-launch Ripcord.desktop' 'Ripcord'
+bindsym $mod+shift+i exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh 'slack' 'gtk-launch Slack.desktop' 'Slack'
 #bindsym $mod+shift+m exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh neomutt 'urxvtc -name neomutt --foreground black --background white -e neomutt' URxvt neomutt
 #bindsym $mod+shift+c exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh clay 'urxvtc -name clay -e ~/.local/bin/clay' URxvt clay
 #bindsym $mod+shift+w exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh vivaldi-bin vivaldi-stable Vivaldi-stable
