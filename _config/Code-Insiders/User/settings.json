@@ -1,0 +1,198 @@
+{
+  "workbench.startupEditor": "newUntitledFile",
+  "githubPullRequests.remotes": ["origin", "upstream"],
+  "vim.textwidth": 200,
+  "vim.foldfix": true,
+  "editor.folding": true,
+  "vim.useCtrlKeys": true,
+  "vim.enableNeovim": false,
+  "vim.statusBarColorControl": false,
+  "vim.handleKeys": {
+    "<C-d>": true
+  },
+  "vim.easymotion": false,
+  "vim.disableExtension": false,
+  "vim.surround": false,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    }
+  ],
+  // https://github.com/asvetliakov/vscode-neovim#important
+  "vscode-neovim.neovimPath": "/usr/bin/nvim",
+  "vscode-neovim.neovimInitPath": "~/.config/nvim/init-vscode.vim",
+  "editor.scrollBeyondLastLine": false,
+  "editor.renderWhitespace": "boundary",
+  "editor.minimap.enabled": false,
+  "window.zoomLevel": 0,
+  "extensions.ignoreRecommendations": false,
+  "editor.tabSize": 2,
+  "editor.fontFamily": "'Fira Code', 'monospace', monospace",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": true,
+  "editor.quickSuggestionsDelay": 200,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+  "editor.snippetSuggestions": "top",
+  "editor.tabCompletion": "off",
+  "extensions.autoUpdate": false,
+  "[ruby]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true
+  },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.autoIndent": "keep"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false,
+    "source.fixAll": true
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.tsserver.useSeparateSyntaxServer": "dynamic",
+  "files.associations": {
+    "*.gs": "javascript",
+    "*.mdx": "markdown",
+    "*.liquid": "liquid"
+  },
+  // "go.gopath": "~/",
+  // "go.autocompleteUnimportedPackages": true,
+  // "go.alternateTools": { "go-langserver": "bingo" },
+  // "go.languageServerFlags": ["-use-global-cache"],
+  // "go.useLanguageServer": true,
+  // "go.languageServerExperimentalFeatures": {
+  //   "format": true,
+  //   "autoComplete": true
+  // },
+  "editor.multiCursorModifier": "alt",
+  "workbench.sideBar.location": "left",
+  // "shellcheck.run": "onSave",
+  "breadcrumbs.enabled": true,
+  // "go.formatTool": "goimports",
+  // "go.lintTool": "golint",
+  // "go.gotoSymbol.includeGoroot": true,
+  // "go.gotoSymbol.includeImports": true,
+  // "go.useCodeSnippetsOnFunctionSuggest": true,
+  // "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
+  "typescript.format.enable": true,
+  "javascript.format.enable": true,
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.toggleSidebarVisibility",
+    "-workbench.action.quickOpen"
+  ],
+  "git.enabled": true,
+  "update.mode": "manual",
+  "editor.highlightActiveIndentGuide": false,
+  "editor.renderControlCharacters": true,
+  "editor.wordWrap": "on",
+  "emmet.triggerExpansionOnTab": true,
+  "glean.experiments": ["hooksForFunctionalComponents"],
+  "editor.minimap.maxColumn": 200,
+  "html.format.wrapLineLength": 200,
+  "editor.wordWrapColumn": 200,
+  "search.useGlobalIgnoreFiles": true,
+  "editor.suggestSelection": "first",
+  "typescript.referencesCodeLens.enabled": true,
+  "window.menuBarVisibility": "toggle",
+  "editor.formatOnSave": true,
+  "workbench.iconTheme": "vscode-icons",
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "workbench.settings.editor": "json",
+  "workbench.editor.limit.enabled": true,
+  "peacock.favoriteColors": [
+    {
+      "name": "Angular Red",
+      "value": "#b52e31"
+    },
+    {
+      "name": "Auth0 Orange",
+      "value": "#eb5424"
+    },
+    {
+      "name": "Azure Blue",
+      "value": "#007fff"
+    },
+    {
+      "name": "C# Purple",
+      "value": "#68217A"
+    },
+    {
+      "name": "Gatsby Purple",
+      "value": "#639"
+    },
+    {
+      "name": "Go Cyan",
+      "value": "#5dc9e2"
+    },
+    {
+      "name": "Java Blue-Gray",
+      "value": "#557c9b"
+    },
+    {
+      "name": "JavaScript Yellow",
+      "value": "#f9e64f"
+    },
+    {
+      "name": "Mandalorian Blue",
+      "value": "#1857a4"
+    },
+    {
+      "name": "Node Green",
+      "value": "#215732"
+    },
+    {
+      "name": "React Blue",
+      "value": "#00b3e6"
+    },
+    {
+      "name": "Something Different",
+      "value": "#832561"
+    },
+    {
+      "name": "Vue Green",
+      "value": "#42b883"
+    }
+  ],
+  "auto-rename-tag.activationOnLanguage": ["typescriptreact"],
+  "tsautoreturntype.inferArrowFunctionReturnType": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.renameOnType": true
+  },
+  "extensions.showRecommendationsOnlyOnDemand": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "color-highlight.markRuler": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.suggest.insertMode": "replace",
+    "editor.renameOnType": true
+  },
+  "python.jediEnabled": false,
+  "markdown-preview-enhanced.liveUpdate": true,
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.activityBar.visible": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

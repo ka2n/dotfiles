@@ -1,0 +1,88 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "ctrl+d",
+    "command": "-editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+;",
+    "command": "autoProgramming.complement",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+t p",
+    "command": "go.test.package"
+  },
+  {
+    "key": "ctrl+t ctrl+t",
+    "command": "go.test.previous"
+  },
+  {
+    "key": "ctrl+t t",
+    "command": "go.test.cursor"
+  },
+  {
+    "key": "ctrl+t f",
+    "command": "go.test.file"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "-workbench.action.tasks.build"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "-workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+x o",
+    "command": "editor.emmet.action.wrapWithAbbreviation"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "list.focusDown",
+    "when": "listFocus"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "list.focusUp",
+    "when": "listFocus"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "-workbench.action.terminal.focusFindWidget",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "search-in-current-file.searchInCurrentFile",
+    "when": "editorFocus && findInputFocussed"
+  },
+  {
+    "key": "ctrl+alt+o",
+    "command": "search-in-current-file.searchInCurrentFile",
+    "when": "editorFocus"
+  }
+]
