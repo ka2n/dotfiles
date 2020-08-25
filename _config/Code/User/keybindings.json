@@ -74,5 +74,15 @@
     "key": "ctrl+p",
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "search-in-current-file.searchInCurrentFile",
+    "when": "editorFocus && findInputFocussed"
+  },
+  {
+    "key": "ctrl+alt+o",
+    "command": "search-in-current-file.searchInCurrentFile",
+    "when": "editorFocus"
   }
 ]
