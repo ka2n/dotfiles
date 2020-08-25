@@ -5,3 +5,5 @@
 	cookiefile = /home/k2/.gitcookies
 [hub]
 	protocol = https
+[pull]
+	ff = only
