@@ -47,8 +47,8 @@ exec --no-startup-id ~/bin/xautostart
 exec --no-startup-id systemctl --user start xremap
 exec --no-startup-id systemctl --user start yaskkserv2
 
-exec --no-startup-id picom -b
-exec --no-startup-id deadd-notification-center
+#exec --no-startup-id picom -b
+#exec --no-startup-id deadd-notification-center
 
 # clipboard
 #exec --no-startup-id clipster -d

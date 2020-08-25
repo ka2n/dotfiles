@@ -7,3 +7,5 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export LC_CTYPE="ja_JP.UTF-8"
 
 xinput --set-prop "pointer:MX Ergo Mouse" 'libinput Accel Speed' 0; xinput --set-prop "pointer:MX Ergo Mouse" 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1
+# xcompmgr -c -l0 -t0 -r0 -o.00 &
+picom -b --experimental-backends --backend xrender
