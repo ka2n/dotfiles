@@ -33,7 +33,7 @@ exec --no-startup-id wmname LG3D
 exec --no-startup-id thunar --daemon
 
 # shell
-#exec --no-startup-id urxvtd -q -o -f
+exec --no-startup-id urxvtd -q -o -f
 
 # Backround and locker
 exec --no-startup-id betterlockscreen -w
@@ -82,7 +82,7 @@ for_window [class=".*"] border pixel 1, gaps inner all set 6
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvtc
 #bindsym $mod+Return exec termite
 #bindsym $mod+Return exec alacritty
 #bindsym $mod+Return exec xterm
