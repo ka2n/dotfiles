@@ -4,10 +4,15 @@ call plug#begin('~/.cache/vim-plug')
 " Help
 Plug 'vim-jp/vimdoc-ja'
 
+" Completion
+Plug 'Shougo/deoplete.nvim'
+
 " LSP support
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+
+Plug 'lighttiger2505/deoplete-vim-lsp'
 
 Plug 'glidenote/memolist.vim', { 'on': ['MemoNew', 'MemoGrep', 'MemoList'] }
 

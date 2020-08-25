@@ -1,3 +1,4 @@
+if !exists('g:vscode')
 set number
 set backup
 set backupdir=$HOME/.tmp/nvim_backup
@@ -55,3 +56,4 @@ nnoremap <silent><C-i> :b#<CR>
 
 runtime! userautoload/init/*.vim
 runtime! userautoload/plugins/*.vim
+end
