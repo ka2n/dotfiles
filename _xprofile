@@ -9,3 +9,5 @@ export LC_CTYPE="ja_JP.UTF-8"
 # xcompmgr -c -l0 -t0 -r0 -o.00 &
 picom -b --experimental-backends --backend xrender
 env GDK_SCALE=1 GDK_DPI_SCALE=1.25 ibus-daemon -drx
+xbindkeys
+
