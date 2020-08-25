@@ -1,5 +1,17 @@
 #!/bin/bash
 
+if [ "$DISPLAY" == "" ]; then
+    echo "no \$DISPLAY"
+    exit 0
+else
+    echo "current \$DISPLAY=${DISPLAY}"
+fi
+
+if [ "$DISPLAY" != ":0" ]; then
+    echo "skip setup for non main display"
+    exit 0
+fi
+
 # Key repeat
 xset r rate 200 99
 
@@ -21,8 +33,14 @@ fi
 
 # MX Ergo
 if [[ $inputDevices =~ "MX Ergo Mouse" ]]; then
-  xinput --set-prop "pointer:MX Ergo Mouse" 'libinput Accel Speed' -.3
-  xinput --set-prop "pointer:MX Ergo Mouse" 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 .6
+  xinput --set-prop "pointer:MX Ergo Mouse" 'libinput Accel Speed' 0
+  xinput --set-prop "pointer:MX Ergo Mouse" 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1
+fi
+
+# M570
+if [[ $inputDevices =~ "Logitech M570" ]]; then
+  xinput --set-prop "pointer:Logitech M570" 'libinput Accel Speed' -.3
+  xinput --set-prop "pointer:Logitech M570" 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1
 fi
 
 if type imwheel &> /dev/null; then
