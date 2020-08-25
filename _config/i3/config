@@ -94,27 +94,33 @@ bindsym $mod+Shift+q kill
 # 特定のアプリケーションは画面を固定
 # 探し方: xprop | grep WM_CLASS
 
-# GTD: 8
-assign [class="Remember The Milk"] 8
+# GTD: 1
+assign [class="Remember The Milk"] 1
+assign [class="Brave-browser" instance="crx_gmhpgfbjacdocjngbdbmhkgcpochhnge"] 1
 
 # Message: 9
-assign [class="IRCCloud"] 9
-assign [class="discord"] 9
-assign [class="Slack"] 9
-assign [class="Ripcord"] 9
-assign [class="URxvt" instance="neomutt"] 9
+assign [class="IRCCloud"] number "9: IM"
+assign [class="discord"] number "9: IM"
+assign [class="Slack"] number "9: IM"
+assign [class="Ripcord"] number "9: IM"
+assign [class="URxvt" instance="neomutt"] number "9: IM"
 
 # Music: 7
-assign [class="Google Play Music Desktop Player"] 7
-assign [class="URxvt" instance="clay"] 7
-assign [class="^eu.tiliado.NuvolaApp"] 7
+assign [class="Google Play Music Desktop Player"] number "7: Music"
+assign [class="URxvt" instance="clay"] number "7: Music"
+assign [class="^eu.tiliado.NuvolaApp"] number "7: Music" 
 
 # Floating windows
 for_window [class="Google-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable # Authy
 for_window [class="Zeal"] floating enable # Docs viewer
 for_window [class="GoldenDict"] floating enable # Docs viewer
-for_window [class="Google-chrome.*" title=".*hidden tab.*"] floating enable, move scratchpad
 for_window [instance="^copyq$" class="^copyq$"] border pixel 0, floating enable
+for_window [class="Ripcord" title="Voice Chat"] floating enable
+for_window [class="Screen"] border pixel 0, floating enable
+
+# Hidden windows
+for_window [class="Google-chrome.*" title="hidden tab"] floating enable, move scratchpad
+for_window [class="Brave-browser" title="hidden tab"] floating enable, move scratchpad
 
 #bindsym $mod+shift+n exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh '/opt/notion/electron' 'notion' 'Notion'
 bindsym $mod+shift+t exec --no-startup-id ~/src/github.com/ka2n/dotfiles/bin-linux/i3-focus-or-launch.sh 'rememberthemilk' '/opt/Remember\ The\ Milk/rememberthemilk' 'Remember The Milk'
@@ -185,30 +191,30 @@ bindsym $mod+p focus parent
 #bindsym $mod+c focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
 
 # reload the configuration file
 #bindsym $mod+Shift+c reload
