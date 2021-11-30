@@ -1,0 +1,17 @@
+#!/bin/bash
+
+function gen_accounts()
+{
+    authy-cli fuzz -s | \
+        awk -v 'FS=\t' '{ printf("%s\t<i>Code: %s, Expire: %s</i>\n", $1,$2,$3) }'
+}
+
+ACCOUNTS=$( (echo refresh; gen_accounts) | rofi -dmenu -p "Select account:" -markup-rows -matching fuzzy -i)
+
+if [ x"refresh" = x"${ACCOUNTS}" ]
+then
+    exec $0
+elif [ -n "${ACCOUNTS}" ]
+then
+    echo $ACCOUNTS | grep -o -m 1 -P '(?<=Code:\s)[^,]+' | tr -d '\n' | xclip -i -selection c && notify-send "Code copied!"
+fi
