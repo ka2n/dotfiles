@@ -1,0 +1,13 @@
+[Unit]
+Description={{_name_}}
+Wants=
+After=
+
+[Service]
+type=simple
+ExecStart=
+
+[Install]
+WantedBy=default.target
+
+{{_cursor_}}

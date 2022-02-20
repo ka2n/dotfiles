@@ -1,0 +1,31 @@
+# https://www.chezmoi.io/user-guide/machines/general/#determine-whether-the-current-machine-is-a-laptop-or-desktop
+{{- $chassisType := "desktop" }}
+{{- if eq .chezmoi.os "darwin" }}
+{{-   if contains "MacBook" (output "sysctl" "-n" "hw.model") }}
+{{-     $chassisType = "laptop" }}
+{{-   else }}
+{{-     $chassisType = "desktop" }}
+{{-   end }}
+{{- else if eq .chezmoi.os "linux" }}
+{{-   $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis }}
+{{- else if eq .chezmoi.os "windows" }}
+{{-   $chassisType = (output "powershell.exe" "-noprofile" "-command" "if (Get-WmiObject -Class win32_battery -ComputerName localhost) { echo laptop } else { echo desktop }") }}
+{{- end }}
+
+# https://www.chezmoi.io/user-guide/machines/linux/#combine-operating-system-and-linux-distribution-conditionals
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+# https://www.chezmoi.io/user-guide/machines/containers-and-vms/
+{{- $codespaces:= env "CODESPACES" | not | not -}}
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
+[data]
+    osid = {{ $osid | quote }}
+    ctype = {{ $chassisType | quote }}
+    codespaces = {{ $codespaces }}
+
+[git]
+    autoCommit = true

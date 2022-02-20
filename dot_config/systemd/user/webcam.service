@@ -1,0 +1,6 @@
+[Unit]
+Description="Configure webcam"
+
+[Service]
+Type=simple
+ExecStart=%h/bin/configure-webcam.sh

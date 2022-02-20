@@ -1,0 +1,31 @@
+[include]
+  path = config_common
+  path = config_linux
+[http]
+	cookiefile = /home/k2/.gitcookies
+[hub]
+	protocol = https
+[pull]
+	ff = only
+	rebase = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[user]
+	name = Katsuma Ito
+	email = katsumai@gmail.com
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = true
+[push]
+	default = current
+[fetch]
+	prune = true
+[credential]
+    helper =
+	helper = !/usr/bin/gh auth git-credential
+	helper = /usr/lib/git-core/git-credential-libsecret
+	helper = store --file /home/k2/.git-credentials

@@ -1,0 +1,31 @@
+#!/bin/env bash
+set -x
+
+fetchMicrophone()
+{
+    MICROPHONE_INDEX=$(pactl list sources short | grep 'NoiseTorch' | cut -f1 | grep -Po "[0-9]+")
+}
+
+
+# TODO: wait loop with timeout
+sleep 10
+
+fetchMicrophone
+echo $MICROPHONE_INDEX
+
+if [[ -z "$MICROPHONE_INDEX" ]]; then
+    #noisetorch -i -t 95
+    notify-send "NoiseTorch Activated" -t 10000
+    fetchMicrophone
+else
+    notify-send "NoiseTorch already active" -t 5000
+fi
+
+if [[ -z "$MICROPHONE_INDEX" ]]; then
+    notify-send "Microphone missing" -t 10000
+    exit 1
+fi
+
+
+notify-send "Start volume meter" -t 5000
+exec pavumeter --record $MICROPHONE_INDEX

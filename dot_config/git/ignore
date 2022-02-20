@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+*~
+*.swp
+tags
+.envrc
+.direnv
+.agignore
+.git
+.tool-versions

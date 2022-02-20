@@ -1,0 +1,9 @@
+[Unit]
+Description="run webcam service"
+
+[Timer]
+OnBootSec=30sec
+OnUnitActiveSec=30sec
+
+[Install]
+WantedBy=timers.target

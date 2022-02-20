@@ -1,0 +1,83 @@
+{
+  "languageserver": {
+    "graphql": {
+      "command": "graphql-lsp",
+      "args": ["server", "-m", "stream"],
+      "filetypes": ["typescript", "typescriptreact", "graphql"],
+      "settings": {
+        "graphql-config.load.legacy": true
+      }
+    },
+    "terraform": {
+      "command": "terraform-ls",
+      "filetypes": ["terraform", "tf"],
+      "args": ["serve"],
+      "initializationOptions": {}
+    }
+  },
+  "codeLens.enable": true,
+  "list.insertMappings": {
+    "<C-n>": "normal:j",
+    "<C-p>": "normal:k"
+  },
+  "list.normalMappings": {
+    "<C-n>": "normal:j",
+    "<C-p>": "normal:k"
+  },
+  "[typescriptreact]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[typescript]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[json]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[yaml]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[graphql]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[terraform]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[ruby]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[go]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "diagnostic-languageserver.filetypes": {
+    "go": "golangci-ilnt"
+  },
+  "solargraph.diagnostics": true,
+  "solargraph.hover": true,
+  "solargraph.formatting": true,
+  "suggest.completionItemKindLabels": {
+    "function": "\uf794",
+    "method": "\uf6a6",
+    "variable": "\uf71b",
+    "constant": "\uf8ff",
+    "struct": "\ufb44",
+    "class": "\uf0e8",
+    "interface": "\ufa52",
+    "text": "\ue612",
+    "enum": "\uf435",
+    "enumMember": "\uf02b",
+    "color": "\ue22b",
+    "property": "\ufab6",
+    "field": "\uf93d",
+    "unit": "\uf475",
+    "file": "\uf471",
+    "value": "\uf8a3",
+    "event": "\ufacd",
+    "folder": "\uf115",
+    "keyword": "\uf893",
+    "snippet": "\uf64d",
+    "operator": "\uf915",
+    "reference": "\uf87a",
+    "typeParameter": "\uf278",
+    "default": "\uf29c"
+  }
+}

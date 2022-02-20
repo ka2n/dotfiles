@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ "$DISPLAY" == "" ]; then
+    echo "no \$DISPLAY"
+    exit 0
+fi
+
+if [ "$DISPLAY" == ":0" ]; then
+    dex -a
+else
+    dex -a -s /etc/xdg/autostart
+fi

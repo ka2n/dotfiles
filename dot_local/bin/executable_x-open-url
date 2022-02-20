@@ -1,0 +1,75 @@
+#!/bin/env node
+// vim:set ft=javascript
+
+const path = require('path');
+const os = require('os');
+const cp = require('child_process');
+
+const main = () => {
+  const config = loadConfig();
+  const argv = process.argv.slice(2);
+  for (const url of argv) {
+    open(config, url);
+  }
+}
+
+function open(config, url) {
+  let cmd = config.browser;
+  if (!config.match_all.test(url.toString())) {
+    spawnDetached(cmd, [url]);
+    return
+  };
+
+  const rule = config.rules.find(r => r.pattern.test(url));
+  url = rule.modify(url);
+  cmd = rule.cmd ?? config.browser
+  spawnDetached(cmd, [url]);
+}
+
+function spawnDetached(cmd, args) {
+  cp.spawn(cmd, args, { detached: true, stdio: 'ignore' });
+}
+
+function loadConfig() {
+  const config_path = path.resolve(process.env.XDG_CONFIG_HOME || path.join(os.homedir(), ".config"), "x-open-url.json");
+  const config = require(config_path);
+  const rules = config.rules.map(rule => {
+      return {
+        ...rule,
+        pattern: new RegExp(rule.pattern),
+        modify: transformModifyConfig(rule.mods),
+      }
+    });
+
+  return {
+    ...config,
+    match_all: new RegExp(rules.map(r => r.pattern.source).join("|")),
+    rules,
+    browser: config.browser ?? 'firefox',
+  };
+}
+
+function transformModifyConfig(modifications) {
+  return (input) => {
+    if (!(modifications && modifications.length > 0)) return input;
+    return modifications.reduce((v, { action, data }) => {
+      switch (action) {
+        case "url_replace": {
+          return v.replace(new RegExp(data[0]), data[1]);
+        }
+        case "prepend": {
+          return data + v;
+        }
+        case "append": {
+          return v + data;
+        }
+        case "uri_encode": {
+          return encodeURIComponent(v);
+        }
+      }
+      return v
+    }, input);
+  }
+}
+
+main()

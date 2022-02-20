@@ -1,0 +1,111 @@
+" General Settings
+set update.lastchecktime 1641748439557
+set configversion 2.0
+
+" For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
+" vim: set filetype=vim
+
+" Customize GUI
+colorscheme shydactyl
+guiset_quiet hoverlink left
+guiset_quiet statuspanel left
+guiset_quiet navbar always
+guiset_quiet tabs always
+
+
+set hintfiltermode vimperator
+set hintchars 1234567890
+
+autocmd DocStart ^https://mail.google.com mode ignore
+autocmd DocStart ^https://tweetdeck.twitter.com mode ignore
+autocmd DocStart ^https://jp.inoreader.com mode ignore
+autocmd DocStart ^https://www.rememberthemilk.com/app mode ignore
+autocmd DocStart ^https://twitter.com mode ignore
+autocmd DocStart ^https://old.reddit.com mode ignore
+autocmd DocStart ^https://reddit.com mode ignore
+autocmd DocStart ^https://messenger.com mode ignore
+
+
+" bookmarklets
+
+" 翻訳バー
+command translate js let googleTranslateCallback = document.createElement('script'); googleTranslateCallback.innerHTML = "function googleTranslateElementInit(){ new google.translate.TranslateElement(); }"; document.body.insertBefore(googleTranslateCallback, document.body.firstChild); let googleTranslateScript = document.createElement('script'); googleTranslateScript.charset="UTF-8"; googleTranslateScript.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&tl=&sl=&hl="; document.body.insertBefore(googleTranslateScript, document.body.firstChild);
+
+command chrome composite get_current_url | exclaim_quiet google-chrome-beta
+
+# Open with 12ft.io
+command 12ft js location.href=`https://12ft.io/${location.href}`;
+
+
+" Hatena bookmark
+command hatena jsb browser.tabs.query({currentWindow:!0,active:!0}).then(e=>{const n=e[0].url,t=e[0].index;browser.tabs.create({url:`https://b.hatena.ne.jp/entry/${encodeURIComponent(n)}`,index:t+1})});
+
+" Duplicate tabs with other container
+command reopen jsb -d€ tri.webext.activeTab().then(r => { return tabopen('-b', '-c', JS_ARGS[1], r.url).then(() => browser.tabs.remove(r.id)) })€
+command uncontain jsb tri.webext.activeTab().then(r => { tabopen('-c', 'none', r.url) })
+command unko uncontain
+command unco uncontain
+
+"remove All cookies for current tab
+command purge composite jsb tri.webext.activeTab().then(tab => browser.cookies.getAll({ storeId: tab.cookieStoreId, url: tab.url }).then(cookies => [tab, cookies])).then(([tab, cookies]) => Promise.all(cookies.map(cookie => browser.cookies.remove({ storeId: cookie.storeId, name: cookie.name, url: tab.url })))); fillcmdline_tmp 3000 # Cookies puruned!
+command prune purge
+
+command loudecho js -d€ window.alert(JSON.stringify(JS_ARGS))€
+
+" Search engine shortcuts
+set searchurls.npm https://www.npmjs.com/package/%s
+set searchurls.ghperson https://github.com/pulls?q=involves%3A%s1+-user%3A%s1+is%3Apublic
+quickmark g https://github.com
+quickmark s https://scrapbox.io
+quickmark t https://twitter.com
+quickmark r https://rememberthemilk.com
+quickmark c https://calendar.google.com
+
+" commands
+bind --mode=normal ;b hatena
+bind --mode=normal ;c chrome
+
+" タブをWindowに切り出し
+bind gd tabduplicate
+bind gD composite tabduplicate; tabdetach
+
+" Container
+set autocreatecontainer true
+set autocontainmode relaxed
+set tabopencontaineraware true
+
+autocontain -s facebook\.com facebook
+autocontain -s youtube\.com firefox-default
+
+" Firefox configuration
+setpref general.warnOnAboutConfig false
+" disable telemetry
+setpref datareporting.healthreport.uploadEnabled false
+setpref datareporting.policy.dataSubmissionEnabled false
+setpref browser.newtabpage.activity-stream.feeds.telemetry false
+setpref browser.newtabpage.activity-stream.telemetry false
+setpref browser.ping-centre.telemetry false
+setpref browser.urlbar.eventTelemetry.enabled false
+setpref toolkit.telemetry.archive.enabled false
+setpref toolkit.telemetry.bhrPing.enabled false
+setpref toolkit.telemetry.cachedClientID ""
+setpref toolkit.telemetry.enabled false
+setpref toolkit.telemetry.firstShutdownPing.enabled false
+setpref toolkit.telemetry.hybridContent.enabled false
+setpref toolkit.telemetry.newProfilePing.enabled false
+setpref toolkit.telemetry.server "data:,"
+setpref toolkit.telemetry.shutdownPingSender.enabled false
+setpref toolkit.telemetry.unified false
+setpref toolkit.telemetry.updatePing.enabled false
+setpref experiments.activeExperiment false
+setpref experiments.enabled false
+setpref experiments.supported false
+setpref network.allow-experiments false
+
+setpref network.http.http3.enabled true
+
+command fixamo_quiet jsb tri.excmds.setpref("privacy.resistFingerprinting.block_mozAddonManager", "true").then(tri.excmds.setpref("extensions.webextensions.restrictedDomains", '""'))
+command fixamo js tri.excmds.setpref("privacy.resistFingerprinting.block_mozAddonManager", "true").then(tri.excmds.setpref("extensions.webextensions.restrictedDomains", '""').then(tri.excmds.fillcmdline_tmp(3000, "Permissions added to user.js. Please restart Firefox to make them take affect.")))
+fixamo_quiet
+
+source ~/.tridactylrc.local

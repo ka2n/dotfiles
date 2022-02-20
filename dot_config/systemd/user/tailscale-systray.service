@@ -1,0 +1,10 @@
+[Unit]
+Description = Tailscale systray
+
+[Service]
+ExecStart = /usr/bin/tailscale-systray
+Restart = always
+Type = simple
+
+[Install]
+WantedBy = graphical.target

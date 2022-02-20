@@ -1,0 +1,38 @@
+URxvt.inputMethod: uim
+URxvt.preeditType: OnTheSpot
+URxvt.scrollBar: false
+URxvt.depth: 32
+URxvt.transparent: false
+URxvt.fading: 10
+URxvt.loginShell: true
+URxvt.saveLines: 20000
+URxvt.internalBorder: 3
+URxvt.lineSpace: 0
+URxvt.letterSpace: 0
+URxvt.visualBell: false
+URxvt.pointerBlank: true
+URxvt.cursorBlink: true
+URxvt.perl-ext-common: default,matcher,clipboard-osc,xim-onthespot,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 2
+
+URxvt.font: xft:Fira Code:regular:size=10:hinting=true:antialias=true,\
+            xft:MyricaM M:size=10:hinting=true:antialias=true,\
+            xft:Noto Color Emoji:minspace=False
+URxvt.boldFont: xft:Fira Code:bold:size=10:hinting=true:antialias=true,\
+                xft:MyricaM M:bold:size=10:hinting=true:antialias=true,\
+                xft:Noto Color Emoji:minspace=False
+
+
+#include ".config/x/nord.Xresources"
+
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+Xcursor.size: 32
+
+*.dpi: 144

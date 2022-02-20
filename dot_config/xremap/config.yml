@@ -1,0 +1,48 @@
+keymap:
+  - name: Media Keys
+    remap:
+      volumeup:
+        launch: ["pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%"]
+      volumedown:
+        launch: ["pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%"]
+      mute:
+        launch: ["pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle"]
+      Shift-volumeup:
+        launch: ["pactl", "set-sink-volume", "0", "+5%"]
+      Shift-volumedown:
+        launch: ["pactl", "set-sink-volume", "0", "-5%"]
+      Shift-mute:
+        launch: ["pactl", "set-sink-mute", "0", "toggle"]
+  - application:
+      only: ["obsidian"]
+    remap:
+      C-e: end
+      C-a: home
+  - application:
+      only:
+        [
+          "google-chrome",
+          "google-chrome-beta",
+          "google-chrome-unstable",
+          "brave-browser",
+        ]
+    remap:
+      C-Shift-leftbrace: c-pageup
+      C-Shift-rightbrace: c-pagedown
+      C-leftbrace: alt-right
+      C-rightbrace: alt-left
+      BTN_SIDE: KEY_PAGEUP
+      BTN_EXTRA: KEY_PAGEDOWN
+  - application:
+      only: ["firefox", "librewolf"]
+    remap:
+      C-Shift-leftbrace: c-pageup
+      C-Shift-rightbrace: c-pagedown
+      C-e: end
+      C-a: home
+      C-p: up
+      C-n: down
+      C-b: left
+      C-f: right
+      BTN_SIDE: KEY_PAGEUP
+      BTN_EXTRA: KEY_PAGEDOWN

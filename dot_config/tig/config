@@ -1,0 +1,5 @@
+bind main    R !git rebase -i %(commit)
+bind diff    R !git rebase -i %(commit)
+bind main    G !@gh browse -- commit/%(commit)
+bind diff    G !@gh browse -- commit/%(commit)
+bind generic 9 !sh -c "echo -n %(commit) | xclip -selection c && echo Copied %(commit) to clipboard"

@@ -1,0 +1,31 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+import:
+  - ~/.config/alacritty/nord.yml
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 3
+    y: 3
+  dynamic_padding: true
+  decorations: none
+  opacity: 0.98
+  dynamic_title: true
+
+  scrolling:
+    history: 10000
+    multiplier: 3
+
+font:
+  normal:
+    family: Cica
+    style: Regular
+  size: 12.0
+
+cursor:
+  style:
+    shape: Block
+    blinking: On
+
+live_config_reload: true

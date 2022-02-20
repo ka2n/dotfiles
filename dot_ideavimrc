@@ -1,0 +1,48 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+set relativenumber
+
+" Plugins
+set which-key
+set easymotion
+set surround
+
+"map
+map Q gq
+
+"Actionは`:actionlist <C-Q>`で検索可能
+
+map \r <Action>(ReformatCode)
+
+nmap s <Plug>(easymotion-s2)
+xmap s <Plug>(easymotion-s2)
+
+nmap g/ <Plug>(easymotion-sn)
+xmap g/ <Plug>(easymotion-sn)
+omap g/ <Plug>(easymotion-tn)
+
+nmap gh <Action>(QuickJavaDoc)
+nmap ,a <Action>(GotoAction)
+nmap ,f <Action>(GotoFile)
+nmap ,u <Action>(SearchEverywhere)
+
+"copypaste
+vnoremap <C-C> "+y
+inoremap <C-V> <C-R>*
+cnoremap <C-V> "+gP
+
+
+" Visual mode
+vmap T <Action>(Refactorings.QuickListPopupAction)
+
+" Ex
+"command Resource :source ~/.ideavimrc

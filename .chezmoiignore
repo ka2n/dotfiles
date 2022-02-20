@@ -1,0 +1,18 @@
+README
+
+{{- if ne .chezmoi.os "linux" }}
+.config/i3
+.config/i3status-rust
+.config/picom.conf
+.config/xremap
+.config/systemd
+.local/share/fcitx5
+.local/share/applications/x-open-url.desktop
+.xbindkeysrc
+.imwheelrc
+bin/x*
+
+{{- if ne .ctype "desktop" }}
+.config/systemd/user/webcam*
+{{- end }}
+{{- end }}

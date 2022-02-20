@@ -1,0 +1,7 @@
+[Unit]
+Description="yaskkserv2 daemon"
+
+[Service]
+Type=simple
+ExecStartPre=%h/.local/bin/yaskkserv2_make_dictionary --dictionary-filename=/tmp/dictionary.yaskkserv2 /usr/share/skk/SKK-JISYO.L $h/.skk-jisyo-k2
+ExecStart=%h/.local/bin/yaskkserv2 --config-filename %h/.config/yaskkserv2/config.conf --no-daemonize
