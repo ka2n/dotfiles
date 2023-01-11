@@ -151,16 +151,12 @@ for_window [window_role="PictureInPicture"] floating enable, sticky enable
 # Hidden windows
 for_window [class="Google-chrome.*" title="hidden tab"] floating enable, move scratchpad
 
-# Open task manager
-bindsym $mod+shift+t exec --no-startup-id i3-focus-or-launch.sh 'rememberthemilk' '/opt/Remember\ The\ Milk/rememberthemilk' 'Remember The Milk'
-# Open IM
-bindsym $mod+shift+i exec --no-startup-id i3-focus-or-launch.sh 'slack' 'gtk-launch Slack.desktop' 'Slack'
-# Open Browser
-bindsym $mod+shift+w exec --no-startup-id firefox
-# Open Note
-bindsym $mod+shift+o exec --no-startup-id i3-focus-or-launch.sh 'obsidian' 'gtk-launch obsidian.desktop' 'obsidian'
-bindsym $mod+shift+n [class="obsidian"] exec --no-startup-id env NO_TOGGLE=1 i3-focus-or-launch.sh 'obsidian' 'gtk-launch obsidian.desktop' 'obsidian', exec --no-startup-id exo-open 'obsidian://advanced-uri?vault=Notes&commandname=QuickAdd: QuickNote'
-#bindsym $mod+shift+n exec --no-startup-id exo-open 'obsidian://advanced-uri?vault=Notes&commandname=QuickAdd: QuickNote'
+# Open Apps
+bindsym $mod+shift+t exec "jumpapp moderndeck"
+bindsym $mod+shift+w exec "firefox"
+bindsym $mod+shift+o exec "jumpapp -C -c obsidian Obsidian.AppImage"
+bindsym $mod+shift+n [class="obsidian"] exec "jumpapp -c obsidian Obsidian.AppImage", exec --no-startup-id exo-open 'obsidian://advanced-uri?vault=Notes&commandname=QuickAdd: QuickNote'
+
 # Screenshot
 bindsym Print exec --no-startup-id x-screenshot.sh
 
