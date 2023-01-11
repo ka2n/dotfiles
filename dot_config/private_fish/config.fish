@@ -175,6 +175,10 @@ if type -q hgrep
     end
 end
 
+alias ..='cd ..'
+alias 2..='cd ../..'
+alias 3..='cd ../../..'
+
 #    command toggl start -P (toggl projects | peco --query (rtm-now | peco | sed 's/ : /\t/g' | cut  -f2) | cut -d' ' ) $argv
 
 #function todoist
