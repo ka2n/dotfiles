@@ -11,6 +11,11 @@ $git_status\
 $character"""
 right_format = """$all"""
 
+[directory]
+truncation_length = 7
+truncate_to_repo = true
+repo_root_style = "fg:252 bg:29"
+
 [docker_context]
 disabled = true
 
@@ -26,3 +31,6 @@ disabled = true
 [gcloud]
 format = '[$symbol$active]($style) '
 style = 'bold blue'
+
+[terraform]
+disabled = true
