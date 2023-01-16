@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -ex
+
+DICT_FILE=/tmp/dictionary.yaskkserv2
+
+~/.local/bin/yaskkserv2_make_dictionary --dictionary-filename=$DICT_FILE --utf8 \
+	/usr/share/skk/SKK-JISYO.L \
+	/usr/share/skk/SKK-JISYO.jinmei \
+	/usr/share/skk/SKK-JISYO.geo \
+	/usr/share/skk/SKK-JISYO.station \
+	/usr/share/skk/SKK-JISYO.propernoun \
+	/usr/share/skk/SKK-JISYO.emoji.utf8 \
+	/usr/share/skk/SKK-JISYO.emoji-ja.utf8 \
+	~/.SKK-JISYO.utf8
