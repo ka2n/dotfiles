@@ -189,6 +189,10 @@ function grt
   cd (git rev-parse --show-toplevel; or echo "." )
 end
 
+function upp
+  cd (find-parent-package-dir; or echo "." )
+end
+
 #function ssh
 #  exec-in-tab exec-and-close-tab term-color command ssh $argv
 #end

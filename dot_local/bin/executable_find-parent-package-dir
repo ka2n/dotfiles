@@ -1,0 +1,34 @@
+#!/bin/bash
+
+ROOT_DIR=$(git rev-parse --show-toplevel)
+if [ -z "$ROOT_DIR" ]; then
+  echo "Not a git repository"
+  exit 1
+fi
+
+if [[ "$PWD" == "$ROOT_DIR" ]]; then
+    exit 0
+fi
+
+PACKGE_FILES=(package.json go.mod Cargo.toml Gemfile)
+
+cd ..
+prev=.
+while [[ "$PWD" != "$prev" ]] ; do
+    # If $PWD is the git root directory, exit
+    if [[ "$PWD" == "$ROOT_DIR" ]]; then
+        echo "$PWD"
+        exit 0
+    fi
+
+    # Check if any of the package files exist
+    for file in "${PACKGE_FILES[@]}"; do
+        if [ -f "$file" ]; then
+            echo "$PWD"
+            exit 0
+        fi
+    done
+
+    prev="$PWD"
+    cd ..
+done
