@@ -10,6 +10,6 @@ DICT_FILE=/tmp/dictionary.yaskkserv2
 	/usr/share/skk/SKK-JISYO.geo \
 	/usr/share/skk/SKK-JISYO.station \
 	/usr/share/skk/SKK-JISYO.propernoun \
-	/usr/share/skk/SKK-JISYO.emoji.utf8 \
-	/usr/share/skk/SKK-JISYO.emoji-ja.utf8 \
+	/usr/share/skk-emoji-jisyo/SKK-JISYO.emoji.utf8 \
+	/usr/share/skk-emoji-jisyo-ja/SKK-JISYO.emoji-ja.utf8 \
 	~/.SKK-JISYO.utf8
