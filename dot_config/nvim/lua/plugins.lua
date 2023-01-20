@@ -110,6 +110,12 @@ require('packer').startup(function(use)
     }
 
     use 'jparise/vim-graphql'
+    use {
+        "IndianBoy42/tree-sitter-just",
+        config = function()
+            require('tree-sitter-just').setup {}
+        end,
+    }
 
     -- Apps
     -- use 'glidenote/memolist.vim', { 'on': ['MemoNew', 'MemoGrep', 'MemoList'] }
