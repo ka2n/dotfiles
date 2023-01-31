@@ -18,10 +18,21 @@ require('packer').startup(function(use)
     -- Color Scheme
     use {
         'shaunsingh/nord.nvim', config = function()
-            --vim.g.nord_italic = false
+            vim.g.nord_italic = false
             require('nord').set()
             vim.cmd [[colorscheme nord]]
     end,}
+
+    use 'folke/lsp-colors.nvim'
+
+    use {
+        'nvim-neo-tree/neo-tree.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons',
+            'MunifTanjim/nui.nvim'
+        }
+    }
 
     -- Help
     use 'vim-jp/vimdoc-ja'
