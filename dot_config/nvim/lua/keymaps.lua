@@ -17,6 +17,9 @@ vim.keymap.set('', ';k', '<Plug>(easymotion-k)')
 vim.keymap.set({'n', 'x'}, 'g/', '<Plug>(easymotion-sn)')
 vim.keymap.set({'o'}, 'g/', '<Plug>(easymotion-tn)')
 
+-- neo-tree
+vim.keymap.set({'n'}, '<C-e>', '<cmd>Neotree<cr>')
+
 -- telescope
 vim.keymap.set({'n'}, '<C-b>', '<cmd>Telescope buffers<cr>')
 vim.keymap.set({'n'}, '<C-p>', '<cmd>Telescope fd<cr>')
