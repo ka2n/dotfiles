@@ -51,6 +51,11 @@
   "diagnostic-languageserver.filetypes": {
     "go": "golangci-ilnt"
   },
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "🔴",
+  "diagnostic.infoSign": "",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
   "solargraph.diagnostics": true,
   "solargraph.hover": true,
   "solargraph.formatting": true,
@@ -79,6 +84,5 @@
     "reference": "\uf87a",
     "typeParameter": "\uf278",
     "default": "\uf29c"
-  },
-  "toml.toml.": ""
+  }
 }
