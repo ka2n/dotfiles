@@ -37,7 +37,7 @@ client.background       #ffffff
 #font pango:Dejaju Sans Mono 8
 
 exec_always --no-startup-id i3-auto-layout
-exec --no-startup-id ~/bin/xsetup-keyboardmouse.sh
+exec --no-startup-id xsetup-keyboardmouse.sh
 exec --no-startup-id xfsettingsd
 exec --no-startup-id thunar --daemon
 #exec --no-startup-id warpd
@@ -50,7 +50,7 @@ exec --no-startup-id xss-lock -- betterlockscreen -l dim
 
 # Daemons
 # See /etc/xdg/autostart; ~/.config/autostart
-exec --no-startup-id ~/.local/bin/xautostart
+exec --no-startup-id xautostart
 
 exec --no-startup-id systemctl --user start xremap
 exec --no-startup-id systemctl --user start yaskkserv2
@@ -62,7 +62,7 @@ exec --no-startup-id systemctl --user start yaskkserv2
 #exec --no-startup-id clipster -d
 
 # Volume meter
-exec --no-startup-id ~/bin/configure-microphone
+exec --no-startup-id configure-microphone
 
 bindsym $mod+y exec thunar
 
