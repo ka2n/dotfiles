@@ -99,6 +99,7 @@ require('packer').startup(function(use)
                         tf = "terraform",
                         tfvars = "terraform",
                         tfstate = "json",
+			hbs = "html",
                     },
                 }
             }
