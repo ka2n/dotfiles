@@ -51,7 +51,13 @@ require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = { 'nvim-lua/plenary.nvim' },
         config = function()
-            require('telescope').setup()
+            require('telescope').setup {
+            extensions = {
+                frecency = {
+                    auto_validate = true
+                }
+            }
+        }
         end,
     }
 
@@ -99,7 +105,7 @@ require('packer').startup(function(use)
                         tf = "terraform",
                         tfvars = "terraform",
                         tfstate = "json",
-			hbs = "html",
+            hbs = "html",
                     },
                 }
             }
