@@ -1,31 +1,116 @@
-[include]
-  path = config_common
-  path = config_linux
-[http]
-	cookiefile = /home/k2/.gitcookies
-[hub]
-	protocol = https
 [pull]
-	ff = only
-	rebase = true
+ff = only
+rebase = true
+
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-[user]
-	name = Katsuma Ito
-	email = katsumai@gmail.com
+required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+
 [init]
-	defaultBranch = main
+defaultBranch = main
+
 [rerere]
-	enabled = true
+enabled = true
+
 [push]
-	default = current
+default = simple
+
 [fetch]
-	prune = true
+prune = true
+
 [credential]
-    helper =
-	helper = !/usr/bin/gh auth git-credential
-	helper = /usr/lib/git-core/git-credential-libsecret
-	helper = store --file /home/k2/.git-credentials
+helper = !/usr/bin/gh auth git-credential
+helper = /usr/lib/git-core/git-credential-libsecret
+
+[core]
+autocrlf = input
+quotepath = false
+precomposeunicode = true
+
+[init]
+templatedir = ~/.config/git/template
+defaultBranch = main
+
+[merge]
+tool = vimdiff
+ff = true
+
+[receive]
+denyDeleteCurrent = warn
+
+[diff]
+tool = vimdiff
+
+[pager]
+diff = delta
+log = delta
+reflog = delta
+show = delta
+
+[interactive]
+diffFilter = delta --color-only
+
+[log]
+follow = true
+
+[user]
+name = Katsuma Ito
+username = ka2n
+email = katsumai@gmail.com
+signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIRkGwniJUeDbYVmNimgBfto1vdvLxsY8PT5DnHa+JzB
+
+[commit]
+gpgsign = true
+
+[gpg]
+format = ssh
+
+[gpg "ssh"]
+program = "/opt/1Password/op-ssh-sign"
+
+[color]
+status = auto
+diff = auto
+branch = auto
+interactive = auto
+grep = auto
+log = auto
+ui = 1
+
+[alias]
+co = checkout
+sw = switch
+st = status
+up = pull --rebase
+psuh = push
+puhs = push
+comimt = commit
+suu  = submodule update
+suc  = submodule foreach git switch . .
+delete-merged = !git branch --merged | grep -v -e '*' -e 'master' -e 'main' | xargs -I % git branch -d %
+branches = branch -a
+tags = tag
+stashes = stash list
+rc  = rebase --continue
+graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+fixup = commit --amend --no-edit
+r = !git reflog -n 50 --pretty='format:%gs' | perl -anal -e '$seen{$1}++ or print $1 if /checkout:.*to (.+)/'
+sha = !git rev-parse "${1-HEAD}"
+
+[github]
+user = ka2n
+
+[ghq]
+root = ~/go/src
+root = ~/src
+
+[delta]
+features = side-by-side line-numbers decorations
+whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+commit-decoration-style = bold yellow box ul
+file-style = bold yellow ul
+file-decoration-style = none
