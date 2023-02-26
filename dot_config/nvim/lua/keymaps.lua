@@ -29,6 +29,10 @@ end, { desc = 'telescope keymaps' })
 vim.keymap.set({'n'}, ';r', function()
     require('telescope.builtin').resume()
 end, { desc = 'telescope resume' })
+vim.keymap.set('n', ';f', function()
+    require('telescope').extensions.frecency.frecency()
+end, { desc = 'telescope frecency', noremap = true, silent = true })
+
 for k, v in pairs(require("telescope.builtin")) do
   if type(v) == "function" then
     vim.keymap.set('n', '<Plug>(telescope.' .. k .. ')', v)
@@ -71,6 +75,10 @@ vim.keymap.set({'n'}, 'gd', '<Plug>(coc-definition)')
 vim.keymap.set({'n'}, 'gy', '<Plug>(coc-type-definition)')
 vim.keymap.set({'n'}, 'gi', '<Plug>(coc-implementation)')
 vim.keymap.set({'n'}, 'gr', '<Plug>(coc-references)')
+
+--- Tab,Shift-Tab for jump snippet for signature help
+vim.g.coc_snippet_next = '<Tab>'
+vim.g.coc_snippet_prev = '<S-Tab>'
  
 -- Symbol renaming.
 vim.keymap.set({'n'}, '<Leader>rn', '<Plug>(coc-rename)')
