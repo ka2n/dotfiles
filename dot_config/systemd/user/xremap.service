@@ -4,7 +4,7 @@ PartOf=graphical-session.target
 
 [Service]
 KillMode=process
-ExecStart=/usr/bin/xremap --watch=config,device --device 'HHKB-Hybrid_1 Keyboard' --device 'PFU Limited HHKB-Hybrid' --device 'Logitech ERGO M575'  %h/.config/xremap/config.yml
+ExecStart=/usr/local/bin/xremap --watch=config,device --device 'HHKB-Hybrid_1 Keyboard' --device 'PFU Limited HHKB-Hybrid' --device 'Logitech ERGO M575'  %h/.config/xremap/config.yml
 ExecStop=/usr/bin/killall xremap
 Restart=always
 RestartSec=5s
