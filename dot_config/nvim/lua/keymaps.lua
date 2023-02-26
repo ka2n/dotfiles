@@ -26,6 +26,9 @@ vim.keymap.set({'n'}, '<C-p>', '<cmd>Telescope fd<cr>')
 vim.keymap.set({'n'}, ';;', function()
     require('telescope.builtin').keymaps()
 end, { desc = 'telescope keymaps' })
+vim.keymap.set({'n'}, ';r', function()
+    require('telescope.builtin').resume()
+end, { desc = 'telescope resume' })
 for k, v in pairs(require("telescope.builtin")) do
   if type(v) == "function" then
     vim.keymap.set('n', '<Plug>(telescope.' .. k .. ')', v)
