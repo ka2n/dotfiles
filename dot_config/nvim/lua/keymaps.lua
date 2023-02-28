@@ -23,15 +23,16 @@ vim.keymap.set({'n'}, '<C-e>', '<cmd>Neotree<cr>')
 -- telescope
 vim.keymap.set({'n'}, '<C-b>', '<cmd>Telescope buffers<cr>')
 vim.keymap.set({'n'}, '<C-p>', '<cmd>Telescope fd<cr>')
-vim.keymap.set({'n'}, ';;', function()
-    require('telescope.builtin').keymaps()
-end, { desc = 'telescope keymaps' })
-vim.keymap.set({'n'}, ';r', function()
-    require('telescope.builtin').resume()
-end, { desc = 'telescope resume' })
-vim.keymap.set('n', ';f', function()
-    require('telescope').extensions.frecency.frecency()
-end, { desc = 'telescope frecency', noremap = true, silent = true })
+
+local telescope_bindings = {
+    { desc = "telescope keymaps", key = ";;", f = function() require('telescope.builtin').keymaps() end },
+    { desc = "telescope resume", key = ";r", f = function() require('telescope.builtin').resume() end },
+    { desc = "telescope frecency", key = ";f", f = function() require('telescope').extensions.frecency.frecency() end },
+    { desc = "telescope live_grep", key = ";/", f = function() require('telescope.builtin').live_grep() end },
+}
+for i,s in pairs(telescope_bindings) do
+    vim.keymap.set('n', s.key, s.f, { desc = s.desc, noremap = true, silent = true })
+end
 
 for k, v in pairs(require("telescope.builtin")) do
   if type(v) == "function" then
