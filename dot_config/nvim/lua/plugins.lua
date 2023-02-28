@@ -14,6 +14,7 @@ local packer_bootstrap = ensure_packer()
 
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    use 'vim-denops/denops.vim'
 
     -- Color Scheme
     use {
@@ -24,6 +25,8 @@ require('packer').startup(function(use)
     end,}
 
     use 'folke/lsp-colors.nvim'
+
+    -- Project file management
 
     use {
         'nvim-neo-tree/neo-tree.nvim',
@@ -140,8 +143,11 @@ require('packer').startup(function(use)
 
     -- Apps
     -- use 'glidenote/memolist.vim', { 'on': ['MemoNew', 'MemoGrep', 'MemoList'] }
+    use 'skanehira/denops-silicon.vim'
 
-    -- Other tools
+
+    -- Editing
+
     use "tpope/vim-repeat"
     use {
 	"kylechui/nvim-surround",
@@ -163,7 +169,14 @@ require('packer').startup(function(use)
             vim.g.EasyMotion_use_migemo = 1
         end,
     }
-    
+
+    use {
+        'kylechui/nvim-surround',
+        tag = "*",
+        config = function()
+            require('nvim-surround').setup({})
+        end,
+    }
 
     if packer_bootstrap then
         require('packer').sync()
