@@ -33,10 +33,10 @@ format = " $icon $mem_used.eng(prefix:M)/$mem_total.eng(prefix:M)($mem_used_perc
 block = "load"
 interval = 1
 
-# [[block]]
-# block = "custom"
-# command = "~/bin/i3-current-performance-profile.sh"
-# interval = 10
+[[block]]
+block = "custom"
+command = "~/bin/i3-current-performance-profile.sh"
+interval = 10
 
 [[block]]
 block = "temperature"
