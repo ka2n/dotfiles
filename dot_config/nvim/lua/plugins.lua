@@ -101,11 +101,14 @@ require('packer').startup(function(use)
         config = function()
             require('filetype').setup {
                 overrides = {
+		    literal = {
+			['.swcrc'] = 'json',
+		    },
                     extensions = {
                         tf = "terraform",
                         tfvars = "terraform",
                         tfstate = "json",
-            hbs = "html",
+			hbs = "html",
                     },
                 }
             }
@@ -140,6 +143,13 @@ require('packer').startup(function(use)
 
     -- Other tools
     use "tpope/vim-repeat"
+    use {
+	"kylechui/nvim-surround",
+	tag = "*",
+	config = function()
+	    require("nvim-surround").setup {}
+        end,
+    }
 
     use { 
         'easymotion/vim-easymotion',
