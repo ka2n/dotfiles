@@ -115,3 +115,6 @@ whitespace-error-style = 22 reverse
 commit-decoration-style = bold yellow box ul
 file-style = bold yellow ul
 file-decoration-style = none
+
+[blame]
+ignoreRevsFile = .git-blame-ignore-revs
