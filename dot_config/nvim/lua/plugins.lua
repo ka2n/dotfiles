@@ -149,11 +149,12 @@ require('packer').startup(function(use)
     -- Editing
 
     use "tpope/vim-repeat"
+    
     use {
-	"kylechui/nvim-surround",
-	tag = "*",
-	config = function()
-	    require("nvim-surround").setup {}
+        'kylechui/nvim-surround',
+        tag = "*",
+        config = function()
+            require('nvim-surround').setup({})
         end,
     }
 
@@ -167,14 +168,6 @@ require('packer').startup(function(use)
             vim.g.EasyMotion_enter_jump_first = 1
             vim.g.EasyMotion_space_jump_first = 1
             vim.g.EasyMotion_use_migemo = 1
-        end,
-    }
-
-    use {
-        'kylechui/nvim-surround',
-        tag = "*",
-        config = function()
-            require('nvim-surround').setup({})
         end,
     }
 
