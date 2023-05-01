@@ -1,6 +1,6 @@
 -- editor
 vim.keymap.set({'n','v'}, 'j', 'gj')
-vim.keymap.set({'n','v'}, 'k', 'gk')
+vim.keymap.set({'x'}, 'p', '_xP')
 
 -- move
 vim.keymap.set({'n'}, '<<', '<cmd>tabprevious<CR>')
