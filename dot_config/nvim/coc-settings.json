@@ -13,10 +13,25 @@
       "filetypes": ["terraform", "tf"],
       "args": ["serve"],
       "initializationOptions": {}
+    },
+    "golangci-lint-languageserver": {
+      "command": "golangci-lint-langserver",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--out-format",
+          "json",
+          "--issues-exit-code=1"
+        ]
+      }
     }
   },
+  "prettier.embeddedLanguageFormatting": "auto",
+  "prettier.onlyUseLocalVersion": true,
+  "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
   "codeLens.enable": true,
-  "html.filetypes": ["html", "hbs", "blade"],
   "list.insertMappings": {
     "<C-n>": "normal:j",
     "<C-p>": "normal:k"
@@ -44,6 +59,12 @@
     "coc.preferences.formatOnSave": true
   },
   "[ruby]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[html]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[liquid]": {
     "coc.preferences.formatOnSave": true
   },
   "[go]": {
