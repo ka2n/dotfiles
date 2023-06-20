@@ -5,3 +5,14 @@ vim.api.nvim_create_user_command('OR', "call CocActionAsync('runCommand', 'edito
 -- autocmd
 vim.cmd("autocmd CursorHold * silent call CocActionAsync('highlight')")
 vim.cmd("autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')")
+
+-- make readonly
+vim.cmd('autocmd BufRead,BufNewFile *.gen.* setlocal readonly')
+
+function checkDoNotEdit()
+    local first = vim.fn.getline(1)
+    if first and string.find(first, "DO NOT EDIT") then
+        vim.cmd('setlocal readonly')
+    end
+end
+vim.cmd('autocmd BufReadPost * lua checkDoNotEdit()')
