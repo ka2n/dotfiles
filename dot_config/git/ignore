@@ -8,3 +8,4 @@ tags
 .agignore
 .git
 .tool-versions
+.vim
