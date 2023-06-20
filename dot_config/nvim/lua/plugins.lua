@@ -83,6 +83,10 @@ require('packer').startup(function(use)
         branch = 'release',
         setup = function()
             vim.g.coc_node_path = os.getenv('HOME') .. '/.asdf/installs/nodejs/18.9.0/bin/node'
+            vim.g.coc_filetype_map = {
+                blade = 'html',
+                htmldjango = 'html'
+            }
         end,
     }
     use {
@@ -96,25 +100,6 @@ require('packer').startup(function(use)
     use {
         'mattn/emmet-vim', setup = function() 
             vim.g.user_emmet_leader_key = '<C-x>'
-        end,
-    }
-
-    use {
-        'nathom/filetype.nvim',
-        config = function()
-            require('filetype').setup {
-                overrides = {
-		    literal = {
-			['.swcrc'] = 'json',
-		    },
-                    extensions = {
-                        tf = "terraform",
-                        tfvars = "terraform",
-                        tfstate = "json",
-			hbs = "html",
-                    },
-                }
-            }
         end,
     }
 
@@ -167,7 +152,7 @@ require('packer').startup(function(use)
             vim.g.EasyMotion_keys = ';hklyuiopnm,qwertasdgzxcvbjf'
             vim.g.EasyMotion_enter_jump_first = 1
             vim.g.EasyMotion_space_jump_first = 1
-            vim.g.EasyMotion_use_migemo = 1
+            vim.g.EasyMotion_use_migemo = 0
         end,
     }
 
