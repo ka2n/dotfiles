@@ -27,10 +27,14 @@ vim.opt.list=true
 vim.opt.listchars = {tab = ':>-'}
 vim.opt.helplang='ja','en'
 vim.opt.showtabline = 1
+vim.opt.path:append{'**'}
 vim.opt.wildignore:append{'*.jpg','*.jpeg','*.bmp','*.gif','*.png'}
 vim.opt.wildignore:append{'*.swp'}
-vim.opt.wildignore:append{'*/.git'}
 vim.opt.wildignore:append{'*.DS_Store'}
+vim.opt.wildignore:append{'*/.git/*'}
+vim.opt.wildignore:append{'*/node_modules/*'}
+vim.opt.wildignore:append{'*/.next/*'}
+vim.opt.wildmenu=true
 vim.opt.wildmode='longest,list:full'
 vim.opt.wrap=true
 vim.opt.swapfile=false
@@ -38,6 +42,7 @@ vim.opt.visualbell=false
 vim.opt.cmdheight=2
 vim.opt.relativenumber=true
 vim.opt.updatetime=100
+vim.opt.clipboard='unnamedplus'
 
 vim.opt.termguicolors=true
 vim.cmd([[ set t_8f=^[[38;2;%lu;%lu;%lum ]])
