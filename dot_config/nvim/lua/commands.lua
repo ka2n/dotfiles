@@ -16,3 +16,13 @@ function checkDoNotEdit()
     end
 end
 vim.cmd('autocmd BufReadPost * lua checkDoNotEdit()')
+
+-- change color scheme if buffer is readonly
+-- function updateColorScheme()
+--     if vim.bo.readonly and vim.bo.buftype == "" then
+--         vim.cmd('colorscheme pablo')
+--     else
+--         vim.cmd('colorscheme nord')
+--     end
+-- end
+-- vim.cmd('autocmd BufReadPost,BufEnter * lua updateColorScheme()')
