@@ -56,6 +56,7 @@ command loudecho js -d€ window.alert(JSON.stringify(JS_ARGS))€
 set searchurls.npm https://www.npmjs.com/package/%s
 set searchurls.ghperson https://github.com/pulls?q=involves%3A%s1+-user%3A%s1+is%3Apublic
 quickmark h https://github.com
+quickmark m https://gmail.com
 quickmark g https://chat.openai.com
 quickmark s https://scrapbox.io
 quickmark t https://twitter.com
