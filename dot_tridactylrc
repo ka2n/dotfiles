@@ -25,6 +25,7 @@ autocmd DocStart ^https://old.reddit.com mode ignore
 autocmd DocStart ^https://reddit.com mode ignore
 autocmd DocStart ^https://messenger.com mode ignore
 
+unbindurl --mode=insert scrapbox\.io <C-i>
 
 " bookmarklets
 
