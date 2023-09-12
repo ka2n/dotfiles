@@ -111,3 +111,30 @@ vim.keymap.set({'x', 'o'}, 'ac', '<Plug>(coc-classobj-a)')
 -- Use CTRL-S for selections ranges.
 -- Requires 'textDocument/selectionRange' support of language server.
 vim.keymap.set({'n', 'x'}, '<C-s>', '<Plug>(coc-range-select)')
+
+-- coc-snippets
+
+vim.api.nvim_set_keymap('i', '<TAB>', 'v:lua.coc_tab_mapping()', { noremap = true, silent = true, expr = true })
+
+-- Define the Lua function to replace the Vimscript
+vim.cmd([[
+function! v:lua.coc_tab_mapping() abort
+  if coc#pum#visible()
+    return coc#_select_confirm()
+  elseif coc#expandableOrJumpable()
+    return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
+  elseif v:lua.CheckBackspace()
+    return "\<TAB>"
+  else
+    return coc#refresh()
+  endif
+endfunction
+]])
+
+-- Lua function equivalent to CheckBackspace
+vim.cmd([[
+function! v:lua.CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+]])
