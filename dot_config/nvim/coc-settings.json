@@ -8,24 +8,17 @@
         "graphql-config.load.legacy": true
       }
     },
+    "bufls": {
+      "command": "bufls",
+      "rootPatterns": ["buf.yaml"],
+      "args": ["serve"],
+      "filetypes": ["proto"]
+    },
     "terraform": {
       "command": "terraform-ls",
       "filetypes": ["terraform", "tf"],
       "args": ["serve"],
       "initializationOptions": {}
-    },
-    "golangci-lint-languageserver": {
-      "command": "golangci-lint-langserver",
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "command": [
-          "golangci-lint",
-          "run",
-          "--out-format",
-          "json",
-          "--issues-exit-code=1"
-        ]
-      }
     }
   },
   "prettier.embeddedLanguageFormatting": "auto",
@@ -69,6 +62,9 @@
   },
   "[go]": {
     "coc.preferences.formatOnSave": true
+  },
+  "go.disable": {
+    "snippetCompletion": true
   },
   "diagnostic-languageserver.filetypes": {
     "go": "golangci-ilnt"
