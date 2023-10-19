@@ -24,6 +24,14 @@ vim.keymap.set({'n'}, '<C-e>', '<cmd>Neotree<cr>')
 vim.keymap.set({'n'}, '<C-b>', '<cmd>Telescope buffers<cr>')
 vim.keymap.set({'n'}, '<C-p>', '<cmd>Telescope fd<cr>')
 
+-- copilot
+--vim.keymap.set('i', "<C-j>", "<Plug>(copilot-next)")
+--vim.keymap.set('i', "<C-k>", "<Plug>(copilot-previous)")
+--vim.keymap.set('i', "<C-o>", "<Plug>(copilot-dismiss)")
+--vim.keymap.set('i', "<C-s>", "<Plug>(copilot-suggest)")
+--vim.keymap.set('i', "<C-l>", 'copilot#Accept("<CR>")', { silent = true, expr = true, script = true, replace_keycodes = false })
+
+
 local telescope_bindings = {
     { desc = "telescope keymaps", key = ";;", f = function() require('telescope.builtin').keymaps() end },
     { desc = "telescope resume", key = ";r", f = function() require('telescope.builtin').resume() end },
@@ -76,10 +84,6 @@ vim.keymap.set({'n'}, 'gd', '<Plug>(coc-definition)')
 vim.keymap.set({'n'}, 'gy', '<Plug>(coc-type-definition)')
 vim.keymap.set({'n'}, 'gi', '<Plug>(coc-implementation)')
 vim.keymap.set({'n'}, 'gr', '<Plug>(coc-references)')
-
---- Tab,Shift-Tab for jump snippet for signature help
-vim.g.coc_snippet_next = '<Tab>'
-vim.g.coc_snippet_prev = '<S-Tab>'
  
 -- Symbol renaming.
 vim.keymap.set({'n'}, '<Leader>rn', '<Plug>(coc-rename)')
@@ -114,27 +118,16 @@ vim.keymap.set({'n', 'x'}, '<C-s>', '<Plug>(coc-range-select)')
 
 -- coc-snippets
 
-vim.api.nvim_set_keymap('i', '<TAB>', 'v:lua.coc_tab_mapping()', { noremap = true, silent = true, expr = true })
+vim.cmd([[inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
 
--- Define the Lua function to replace the Vimscript
-vim.cmd([[
-function! v:lua.coc_tab_mapping() abort
-  if coc#pum#visible()
-    return coc#_select_confirm()
-  elseif coc#expandableOrJumpable()
-    return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
-  elseif v:lua.CheckBackspace()
-    return "\<TAB>"
-  else
-    return coc#refresh()
-  endif
-endfunction
-]])
-
--- Lua function equivalent to CheckBackspace
-vim.cmd([[
-function! v:lua.CheckBackspace() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-]])
+
+let g:coc_snippet_prev = '<S-tab>'
+let g:coc_snippet_next = '<tab>']])
