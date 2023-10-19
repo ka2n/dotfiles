@@ -73,16 +73,32 @@ require('packer').startup(function(use)
     }
 
     -- Completion
-    use { 'github/copilot.vim', setup = function()
-        vim.g.copilot_node_command = os.getenv('HOME') .. '/.asdf/installs/nodejs/16.17.0/bin/node'
-    end, }
+    use {
+        'zbirenbaum/copilot.lua', 
+        cmd = 'Copilot',
+        event = 'InsertEnter',
+        config = function()
+            require('copilot').setup({
+                suggestion = {
+                    auto_trigger = true,
+                    keymap = {
+                        accept = '<C-l>',
+                        dismiss = '<C-o>',
+                        next = '<C-j>',
+                        prev = '<C-k>',
+                    },
+                },
+                copilot_node_command =os.getenv('HOME') .. '/.asdf/installs/nodejs/20.8.1/bin/node' 
+            })
+        end,
+    }
 
     -- LSP support
     use {
         'neoclide/coc.nvim',
         branch = 'release',
         setup = function()
-            vim.g.coc_node_path = os.getenv('HOME') .. '/.asdf/installs/nodejs/18.9.0/bin/node'
+            vim.g.coc_node_path = os.getenv('HOME') .. '/.asdf/installs/nodejs/20.8.1/bin/node'
             vim.g.coc_filetype_map = {
                 blade = 'html',
                 htmldjango = 'html'
