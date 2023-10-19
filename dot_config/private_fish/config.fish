@@ -76,8 +76,6 @@ function fish_user_key_bindings
   bind \c] 'fzf_ghq_select_repository (commandline -b)'
 end
 
-abbr --add golatest 'set -x GOTOOLCHAIN=(url -s -L "https://go.dev/VERSION?m=text" | head -n 1)+auto'
-
 
 if type -q bitly
     function bitly
