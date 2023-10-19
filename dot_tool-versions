@@ -1,5 +1,5 @@
 ruby 3.1.2
-nodejs 18.9.0
+nodejs 20.8.1
 deno 1.29.1
 tflint 0.43.0
 terraform-docs 0.16.0
