@@ -127,6 +127,10 @@ if type -q hgrep
     end
 end
 
+if type -q rg
+    alias rg='rg --smart-cas'
+end
+
 alias ..='cd ..'
 alias 2..='cd ../..'
 alias 3..='cd ../../..'
