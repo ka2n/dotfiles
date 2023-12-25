@@ -175,6 +175,9 @@ end
 set -Ux BUN_INSTALL "/home/k2/.bun"
 set -px --path PATH "/home/k2/.bun/bin"
 
+# Aqua
+set -px --path PATH "$HOME/.local/share/aquaproj-aqua/bin"
+
 if type -q starship
     starship init fish | source
 end
