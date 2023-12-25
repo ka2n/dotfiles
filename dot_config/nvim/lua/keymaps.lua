@@ -22,7 +22,7 @@ vim.keymap.set({'n'}, '<C-e>', '<cmd>Neotree<cr>')
 
 -- telescope
 vim.keymap.set({'n'}, '<C-b>', '<cmd>Telescope buffers<cr>')
-vim.keymap.set({'n'}, '<C-p>', '<cmd>Telescope fd<cr>')
+vim.keymap.set({'n'}, '<C-p>', '<cmd>Telescope fd hidden=true<cr>')
 
 -- copilot
 --vim.keymap.set('i', "<C-j>", "<Plug>(copilot-next)")
