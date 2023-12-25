@@ -3,3 +3,4 @@ nodejs 20.8.1
 deno 1.29.1
 tflint 0.43.0
 terraform-docs 0.16.0
+terraform 1.4.6
