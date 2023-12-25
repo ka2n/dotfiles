@@ -67,8 +67,9 @@
     "snippetCompletion": true
   },
   "diagnostic-languageserver.filetypes": {
-    "go": "golangci-ilnt"
+    "go": "golangci-lint"
   },
+  "yaml.schemaStore.enable": true,
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "🔴",
   "diagnostic.infoSign": "",
