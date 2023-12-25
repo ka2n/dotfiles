@@ -34,7 +34,18 @@ require('packer').startup(function(use)
             'nvim-lua/plenary.nvim',
             'nvim-tree/nvim-web-devicons',
             'MunifTanjim/nui.nvim'
-        }
+        },
+        config = function()
+            require('neo-tree').setup({
+                filesystem = {
+                    filtered_items = {
+                        always_show = {
+                            ".github",
+                        },
+                    },
+                },
+            })
+        end,
     }
 
     -- Help
@@ -57,7 +68,7 @@ require('packer').startup(function(use)
             require('telescope').setup {
             extensions = {
                 frecency = {
-                    auto_validate = true
+                    auto_validate = false,
                 }
             }
         }
