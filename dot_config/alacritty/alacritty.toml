@@ -1,0 +1,30 @@
+import = ["/home/k2/.config/alacritty/nord.toml"]
+live_config_reload = true
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "Cica"
+style = "Regular"
+
+[window]
+decorations = "none"
+dynamic_padding = true
+dynamic_title = true
+opacity = 0.98
+
+[window.padding]
+x = 3
+y = 3
+
+[window.scrolling]
+history = 10000
+multiplier = 3
