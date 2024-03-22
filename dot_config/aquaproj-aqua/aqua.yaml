@@ -1,0 +1,21 @@
+---
+# aqua - Declarative CLI Version Manager
+# https://aquaproj.github.io/
+# checksum:
+#   enabled: true
+#   require_checksum: true
+#   supported_envs:
+#   - all
+registries:
+- type: standard
+  ref: v4.155.0 # renovate: depName=aquaproj/aqua-registry
+packages:
+- name: hashicorp/terraform-ls@v0.32.8
+- name: biomejs/biome@cli/v1.6.1
+- name: ankitpokhrel/jira-cli@v1.5.1
+- name: cli/cli@v2.46.0
+- name: goreleaser/goreleaser@v1.24.0
+- name: mattn/bsky@v0.0.49
+- name: mattn/efm-langserver@v0.0.53
+- name: golangci/golangci-lint@v1.57.1
+- name: golang.org/x/tools/gopls@gopls/v0.15.2
