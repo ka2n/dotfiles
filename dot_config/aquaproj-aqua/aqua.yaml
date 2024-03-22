@@ -18,4 +18,4 @@ packages:
 - name: mattn/bsky@v0.0.49
 - name: mattn/efm-langserver@v0.0.53
 - name: golangci/golangci-lint@v1.57.1
-- name: golang.org/x/tools/gopls@gopls/v0.15.2
+- name: golang.org/x/tools/gopls@v0.15.2
