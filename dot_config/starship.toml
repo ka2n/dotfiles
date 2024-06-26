@@ -28,6 +28,9 @@ disabled = true
 [ruby]
 disabled = true
 
+[golang]
+disabled = true
+
 [gcloud]
 format = '[$symbol$active]($style) '
 style = 'bold blue'
