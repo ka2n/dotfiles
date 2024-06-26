@@ -33,7 +33,7 @@ unbindurl --mode=insert scrapbox\.io <C-i>
 " 翻訳バー
 command translate js let googleTranslateCallback = document.createElement('script'); googleTranslateCallback.innerHTML = "function googleTranslateElementInit(){ new google.translate.TranslateElement(); }"; document.body.insertBefore(googleTranslateCallback, document.body.firstChild); let googleTranslateScript = document.createElement('script'); googleTranslateScript.charset="UTF-8"; googleTranslateScript.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&tl=ja&sl=&hl="; document.body.insertBefore(googleTranslateScript, document.body.firstChild);
 
-command chrome composite get_current_url | exclaim_quiet google-chrome-beta
+command chrome composite get_current_url | exclaim_quiet google-chrome-stable
 
 # Open with 12ft.io
 command 12ft js location.href=`https://12ft.io/${location.href}`;
