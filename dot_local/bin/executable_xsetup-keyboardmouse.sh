@@ -42,3 +42,7 @@ if [[ $inputDevices =~ "Logitech M570" ]]; then
   xinput --set-prop "pointer:Logitech M570" 'libinput Accel Speed' -.3
   xinput --set-prop "pointer:Logitech M570" 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1
 fi
+
+#if [[ $inputDevices =~ "Kensington SlimBlade Pro" ]]; then
+#  #xinput set-button-map "" 1 2 3 5 4 6 7 8 9
+#fi
