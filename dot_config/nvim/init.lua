@@ -3,7 +3,6 @@ vim.opt.title = true
 vim.opt.number=true
 vim.opt.backup=true
 vim.opt.backupdir= os.getenv("HOME") .. "/.tmp/nvim_backup"
-vim.opt.imdisable=true
 vim.opt.belloff=all
 vim.opt.laststatus=2
 vim.opt.expandtab=true
@@ -43,6 +42,7 @@ vim.opt.cmdheight=2
 vim.opt.relativenumber=true
 vim.opt.updatetime=100
 vim.opt.clipboard='unnamedplus'
+vim.opt.conceallevel=1
 
 vim.opt.termguicolors=true
 vim.cmd([[ set t_8f=^[[38;2;%lu;%lu;%lum ]])
