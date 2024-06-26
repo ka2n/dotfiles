@@ -24,6 +24,10 @@ vim.keymap.set({'n'}, '<C-e>', '<cmd>Neotree<cr>')
 vim.keymap.set({'n'}, '<C-b>', '<cmd>Telescope buffers<cr>')
 vim.keymap.set({'n'}, '<C-p>', '<cmd>Telescope fd hidden=true<cr>')
 
+-- quickrun
+vim.keymap.set("n", "\\r", "<cmd>QuickRun<CR>")
+vim.keymap.set("n", "\\x", "<cmd>QuickRun >>message<CR>")
+
 -- copilot
 --vim.keymap.set('i', "<C-j>", "<Plug>(copilot-next)")
 --vim.keymap.set('i', "<C-k>", "<Plug>(copilot-previous)")
@@ -34,6 +38,7 @@ vim.keymap.set({'n'}, '<C-p>', '<cmd>Telescope fd hidden=true<cr>')
 
 local telescope_bindings = {
     { desc = "telescope keymaps", key = ";;", f = function() require('telescope.builtin').keymaps() end },
+    { desc = "telescope coc-commands", key = ";c", f = function() vim.cmd(':Telescope coc commands') end },
     { desc = "telescope resume", key = ";r", f = function() require('telescope.builtin').resume() end },
     { desc = "telescope frecency", key = ";f", f = function() require('telescope').extensions.frecency.frecency() end },
     { desc = "telescope live_grep", key = ";/", f = function() require('telescope.builtin').live_grep() end },
@@ -42,12 +47,13 @@ for i,s in pairs(telescope_bindings) do
     vim.keymap.set('n', s.key, s.f, { desc = s.desc, noremap = true, silent = true })
 end
 
+-- keymap にtelescopeの機能を追加して ;; で呼び出せるようにする
 for k, v in pairs(require("telescope.builtin")) do
   if type(v) == "function" then
     vim.keymap.set('n', '<Plug>(telescope.' .. k .. ')', v)
   end
 end
-
+-- coc のコマンドも同様
 do 
     local coc_actions = {
         'mru',
@@ -71,6 +77,9 @@ do
         vim.keymap.set('n', '<Plug>(coc.' .. v .. ')', '<cmd>Telescope coc ' .. v .. '<cr>')
     end
 end
+
+---- Most used functions
+vim.keymap.set('', ';o', '<cmd>ObsidianQuickSwitch<CR>')
 
 -- coc
 vim.keymap.set({'n'}, '<M-O>', '<cmd>OR<cr>')
