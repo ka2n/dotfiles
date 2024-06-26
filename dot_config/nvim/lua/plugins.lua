@@ -1,28 +1,58 @@
 -- packer
 local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+    local fn = vim.fn
+    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+    return false
 end
 
 local packer_bootstrap = ensure_packer()
 
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
-    use 'vim-denops/denops.vim'
+    use 'tpope/vim-fugitive'
+    use 'tpope/vim-rhubarb'
+    --use 'vim-denops/denops.vim'
 
     -- Color Scheme
+     use {
+         'shaunsingh/nord.nvim', config = function()
+         vim.g.nord_italic = false
+     end, }
+
     use {
-        'shaunsingh/nord.nvim', config = function()
-            vim.g.nord_italic = false
-            require('nord').set()
-            vim.cmd [[colorscheme nord]]
-    end,}
+      'rmehri01/onenord.nvim',
+    }
+
+    use {
+        'neanias/everforest-nvim',
+      config = function()
+          require('everforest').setup({
+              background = 'medium',
+          })
+      end
+    }
+
+    vim.cmd [[colorscheme nord]]
+
+    use {
+        'lukas-reineke/headlines.nvim',
+        after = 'nvim-treesitter',
+        config = function ()
+            require('headlines').setup({
+                markdown = {
+                    bullets = {},
+                    coldeblock_highlight = 'CodeBlock',
+                    dash_highlight = 'Dash',
+                    quote_highlight = 'Quote',
+                },
+            })
+        end
+    }
 
     use 'folke/lsp-colors.nvim'
 
@@ -52,40 +82,88 @@ require('packer').startup(function(use)
     use 'vim-jp/vimdoc-ja'
 
     -- Template, Snippet
-    use { 
+    use {
         'mattn/sonictemplate-vim', setup = function()
-            vim.g.sonictemplate_vim_template_dir = { '~/.templates' }
-            vim.g.sonictemplate_key = 0
-            vim.g.sonictemplate_intelligent_key = 0
-            vim.g.sonictemplate_postfix_key = 0
-        end,
+        vim.g.sonictemplate_vim_template_dir = { '~/.templates' }
+        vim.g.sonictemplate_key = 0
+        vim.g.sonictemplate_intelligent_key = 0
+        vim.g.sonictemplate_postfix_key = 0
+    end,
     }
 
-    use { 
+    use {
         'nvim-telescope/telescope.nvim',
         requires = { 'nvim-lua/plenary.nvim' },
         config = function()
             require('telescope').setup {
-            extensions = {
-                frecency = {
-                    auto_validate = false,
+                extensions = {
+                    frecency = {
+                        auto_validate = false,
+                    }
                 }
             }
-        }
         end,
     }
 
     use {
         "nvim-telescope/telescope-frecency.nvim",
         config = function()
-            require"telescope".load_extension("frecency")
+            require "telescope".load_extension("frecency")
         end,
-        requires = {"kkharji/sqlite.lua"}
+        requires = { "kkharji/sqlite.lua" }
+    }
+
+    use {
+        "epwalsh/obsidian.nvim",
+        tag = "*",
+        requires = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" },
+        config = function()
+            require('obsidian').setup({
+                workspaces = {
+                    {
+                        name = "notes",
+                        path = "~/Documents/Notes/Notes",
+                    }
+                },
+                daily_notes = {
+                    folder = "dailynotes",
+                    date_format = "%Y-%m-%d",
+                    template = "2_daily.md",
+                },
+                use_advanced_uri = true,
+                picker = {
+                    name = "telescope.nvim",
+                },
+                completion = {
+                    nvim_cmp = true,
+                    min_chars = 2,
+                },
+                follow_url_func = function(url)
+                    vim.fn.jobstart({ "xdg-open", url })
+                end,
+                note_id_func = function(title)
+                    -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+                    -- In this case a note with the title 'My new note' will be given an ID that looks
+                    -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+                    local suffix = ""
+                    if title ~= nil then
+                        -- If title is given, transform it into valid file name.
+                        suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-ぁ-んァ-ヶｱ-ﾝﾞﾟ一-龠]", ""):lower()
+                    else
+                        -- If title is nil, just add 4 random uppercase letters to the suffix.
+                        for _ = 1, 4 do
+                            suffix = suffix .. string.char(math.random(65, 90))
+                        end
+                    end
+                    return suffix
+                end,
+            })
+        end,
     }
 
     -- Completion
     use {
-        'zbirenbaum/copilot.lua', 
+        'zbirenbaum/copilot.lua',
         cmd = 'Copilot',
         event = 'InsertEnter',
         config = function()
@@ -99,9 +177,22 @@ require('packer').startup(function(use)
                         prev = '<C-k>',
                     },
                 },
-                copilot_node_command =os.getenv('HOME') .. '/.asdf/installs/nodejs/20.8.1/bin/node' 
+                copilot_node_command = os.getenv('HOME') .. '/.local/share/mise/installs/node/20.8.1/bin/node'
             })
         end,
+    }
+
+    use {
+        'CopilotC-Nvim/CopilotChat.nvim',
+        branch = 'canary',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'zbirenbaum/copilot.lua',
+        },
+        config = function ()
+            require('CopilotChat').setup {
+            }
+        end
     }
 
     -- LSP support
@@ -109,25 +200,26 @@ require('packer').startup(function(use)
         'neoclide/coc.nvim',
         branch = 'release',
         setup = function()
-            vim.g.coc_node_path = os.getenv('HOME') .. '/.asdf/installs/nodejs/20.8.1/bin/node'
+            vim.g.coc_node_path = os.getenv('HOME') .. '/.local/share/mise/installs/node/20.8.1/bin/node'
             vim.g.coc_filetype_map = {
                 blade = 'html',
-                htmldjango = 'html'
+                htmldjango = 'html',
+                json5 = 'json',
             }
         end,
     }
     use {
         'fannheyward/telescope-coc.nvim',
         config = function()
-            require"telescope".load_extension("coc")
+            require "telescope".load_extension("coc")
         end,
     }
 
     -- Language
     use {
-        'mattn/emmet-vim', setup = function() 
-            vim.g.user_emmet_leader_key = '<C-x>'
-        end,
+        'mattn/emmet-vim', setup = function()
+        vim.g.user_emmet_leader_key = '<C-x>'
+    end,
     }
 
     use {
@@ -138,10 +230,6 @@ require('packer').startup(function(use)
                     enable = true,
                 },
             }
-        end,
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
         end,
     }
 
@@ -155,13 +243,23 @@ require('packer').startup(function(use)
 
     -- Apps
     -- use 'glidenote/memolist.vim', { 'on': ['MemoNew', 'MemoGrep', 'MemoList'] }
-    use 'skanehira/denops-silicon.vim'
+    --use 'skanehira/denops-silicon.vim'
 
+    use "thinca/vim-quickrun"
 
     -- Editing
 
     use "tpope/vim-repeat"
-    
+
+    --use {
+    --    'tani/dmacro.nvim',
+    --    config = function ()
+    --        require('dmacro').setup({
+    --            dmacro_key = '<C-t>'
+    --        })
+    --    end
+    --}
+
     use {
         'kylechui/nvim-surround',
         tag = "*",
@@ -170,7 +268,7 @@ require('packer').startup(function(use)
         end,
     }
 
-    use { 
+    use {
         'easymotion/vim-easymotion',
         setup = function()
             vim.g.EasyMotion_do_mapping = 0
