@@ -22,17 +22,17 @@ set -gx GIT_EDITOR vim
 # PHP
 alias sail=vendor/bin/sail
 
-# Envs
-source /opt/asdf-vm/asdf.fish
-## Anyenv
-#status --is-interactive; and source (anyenv init - fish|psub)
+alias j=just
+alias jc='just --choose'
+alias jl='just --list'
 
+# Envs
+~/.local/bin/mise activate fish | source
 
 #set -gx VOLTA_HOME "$HOME/.volta"
 #set -gx PATH "$VOLTA_HOME/bin" $PATH
 
 set -gx PATH $HOME/go/bin $PATH 
-set -gx PATH $HOME/.bun/bin $PATH 
 
 # Lolcommits
 set -gx LOLCOMMITS_FONT "/Library/Fonts/ヒラギノ角ゴ Std W8.otf"
@@ -68,9 +68,13 @@ if type -q fzf
     end
 end
 
+abbr --add golatest 'set -x GOTOOLCHAIN (curl -s -L "https://go.dev/VERSION?m=text" | head -n 1)+auto'
+
 # gcloud
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end
+if test -e "$HOME/google-cloud-sdk/path.fish.inc"
+    source "$HOME/google-cloud-sdk/path.fish.inc"
+end
 
 function fish_user_key_bindings
   bind \c] 'fzf_ghq_select_repository (commandline -b)'
@@ -162,6 +166,9 @@ bind \cx\ce edit_command_buffer
 if type -q git-switch-trainer
     alias git="git-switch-trainer"
 end
+
+# 1password
+source $HOEM/.config/op/plugins.sh
 
 if test -e $HOME/.local/share/fish/local.fish
     source $HOME/.local/share/fish/local.fish
