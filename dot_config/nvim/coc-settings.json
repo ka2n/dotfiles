@@ -2,28 +2,89 @@
   "languageserver": {
     "graphql": {
       "command": "graphql-lsp",
-      "args": ["server", "-m", "stream"],
-      "filetypes": ["typescript", "typescriptreact", "graphql"],
+      "args": [
+        "server",
+        "-m",
+        "stream"
+      ],
+      "filetypes": [
+        "typescript",
+        "typescriptreact",
+        "graphql"
+      ],
       "settings": {
         "graphql-config.load.legacy": true
       }
     },
     "bufls": {
       "command": "bufls",
-      "rootPatterns": ["buf.yaml"],
-      "args": ["serve"],
-      "filetypes": ["proto"]
+      "rootPatterns": [
+        "buf.yaml"
+      ],
+      "args": [
+        "serve"
+      ],
+      "filetypes": [
+        "proto"
+      ]
     },
     "terraform": {
       "command": "terraform-ls",
-      "filetypes": ["terraform", "tf"],
-      "args": ["serve"],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "args": [
+        "serve"
+      ],
       "initializationOptions": {}
+    },
+    "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      "filetypes": [
+        "markdown"
+      ]
+    },
+    "jsonnet": {
+      "command": "jsonnet-language-server",
+      "args": [
+        "-t"
+      ],
+      "rootPatterns": [
+        ".git/",
+        "jsonnetfile.json"
+      ],
+      "filetypes": [
+        "jsonnet",
+        "libsonnet"
+      ]
     }
   },
+  "workspace.rootPatterns": [
+    "go.mod",
+    ".git"
+  ],
+  "workspace.workspaceFolderCheckCwd": false,
+  "workspace.bottomUpFiletypes": [
+    "go"
+  ],
   "prettier.embeddedLanguageFormatting": "auto",
   "prettier.onlyUseLocalVersion": true,
-  "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
+  "prettier.formatterPriority": 0,
+  "prettier.enableDebugLogs": false,
+  "eslint.run": "onSave",
+  "eslint.experimental.useFlatConfig": true,
+  "biome.requireConfiguration": true,
+  "biome.trace.server": "verbose",
+  "biome.enable": true,
+  "biome.bin": "/home/k2/.local/share/aquaproj-aqua/bin/biome",
+  "html.filetypes": [
+    "html",
+    "handlebars",
+    "htmldjango",
+    "blade"
+  ],
   "codeLens.enable": true,
   "list.insertMappings": {
     "<C-n>": "normal:j",
@@ -65,6 +126,9 @@
   },
   "go.disable": {
     "snippetCompletion": true
+  },
+  "go.goplsOptions": {
+    "usePlaceholders": true
   },
   "diagnostic-languageserver.filetypes": {
     "go": "golangci-lint"
