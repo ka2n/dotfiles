@@ -64,8 +64,10 @@ inputs = ["Tccd1", "Tccd2", "Composite"]
 #alert = 10.0
 
 
+{{ if eq .ctype "laptop" }}
 [[block]]
 block = "battery"
+{{ end }}
 
 [[block]]
 block = "sound"
