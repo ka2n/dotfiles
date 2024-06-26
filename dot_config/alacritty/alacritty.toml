@@ -12,6 +12,8 @@ TERM = "xterm-256color"
 size = 12.0
 
 [font.normal]
+# 日本語にほんご
+#family = "Moralerspace Argon"
 family = "Cica"
 style = "Regular"
 
