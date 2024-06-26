@@ -9,3 +9,4 @@ tags
 .git
 .tool-versions
 .vim
+!.github
