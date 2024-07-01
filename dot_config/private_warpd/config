@@ -1,0 +1,4 @@
+indicator: bottomleft
+indicator_size: 20
+cursor_size: 12
+speed: 700
