@@ -1,7 +1,7 @@
 set fish_greeting
 
 # EDITOR
-set -gx EDITOR vim
+set -gx EDITOR nvim
 
 set -g fish_escape_delay_ms 600
 
@@ -17,7 +17,7 @@ switch (uname)
 end
 
 # git
-set -gx GIT_EDITOR vim
+set -gx GIT_EDITOR nvim
 
 # PHP
 alias sail=vendor/bin/sail
@@ -57,7 +57,7 @@ if type -q fzf
             set fzf_flags --query "$query"
         end
 
-        set -a fzf_flags --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*"
+        set -a fzf_flags --preview "bat --color=always --style=header,grid --line-range :80 (ghq root)/{}/README.*"
 
         ghq list | fzf $fzf_flags | read line
 
@@ -184,6 +184,7 @@ set -px --path PATH "/home/k2/.bun/bin"
 
 # Aqua
 set -px --path PATH "$HOME/.local/share/aquaproj-aqua/bin"
+set -gx AQUA_GLOBAL_CONFIG "$HOME/.config/aquaproj-aqua/aqua.yaml"
 
 if type -q starship
     starship init fish | source
