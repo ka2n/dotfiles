@@ -68,6 +68,38 @@ if type -q fzf
     end
 end
 
+if type -q op
+    function opr
+        argparse -n oprr -x 'e,g' 'e/env=' 'g/global' -- $argv
+        or return 1
+
+        if not op whoami > /dev/null
+            op signin
+            op whoami
+        end
+
+        # if $_flag_g is set, use global env file
+        # if $_flag_e is set, use the specified env file
+        # if neither is set, use the default env file
+        # default env file is "$PWD/.env" or "$HOME/.env.1password"
+        if test -n "$_flag_g"
+            set env_file "$HOME/.env.1password"
+        else if test -n "$_flag_e"
+            set env_file "$_flag_e"
+        else
+            if test -f "$PWD/.env"
+                set env_file "$PWD/.env"
+            else
+                set env_file "$HOME/.env.1password"
+            end
+        end
+
+        set_color blue; echo "Using env file: $env_file"; set_color normal
+
+        op run --env-file="$env_file" --no-masking -- $argv
+    end
+end
+
 abbr --add golatest 'set -x GOTOOLCHAIN (curl -s -L "https://go.dev/VERSION?m=text" | head -n 1)+auto'
 
 # gcloud
