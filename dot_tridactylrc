@@ -26,6 +26,10 @@ autocmd DocStart ^https://reddit.com mode ignore
 autocmd DocStart ^https://messenger.com mode ignore
 
 unbindurl --mode=insert scrapbox\.io <C-i>
+unbindurl --mode=normal www.rememberthemilk.com gt
+unbindurl --mode=normal www.rememberthemilk.com gi
+unbindurl --mode=normal www.rememberthemilk.com gm
+unbindurl --mode=normal www.rememberthemilk.com gf
 
 
 " bookmarklets
@@ -43,7 +47,9 @@ command 12ft js location.href=`https://12ft.io/${location.href}`;
 command hatena jsb browser.tabs.query({currentWindow:!0,active:!0}).then(e=>{const n=e[0].url,t=e[0].index;browser.tabs.create({url:`https://b.hatena.ne.jp/entry/${encodeURIComponent(n)}`,index:t+1})});
 
 " Duplicate tabs with other container
-command reopen jsb -d€ tri.webext.activeTab().then(r => { return tabopen('-b', '-c', JS_ARGS[1], r.url).then(() => browser.tabs.remove(r.id)) })€
+command reopen recontain
+command re recontain
+"command reopen jsb -d€ tri.webext.activeTab().then(r => { return tabopen('-b', '-c', JS_ARGS[1], r.url).then(() => browser.tabs.remove(r.id)) })€
 command uncontain jsb tri.webext.activeTab().then(r => { tabopen('-c', 'none', r.url) })
 command unko uncontain
 command unco uncontain
