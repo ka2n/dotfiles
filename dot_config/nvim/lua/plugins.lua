@@ -79,7 +79,6 @@ require('packer').startup(function(use)
     }
 
     -- Help
-    use 'vim-jp/vimdoc-ja'
 
     -- Template, Snippet
     use {
@@ -202,7 +201,6 @@ require('packer').startup(function(use)
         setup = function()
             vim.g.coc_node_path = os.getenv('HOME') .. '/.local/share/mise/installs/node/20.8.1/bin/node'
             vim.g.coc_filetype_map = {
-                blade = 'html',
                 htmldjango = 'html',
                 json5 = 'json',
             }
@@ -229,6 +227,16 @@ require('packer').startup(function(use)
                 highlight = {
                     enable = true,
                 },
+            }
+
+            local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+            parser_config.blade = {
+                install_info = {
+                    url = "https://github.com/EmranMR/tree-sitter-blade",
+                    files = {"src/parser.c"},
+                    branch = "main",
+                },
+                filetype = "blade"
             }
         end,
     }
