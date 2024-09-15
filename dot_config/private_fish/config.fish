@@ -70,8 +70,13 @@ end
 
 if type -q op
     function opr
-        argparse -n oprr -x 'e,g' 'e/env=' 'g/global' -- $argv
+        argparse -n oprr -x 'e,g,h' 'e/env=' 'g/global' 'h/help' -- $argv
         or return 1
+
+        if test -n "$_flag_h"
+            echo "Usage: opr [-e|--env ENV_FILE] [-g|--global] -- COMMAND"
+            return 0
+        end
 
         if not op whoami > /dev/null
             op signin
@@ -112,6 +117,11 @@ function fish_user_key_bindings
   bind \c] 'fzf_ghq_select_repository (commandline -b)'
 end
 
+
+if test -e "$HOME/.atuin/bin/env.fish"
+    source "$HOME/.atuin/bin/env.fish"
+    atuin init --disable-up-arrow fish | source
+end
 
 if type -q bitly
     function bitly
