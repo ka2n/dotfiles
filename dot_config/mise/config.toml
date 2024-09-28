@@ -1,0 +1,8 @@
+[settings]
+experimental = true
+
+[tools]
+"npm:svgo" = "latest"
+"npm:graphql-language-service-cli" = "latest"
+"npm:neovim" = "latest"
+lua = "5.1"
