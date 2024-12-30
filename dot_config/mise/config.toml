@@ -3,6 +3,12 @@ experimental = true
 
 [tools]
 "npm:svgo" = "latest"
-"npm:graphql-language-service-cli" = "latest"
+"npm:graphql-language-service-cli" = "3.5.0"
 "npm:neovim" = "latest"
 lua = "5.1"
+"npm:vercel" = "latest"
+"npm:@hubspot/cli" = "latest"
+"npm:imageoptim-cli" = "latest"
+"npm:@squoosh/cli" = "latest"
+"npm:imagemin-cli" = "latest"
+"npm:prettier" = "latest"
