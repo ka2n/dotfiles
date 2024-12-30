@@ -1,0 +1,2 @@
+setlocal autoindent
+setlocal smartindent

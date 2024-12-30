@@ -2,77 +2,44 @@
   "languageserver": {
     "graphql": {
       "command": "graphql-lsp",
-      "args": [
-        "server",
-        "-m",
-        "stream"
-      ],
-      "filetypes": [
-        "typescript",
-        "typescriptreact",
-        "graphql"
-      ],
+      "args": ["server", "-m", "stream"],
+      "filetypes": ["typescript", "typescriptreact", "graphql"],
       "settings": {
         "graphql-config.load.legacy": true
       }
     },
     "bufls": {
       "command": "bufls",
-      "rootPatterns": [
-        "buf.yaml"
-      ],
-      "args": [
-        "serve"
-      ],
-      "filetypes": [
-        "proto"
-      ]
+      "rootPatterns": ["buf.yaml"],
+      "args": ["serve"],
+      "filetypes": ["proto"]
     },
     "terraform": {
       "command": "terraform-ls",
-      "filetypes": [
-        "terraform",
-        "tf"
-      ],
-      "args": [
-        "serve"
-      ],
+      "filetypes": ["terraform", "tf"],
+      "args": ["serve"],
       "initializationOptions": {}
     },
     "efm": {
       "command": "efm-langserver",
       "args": [],
-      "filetypes": [
-        "markdown"
-      ]
+      "filetypes": ["markdown"]
     },
     "jsonnet": {
       "command": "jsonnet-language-server",
-      "args": [
-        "-t"
-      ],
-      "rootPatterns": [
-        ".git/",
-        "jsonnetfile.json"
-      ],
-      "filetypes": [
-        "jsonnet",
-        "libsonnet"
-      ]
+      "args": ["-t"],
+      "rootPatterns": [".git/", "jsonnetfile.json"],
+      "filetypes": ["jsonnet", "libsonnet"]
     }
   },
-  "workspace.rootPatterns": [
-    "go.mod",
-    ".git"
-  ],
+  "workspace.rootPatterns": ["go.mod", ".git", "tailwind.config.ts", "biome.json"],
   "workspace.workspaceFolderCheckCwd": false,
-  "workspace.bottomUpFiletypes": [
-    "go"
-  ],
+  "workspace.bottomUpFiletypes": ["go"],
   "prettier.embeddedLanguageFormatting": "auto",
   "prettier.onlyUseLocalVersion": true,
   "prettier.formatterPriority": 0,
   "prettier.enableDebugLogs": false,
+  "prettier.requireConfig": true,
   "eslint.run": "onSave",
   "eslint.experimental.useFlatConfig": true,
   "biome.requireConfiguration": true,
@@ -80,6 +47,13 @@
   "biome.enable": true,
   "biome.bin": "/home/k2/.local/share/aquaproj-aqua/bin/biome",
   "codeLens.enable": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["clsx\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["twMerge\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
   "list.insertMappings": {
     "<C-n>": "normal:j",
     "<C-p>": "normal:k"
@@ -118,6 +92,9 @@
   "[go]": {
     "coc.preferences.formatOnSave": true
   },
+  "[lua]": {
+    "coc.preferences.formatOnSave": true
+  },
   "go.disable": {
     "snippetCompletion": true
   },
@@ -138,6 +115,7 @@
   "solargraph.diagnostics": true,
   "solargraph.hover": true,
   "solargraph.formatting": true,
+  "Lua.diagnostics.globals": ["vim"],
   "suggest.completionItemKindLabels": {
     "function": "\uf794",
     "method": "\uf6a6",
@@ -163,5 +141,82 @@
     "reference": "\uf87a",
     "typeParameter": "\uf278",
     "default": "\uf29c"
-  }
+  },
+  "cSpell.ignorePaths": [
+    "**/.next/**",
+    "**/dist/**",
+    "**/gen/**",
+    "**/package-lock.json",
+    "**/node_modules/**",
+    "**/vscode-extension/**",
+    "**/.git/objects/**",
+    ".vscode"
+  ],
+  "cSpell.dictionaryDefinitions": [
+    {
+      "name": "user",
+      "path": "/home/k2/.cspell/user.txt",
+      "addWords": true
+    }
+  ],
+  "cSpell.dictionaries": ["user"],
+  "cSpell.enabledLanguageIds": [
+    "vim",
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "git-commit",
+    "gitcommit",
+    "go",
+    "handlebars",
+    "haskell",
+    "html",
+    "jade",
+    "java",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "python",
+    "pug",
+    "restructuredtext",
+    "rust",
+    "scala",
+    "scss",
+    "text",
+    "terraform",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "yml"
+  ],
+  "cSpell.numSuggestions": 3,
+  "cSpell.userWords": [
+    "Oneof",
+    "Redash",
+    "XWORK",
+    "autosave",
+    "bigquery",
+    "dedupe",
+    "googleusercontent",
+    "gserviceaccount",
+    "isatty",
+    "jstype",
+    "notojp",
+    "oneofs",
+    "orgpolicy",
+    "picklist",
+    "preact",
+    "protoc",
+    "pseudomuto",
+    "traceparent",
+    "vali"
+  ]
 }
