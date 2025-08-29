@@ -1,5 +1,9 @@
 [settings]
 experimental = true
+idiomatic_version_file_enable_tools = ["node", "terraform"]
+
+[env]
+_.path = ["./node_modules/.bin", "~/.local/share/aquaproj-aqua/bin"]
 
 [tools]
 "npm:svgo" = "latest"
@@ -12,3 +16,20 @@ lua = "5.1"
 "npm:@squoosh/cli" = "latest"
 "npm:imagemin-cli" = "latest"
 "npm:prettier" = "latest"
+"npm:rtm-cli" = "latest"
+"npm:@openai/codex" = "latest"
+"npm:@playwright/mcp" = "latest"
+"cargo:https://github.com/KOBA789/human-in-the-loop" = "rev:6f95553"
+"npm:@google/gemini-cli" = "latest"
+"npm:difit" = "latest"
+"npm:ccusage" = "latest"
+"npm:@sasazame/ccresume" = "latest"
+node = "22"
+ruby = "3.4.5"
+"gem:lolcommits" = "latest"
+python = "3"
+"npm:vibetunnel" = "1.0.0-beta.15.2"
+"npm:eas-cli" = "latest"
+
+[settings.pipx]
+uvx = true
