@@ -1,1 +1,10 @@
 plugin_cache_dir = "$HOME/.terraform.d/plugin-cache"
+
+
+provider_installation {
+  dev_overrides {
+  }
+
+  direct {}
+}
+
