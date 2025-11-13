@@ -41,10 +41,14 @@ set -gx LOLCOMMITS_DELAY 1
 set -gx LOLCOMMITS_STEALTH 1
 set -gx LOLCOMMITS_DEVICE "/dev/video0"
 
+# miru
+set -gx MIRU_PAGER_STYLE pink
+
 # fzf
 set -U FZF_FIND_FILE_COMMAND "fd --hidden --type f . \$dir --color=always"
 set -U FZF_CD_COMMAND "fd --hidden --type d . \$dir --color=always"
 set -U FZF_DEFAULT_OPTS "--ansi --height=40% --layout=reverse"
+
 
 if type -q fzf
     function fzf_ghq_select_repository
@@ -92,9 +96,33 @@ if type -q op
         else if test -n "$_flag_e"
             set env_file "$_flag_e"
         else
-            if test -f "$PWD/.env"
-                set env_file "$PWD/.env"
-            else
+            # Start from current directory and search up to git root
+            set current_dir $PWD
+            set env_file ""
+
+            # Try to get git root directory (will fail if not in a git repo)
+            set git_root (git rev-parse --show-toplevel 2>/dev/null)
+
+            # If we're in a git repository, search from current dir up to git root
+            if test -n "$git_root"
+                while test "$current_dir" != "$git_root"
+                    if test -f "$current_dir/.env.1password"
+                        set env_file "$current_dir/.env.1password"
+                        break
+                    end
+                    
+                    # Move up to parent directory
+                    set current_dir (dirname $current_dir)
+                end
+                
+                # Check at git root as well (final check)
+                if test -z "$env_file" -a -f "$git_root/.env.1password"
+                    set env_file "$git_root/.env.1password"
+                end
+            end
+
+            # If no file found in path to git root, use home directory
+            if test -z "$env_file"
                 set env_file "$HOME/.env.1password"
             end
         end
@@ -184,6 +212,11 @@ if type -q hgrep
     end
 end
 
+if type -q claude
+    abbr --add claudex "claude --dangerously-skip-permissions"
+    abbr --add vclaude "vt claude --dangerously-skip-permissions"
+end
+
 if type -q rg
     alias rg='rg --smart-case'
 end
@@ -216,12 +249,8 @@ end
 
 bind \cx\ce edit_command_buffer
 
-if type -q git-switch-trainer
-    alias git="git-switch-trainer"
-end
-
 # 1password
-source $HOEM/.config/op/plugins.sh
+#source $HOME/.config/op/plugins.sh
 
 if test -e $HOME/.local/share/fish/local.fish
     source $HOME/.local/share/fish/local.fish
