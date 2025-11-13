@@ -5,3 +5,4 @@ bind diff    G !@gh browse -- commit/%(commit)
 bind generic 9 !sh -c "echo -n %(commit) | xclip -selection c && echo Copied %(commit) to clipboard"
 
 set tab-size = 2
+set wrap-lines = yes
