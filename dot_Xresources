@@ -1,4 +1,4 @@
-URxvt.inputMethod: uim
+URxvt.inputMethod: fcitx
 URxvt.preeditType: OnTheSpot
 URxvt.scrollBar: false
 URxvt.depth: 32
