@@ -53,6 +53,12 @@ vim.cmd([[ set t_8b=^[[48;2;%lu;%lu;%lum ]])
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.filetype.add({
+    extension = {
+        mdx = 'mdx'
+    }
+})
+
 require('config.lazy')
 require('keymaps')
 require('commands')
