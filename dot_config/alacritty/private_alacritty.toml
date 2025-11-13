@@ -1,12 +1,14 @@
-import = ["/home/k2/.config/alacritty/nord.toml"]
-live_config_reload = true
 
 [cursor.style]
-blinking = "On"
+blinking = "Always"
 shape = "Block"
+
+[bell]
+command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/bell.oga"] }
 
 [env]
 TERM = "xterm-256color"
+GLFW_IM_MODULE = "ibus"
 
 [font]
 size = 12.0
@@ -30,3 +32,7 @@ y = 3
 [scrolling]
 history = 10000
 multiplier = 3
+
+[general]
+live_config_reload = true
+import = ["/home/k2/.config/alacritty/nord.toml"]
