@@ -115,6 +115,7 @@ assign [class="Remember The Milk"] 1
 assign [class="IRCCloud"] number "9: IM"
 assign [class="discord"] number "9: IM"
 assign [class="Slack"] number "9: IM"
+assign [class="notion-calendar-electron"] number "9: IM"
 assign [class="Ripcord"] number "9: IM"
 assign [class="URxvt" instance="neomutt"] number "9: IM"
 
@@ -127,6 +128,7 @@ assign [class="focusatwill"] number "7: Music"
 assign [class="obsidian"] number "6: Memo" 
 
 # Floating windows
+for_window [floating] border pixel 0
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="dialog"] floating enable
@@ -139,23 +141,23 @@ for_window [window_role="webconsole"] floating enable
 for_window [class="Google-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable # Authy
 for_window [class="Zeal"] floating enable # Docs viewer
 for_window [class="GoldenDict"] floating enable # Docs viewer
-for_window [instance="^copyq$" class="^copyq$"] border pixel 0, floating enable
+for_window [instance="^copyq$" class="^copyq$"] floating enable
 for_window [class="Ripcord" title="Voice Chat"] floating enable
-for_window [class="Pop"] border pixel 0, floating enable
-for_window [class="Pavumeter"] border pixel 0, floating enable
+for_window [class="Pop"] floating enable
+for_window [class="Pavumeter"] floating enable
 #for_window [class="obsidian"] move scratchpad
 
 # Floating + Sticky
-for_window [class="Around"] border pixel 0, floating enable, sticky enable
+for_window [class="Around"] floating enable, sticky enable
 for_window [window_role="PictureInPicture"] floating enable, sticky enable
 
 # Hidden windows
 for_window [class="Google-chrome.*" title="hidden tab"] floating enable, move scratchpad
 
 # Open Apps
-bindsym $mod+shift+i exec "slack"
-bindsym $mod+shift+t exec "jumpapp tweetdeck"
-bindsym $mod+shift+w exec "firefox"
+bindsym $mod+shift+i exec "jumpapp slack"
+bindsym $mod+shift+w exec "zen-browser"
+bindsym $mod+shift+c exec "jumpapp notion-calendar-electron"
 bindsym $mod+shift+o exec "jumpapp -C -c obsidian Obsidian.AppImage"
 bindsym $mod+shift+n [class="obsidian"] exec "jumpapp -c obsidian Obsidian.AppImage", exec --no-startup-id exo-open 'obsidian://advanced-uri?vault=Notes&commandid=obsidian-memos%253Afocus-on-memos-editor'
 
