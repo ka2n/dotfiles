@@ -60,11 +60,6 @@ follow = true
 name = Katsuma Ito
 username = ka2n
 email = katsumai@gmail.com
-signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIRkGwniJUeDbYVmNimgBfto1vdvLxsY8PT5DnHa+JzB
-
-[commit]
-gpgsign = true
-
 [gpg]
 format = ssh
 
@@ -84,7 +79,8 @@ ui = 1
 co = checkout
 sw = switch
 st = status
-up = "!f() { git stash -u; git pull --rebase; git stash pop; }; f"
+sup = "!f() { git stash -u; git pull --rebase; git stash pop; }; f"
+up = pull --rebase
 psuh = push
 puhs = push
 comimt = commit
@@ -100,6 +96,7 @@ r = !git reflog -n 50 --pretty='format:%gs' | perl -anal -e '$seen{$1}++ or prin
 rev = !git rev-parse "${1-HEAD}"
 fetch-pulls = fetch origin '+refs/pull/*:refs/remotes/pr/*'
 fresh-new-branch = "!f() { git stash -u; git fetch; git switch -C \"$1\" origin/main --no-track; }; f"
+back = "!prev=$(git rev-parse --abbrev-ref @{-1}); [ \"$prev\" = \"main\" ] && git switch @{-2} || git switch -"
 
 [github]
 user = ka2n
@@ -118,7 +115,7 @@ file-style = bold yellow ul
 file-decoration-style = none
 
 [blame]
-ignoreRevsFile = .git-blame-ignore-revs
+#ignoreRevsFile = .git-blame-ignore-revs
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
