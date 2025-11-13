@@ -24,6 +24,7 @@ autocmd DocStart ^https://twitter.com mode ignore
 autocmd DocStart ^https://old.reddit.com mode ignore
 autocmd DocStart ^https://reddit.com mode ignore
 autocmd DocStart ^https://messenger.com mode ignore
+autocmd DocStart ^https://calendar.notion.so mode ignore
 
 unbindurl --mode=insert scrapbox\.io <C-i>
 unbindurl --mode=normal www.rememberthemilk.com gt
@@ -63,6 +64,8 @@ command loudecho js -d€ window.alert(JSON.stringify(JS_ARGS))€
 " Search engine shortcuts
 set searchurls.npm https://www.npmjs.com/package/%s
 set searchurls.ghperson https://github.com/pulls?q=involves%3A%s1+-user%3A%s1+is%3Apublic
+set searchurls.rd https://app.raindrop.io/my/0/%s/
+
 quickmark h https://github.com
 quickmark m https://gmail.com
 quickmark g https://chat.openai.com
@@ -89,6 +92,10 @@ autocontain -s youtube\.com firefox-default
 
 " Firefox configuration
 setpref general.warnOnAboutConfig false
+setpref extensions.pocket.enabled true
+setpref browser.ml.chat.enabled true
+setpref browser.ml.chat.sidebar true
+setpref zen.urlbar.replace-newtab false
 " disable telemetry
 setpref datareporting.healthreport.uploadEnabled false
 setpref datareporting.policy.dataSubmissionEnabled false
