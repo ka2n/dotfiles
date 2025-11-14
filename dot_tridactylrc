@@ -86,6 +86,7 @@ bind gD composite tabduplicate; tabdetach
 set autocreatecontainer true
 set autocontainmode relaxed
 set tabopencontaineraware true
+bind g, reopen firefox-default
 
 autocontain -s facebook\.com facebook
 autocontain -s youtube\.com firefox-default
