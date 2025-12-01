@@ -7,7 +7,7 @@ shape = "Block"
 command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/bell.oga"] }
 
 [env]
-TERM = "xterm-256color"
+TERM = "tmux-256color"
 GLFW_IM_MODULE = "ibus"
 
 [font]
