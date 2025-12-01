@@ -1,3 +1,8 @@
+## Principal
+
+どうでもいいことは流行に従い、重要なことは標準に従い、ドメインのことは自ら設計する
+
+
 ## Tools
 - `gemini` is google gemini cli. You can use it for web search. Run web search via Task Tool with `gemini -p 'WebSearch: ...'`.
 - Use Codex MCP for analysis when bug fixes fail 3+ times
