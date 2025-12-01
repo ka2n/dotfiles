@@ -217,6 +217,10 @@ if type -q claude
     abbr --add vclaude "vt claude --dangerously-skip-permissions"
 end
 
+if type -q codex
+    abbr --add codexbest "codex --yolo --search"
+end
+
 if type -q rg
     alias rg='rg --smart-case'
 end
