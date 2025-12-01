@@ -10,13 +10,10 @@ PS1='[\u@\h \W]\$ '
 
 export EDITOR=vim
 
-. "$HOME/.cargo/env"
-
-eval "$(/home/k2/.local/bin/mise activate bash)"
+command -v mise &>/dev/null && eval "$(mise activate bash)"
+command -v atuin &>/dev/null && eval "$(atuin init --disable-up-arrow bash)"
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-
-eval "$(atuin init --disable-up-arrow bash)"
 
 # Unless under VSCode(VSCODE_INJECTION=1) call tmux setup
 if [ "$VSCODE_INJECTION" != "1" ]; then

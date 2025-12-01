@@ -20,12 +20,20 @@
 
 # https://www.chezmoi.io/user-guide/machines/containers-and-vms/
 {{- $codespaces:= env "CODESPACES" | not | not -}}
+
+# Wayland detection (linux-nixos uses Wayland/Hyprland)
+{{- $wayland := false }}
+{{- if eq $osid "linux-nixos" }}
+{{-   $wayland = true }}
+{{- end }}
+
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 [data]
     osid = {{ $osid | quote }}
     ctype = {{ $chassisType | quote }}
     codespaces = {{ $codespaces }}
+    wayland = {{ $wayland }}
 
 [git]
     autoCommit = true

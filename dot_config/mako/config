@@ -1,0 +1,29 @@
+# Based on dunst config style
+anchor=top-right
+default-timeout=8000
+width=300
+height=100
+outer-margin=24
+margin=10
+padding=16
+border-size=2
+border-radius=0
+font=monospace 10
+max-icon-size=32
+icon-location=left
+
+# Colors (matching dunst)
+background-color=#141c21
+text-color=#ffffff
+border-color=#ba68c8
+
+[urgency=low]
+default-timeout=4000
+border-color=#8bc34a
+
+[urgency=critical]
+default-timeout=0
+border-color=#ff7043
+
+[mode=do-not-disturb]
+invisible=true
