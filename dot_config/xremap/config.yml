@@ -25,6 +25,7 @@ keymap:
           "google-chrome-beta",
           "google-chrome-unstable",
           "brave-browser",
+          "microsoft-edge",
         ]
     remap:
       C-Shift-leftbrace: c-pageup
