@@ -27,7 +27,9 @@ alias jc='just --choose'
 alias jl='just --list'
 
 # Envs
-~/.local/bin/mise activate fish | source
+if type -q mise
+    mise activate fish | source
+end
 
 #set -gx VOLTA_HOME "$HOME/.volta"
 #set -gx PATH "$VOLTA_HOME/bin" $PATH
