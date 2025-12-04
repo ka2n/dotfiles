@@ -1,5 +1,9 @@
 README
 
+{{- if eq .osid "linux-ubuntu" }}
+.bashrc
+{{- end }}
+
 {{- if ne .chezmoi.os "linux" }}
 .config/i3
 .config/i3status-rust
