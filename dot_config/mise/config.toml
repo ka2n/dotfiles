@@ -38,6 +38,7 @@ python = "3"
 "npm:cc-sdd" = "next"
 "npm:@fission-ai/openspec" = "latest"
 "npm:@graphql-inspector/cli" = "latest"
+pipx = "latest"
 
 [settings.pipx]
 uvx = true

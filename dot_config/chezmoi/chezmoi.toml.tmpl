@@ -21,9 +21,9 @@
 # https://www.chezmoi.io/user-guide/machines/containers-and-vms/
 {{- $codespaces:= env "CODESPACES" | not | not -}}
 
-# Wayland detection (linux-nixos uses Wayland/Hyprland)
+# Wayland detection (linux-ubuntu uses Wayland/Hyprland)
 {{- $wayland := false }}
-{{- if eq $osid "linux-nixos" }}
+{{- if eq $osid "linux-ubuntu" }}
 {{-   $wayland = true }}
 {{- end }}
 
