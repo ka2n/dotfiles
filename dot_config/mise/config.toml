@@ -39,6 +39,8 @@ python = "3"
 "npm:@fission-ai/openspec" = "latest"
 "npm:@graphql-inspector/cli" = "latest"
 pipx = "latest"
+just = "latest"
+chezmoi = "latest"
 
 [settings.pipx]
 uvx = true
