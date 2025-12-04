@@ -32,11 +32,12 @@ modmask_to_text() {
     esac
 }
 
-# Fetch keybindings from Hyprland and format them
+# Fetch keybindings from Hyprland and format them (only those with description)
+# Output format: "combo → description\tdispatcher\targ"
 get_bindings() {
     hyprctl binds -j | jq -r '
-        .[] |
-        [.modmask, .key, (.description // ""), .dispatcher, (.arg // "")] |
+        .[] | select(.description | length > 0) |
+        [.modmask, .key, .description, .dispatcher, (.arg // "")] |
         @tsv
     ' | while IFS=$'\t' read -r modmask key description dispatcher arg; do
         # Get modifier text
@@ -51,26 +52,8 @@ get_bindings() {
             combo="${key}"
         fi
 
-        # Build action description
-        local action
-        if [[ -n "$description" ]]; then
-            action="$description"
-        else
-            # Clean up the action
-            action="${dispatcher}"
-            if [[ -n "$arg" ]]; then
-                # Clean common prefixes
-                local clean_arg="$arg"
-                clean_arg="${clean_arg#uwsm app -- }"
-                clean_arg="${clean_arg#uwsm-app -- }"
-                action="${action}: ${clean_arg}"
-            fi
-        fi
-
-        # Skip if no action
-        [[ -z "$action" ]] && continue
-
-        printf "%-30s  →  %s\n" "$combo" "$action"
+        # Output: display text, then tab-separated dispatcher and arg for execution
+        printf "%-30s  →  %s\t%s\t%s\n" "$combo" "$description" "$dispatcher" "$arg"
     done
 }
 
@@ -81,23 +64,12 @@ prioritize_entries() {
         line = $0
         prio = 50
 
-        # Most common actions at top
-        if (/Terminal|alacritty|kitty|wezterm/) prio = 0
-        if (/Browser|firefox|chromium|chrome/) prio = 1
-        if (/File.*manager|thunar|nautilus|dolphin/) prio = 2
-        if (/rofi.*drun|Launch.*app/) prio = 3
-        if (/killactive|Close.*window/) prio = 8
-        if (/togglefloating/) prio = 9
-        if (/fullscreen/) prio = 7
-
-        # Navigation
-        if (/movefocus/) prio = 20
-        if (/movewindow/) prio = 21
-        if (/workspace/) prio = 17
-        if (/resizeactive/) prio = 22
-
-        # Lower priority
-        if (/XF86/) prio = 99
+        if (/Terminal/) prio = 0
+        if (/Browser/) prio = 1
+        if (/File manager/) prio = 2
+        if (/App launcher/) prio = 3
+        if (/Close window/) prio = 8
+        if (/Keybindings/) prio = 99
 
         printf "%d\t%s\n", prio, line
     }' | sort -t$'\t' -k1,1n -k2,2 | cut -f2-
@@ -113,14 +85,28 @@ main() {
         exit 1
     fi
 
-    # Display in rofi (read-only, just for viewing)
-    echo "$bindings" | rofi -dmenu \
+    # Display in rofi - show only first column (before first tab)
+    local selected
+    selected=$(echo "$bindings" | cut -f1 | rofi -dmenu \
         -p "Keybindings" \
         -i \
         -no-custom \
         -theme-str 'window {width: 60%;}' \
         -theme-str 'listview {lines: 20;}' \
-        > /dev/null 2>&1 || true
+        2>/dev/null) || exit 0
+
+    # Find the matching line and extract dispatcher/arg
+    local match
+    match=$(echo "$bindings" | grep -F "$selected" | head -1)
+
+    if [[ -n "$match" ]]; then
+        local dispatcher arg
+        dispatcher=$(echo "$match" | cut -f2)
+        arg=$(echo "$match" | cut -f3)
+
+        # Execute the keybinding action
+        hyprctl dispatch "$dispatcher" "$arg"
+    fi
 }
 
 main "$@"
