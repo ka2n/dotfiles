@@ -35,4 +35,4 @@ multiplier = 3
 
 [general]
 live_config_reload = true
-import = ["/home/k2/.config/alacritty/nord.toml"]
+import = ["./nord.toml"]
