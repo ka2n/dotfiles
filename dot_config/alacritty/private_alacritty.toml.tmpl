@@ -4,7 +4,11 @@ blinking = "Always"
 shape = "Block"
 
 [bell]
+{{- if eq .chezmoi.osRelease.id "nixos" }}
+command = { program = "paplay", args = ["/run/current-system/sw/share/sounds/freedesktop/stereo/bell.oga"] }
+{{- else }}
 command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/bell.oga"] }
+{{- end }}
 
 [env]
 TERM = "tmux-256color"
