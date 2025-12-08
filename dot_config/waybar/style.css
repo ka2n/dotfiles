@@ -42,7 +42,9 @@
 
 #battery,
 #pulseaudio,
-#network {
+#network,
+#bluetooth,
+#power-profiles-daemon {
   min-width: 12px;
   margin: 0 7px;
 }
