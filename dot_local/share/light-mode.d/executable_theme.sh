@@ -1,3 +1,4 @@
 #!/bin/sh
 
-xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita"
+dconf write /org/gnome/desktop/interface/gtk-theme '"Adwaita"'
+dconf write /org/gnome/desktop/interface/color-scheme '"prefer-light"'
