@@ -4,6 +4,7 @@ mouse:
     - type: stroke
       strokes: ['AAcALQUrFDIFXC/9ZFJkAA==']
       mouse_buttons: [right]
+      keyboard_modifiers: none
       actions:
         - on: end
           input:
@@ -16,6 +17,7 @@ mouse:
         - on: end
           input:
             - keyboard: [home]
+      keyboard_modifiers: none
     # down: end
     - type: stroke
       strokes: ['LwAAMDRkZAA=']
@@ -24,22 +26,7 @@ mouse:
         - on: end
           input:
             - keyboard: [end]
-#    # left: back
-#    - type: stroke
-#      strokes: []
-#      mouse_buttons: [right]
-#      actions:
-#        - on: end
-#          input:
-#            - keyboard: []
-#    # right: next
-#    - type: stroke
-#      strokes: []
-#      mouse_buttons: [right]
-#      actions:
-#        - on: end
-#          input:
-#            - keyboard: []
+      keyboard_modifiers: none
     # up left: previous tab
     - type: stroke
       strokes: ['ZFoAzWELLJ4RCVpdAAxkAA==']
@@ -47,6 +34,7 @@ mouse:
         - on: end
           input:
             - keyboard: [leftctrl+pageup]
+      keyboard_modifiers: none
     # up right: next tab
     - type: stroke
       strokes: ['AFUAzwAPKABBDk8FZBVkAA==']
@@ -54,3 +42,4 @@ mouse:
         - on: end
           input:
             - keyboard: [leftctrl+pagedown]
+      keyboard_modifiers: none
