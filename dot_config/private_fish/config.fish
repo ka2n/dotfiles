@@ -159,8 +159,7 @@ function fish_user_key_bindings
 end
 
 
-if test -e "$HOME/.atuin/bin/env.fish"
-    source "$HOME/.atuin/bin/env.fish"
+if type -q atuin
     atuin init --disable-up-arrow fish | source
 end
 
