@@ -22,7 +22,7 @@ autoSetupRemote = true
 prune = true
 
 [credential]
-helper = !/usr/bin/gh auth git-credential
+helper = !gh auth git-credential
 helper = /usr/lib/git-core/git-credential-libsecret
 
 [core]
@@ -118,7 +118,10 @@ file-decoration-style = none
 #ignoreRevsFile = .git-blame-ignore-revs
 [credential "https://github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !gh auth git-credential
+[safe]
+	directory = /home/shared/nixos-config
+	directory = /home/katsuma/nixos-config/nixos
