@@ -5,11 +5,6 @@
   "logFile": "clipse.log",
   "themeFile": "custom_theme.json",
   "tempDir": "tmp_files",
-  "autoPaste": {
-    "enabled": true,
-    "keybind": "ctrl+v",
-    "buffer": 0
-  },
   "keyBindings": {
     "choose": "enter",
     "clearSelected": "S",
