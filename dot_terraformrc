@@ -1,5 +1,10 @@
 plugin_cache_dir = "$HOME/.terraform.d/plugin-cache"
 
+host "localhost:8787" {
+  services = {
+    "providers.v1" = "http://localhost:8787/v1/providers/"
+  }
+}
 
 provider_installation {
   dev_overrides {
